@@ -3,6 +3,7 @@ For more help: https://www.guru99.com/xpath-selenium.html      //xpath
 select * where attribute='value'
 ---------------------------------
 //tagname[@attribute='value']  
+//*[@attribute='value']
 
 
 select * where attribute='value'(select * where attribute='value')
