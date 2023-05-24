@@ -1,0 +1,5 @@
+/////Error Message Meaning/////////////////
+
+element not visible  // multiple element found, so I can't understand which one you want to select
+
+no such element   // wrong path given, so I can't found
