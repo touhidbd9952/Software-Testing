@@ -1,0 +1,6 @@
+///////DropDown////////////////////////////////
+
+WebElement selectDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));  //connect with website dropdown
+Select currencySelectDropdown = new Select(selectDropdown); //get dropdown by Select class object
+currencySelectDropdown.selectByIndex(3);  //change dropdown data by index
+System.out.println(currencySelectDropdown.getFirstSelectedOption().getText());  //display change in console
