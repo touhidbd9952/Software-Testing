@@ -1,4 +1,20 @@
 For more help: https://www.guru99.com/xpath-selenium.html      //xpath
+
+select * where attribute='value'
+---------------------------------
+//tagname[@attribute='value']  
+
+
+select * where attribute='value'(select * where attribute='value')
+    ------------------			---------------
+      second query		         first query
+-------------------------------------------------------------------
+//tagname[@attribute='value'] //tagname[@attribute='value']
+    ------------------			---------------
+    second query	     /\		  first query
+                             ||
+			  one space between 2 query
+
 ---------------------------------------------------------------
 
 
