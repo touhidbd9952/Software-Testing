@@ -4,3 +4,14 @@ WebElement selectDropdown = driver.findElement(By.id("ctl00_mainContent_DropDown
 Select currencySelectDropdown = new Select(selectDropdown); //get dropdown by Select class object
 currencySelectDropdown.selectByIndex(3);  //change dropdown data by index
 System.out.println(currencySelectDropdown.getFirstSelectedOption().getText());  //display change in console
+
+
+  ////we can also change dropdown by below 2 way
+		currencySelectDropdown.selectByVisibleText("USD"); 
+    or
+		currencySelectDropdown.selectByValue("USD");
+    
+    
+    
+    
+    
