@@ -99,3 +99,7 @@ public class Locator {
 	
 
 }
+
+
+/////Run Application////////////////////////////////////
+a. right click on java "Locator" class name-->Run-->Java Application 
