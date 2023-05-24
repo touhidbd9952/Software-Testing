@@ -103,3 +103,33 @@ public class Locator {
 
 /////Run Application////////////////////////////////////
 a. right click on java "Locator" class name-->Run-->Java Application 
+
+
+
+
+Absolute Path
+--------------------
+start with single slash(/). 
+start from html tag
+
+/html/body/header/.....
+
+Relative Path
+---------------------
+start with double slash(//)
+
+//header/...
+
+
+
+in Inspect -->Console, you can check exact location by locator
+----------------------------------------------------------------------------------
+$("p.classname")            //in para, particular class
+$(".classname")            //particular class
+$("p#IdName")            //in para, particular Id
+$("#IdName")            //in para, particular class
+
+$x("//header h2")         //xpath
+$x("//header/h2")         //xpath
+$x("//input[type='text']")         //xpath
+$x("//input[placeholder='placeholdervalue']")         //xpath
