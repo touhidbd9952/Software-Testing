@@ -15,7 +15,11 @@ select * where attribute='value'(select * where attribute='value')
     second query	     /\		  first query
                              ||
 			  one space between 2 query
+---------------------------------------------------------------
 
+if you need to select particular element by cssSelector and you seen class structure like below
+<input type="text" class="btn btn-primary">
+driver.findElement(By.cssSelector(".btn.btn-primary")  //remove a dot infront of class and remove spaces
 ---------------------------------------------------------------
 
 
