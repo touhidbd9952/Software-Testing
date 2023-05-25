@@ -25,7 +25,7 @@ Now, you can use Testng to test your selenium code
 Assert.assertEquals(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).getText(), "abc");
 
 
-//if(our_condition == true)
+if(our_condition == true)
 {
   Assert.assertTrue(true); //pass the result
 }
