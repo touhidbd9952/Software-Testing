@@ -18,7 +18,8 @@ public class Locator2 {
 		//driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).click();   //checkbox
 		driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).click(); //find the id that match with "chk_friendsandfamily"
 		
-
+		//int total_chekbox = driver.findElements(By.cssSelector("input[type='checkbox']")).size();  // size() is use to count array element
+		//System.out.println(total_chekbox); //6
 	}
 
 }
