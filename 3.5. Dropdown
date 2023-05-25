@@ -13,5 +13,79 @@ System.out.println(currencySelectDropdown.getFirstSelectedOption().getText());  
     
     
     
+    //////////////////////////////////////////////////////////////////////
     
+    package introduction;
+
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Locator1 {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+		
+		//////DropDown static////////////////////////////
+		
+		WebElement selectDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));  //connect with website dropdown
+		Select currencySelectDropdown = new Select(selectDropdown); //get dropdown by Select class object
+		currencySelectDropdown.selectByIndex(3);  //change dropdown data by index
+	    ////we can also change dropdown by below way
+		//currencySelectDropdown.selectByVisibleText("USD");
+		//or
+		//currencySelectDropdown.selectByValue("USD");
+		System.out.println(currencySelectDropdown.getFirstSelectedOption().getText());  //display change in console
+		
+		
+		
+		////////////DropDown////////////////////////////////////////////////////////////
+		
+		driver.findElement(By.id("divpaxinfo")).click();
+		for(int i=0;i<3;i++)
+		{
+			driver.findElement(By.id("hrefIncAdt")).click();
+		}
+		driver.findElement(By.id("btnclosepaxoption")).click();
+		
+		
+		////////////////////// Dropdown Dynamic///////////////////////////////////////////
+		
+		driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_originStation1_CTNR'] //table[@id='citydropdown'] //a[@value='MAA']")).click();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//div[@id='glsctl00_mainContent_ddl_destinationStation1_CTNR'] //table[@id='citydropdown'] //a[@value='HYD']")).click();
+		
+		///////////////////// Dropdown searchbox//////////////////////////////////////////
+		
+		driver.findElement(By.id("autosuggest")).sendKeys("ind");
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		List<WebElement> options =  driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));  //findElements use for to select multiple element
+		for(WebElement option : options)
+		{
+			if(option.getText().equalsIgnoreCase("India"))
+			{
+				option.click();
+				break;  //if match, exit for loop
+			}
+			
+		}
+		
+		
+
+	}
+
+}
+
     
