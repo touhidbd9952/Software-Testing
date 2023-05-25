@@ -1,2 +1,7 @@
 
 driver.switchTo().alert().accept();   //alert message ok = accept()
+driver.switchTo().alert().dismiss();  //alert message cancel = dismiss()
+
+
+
+
