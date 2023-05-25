@@ -15,7 +15,9 @@ public class Locator2 {
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 		
-		driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).click();   //checkbox
+		//driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).click();   //checkbox
+		driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).click(); //find the id that match with "chk_friendsandfamily"
+		
 
 	}
 
