@@ -1,4 +1,17 @@
 
+To use Testng, you have to add below maven dependency in you pom.xml file
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>6.14.3</version>
+</dependency>
+
+
+Now, you can use Testng to test your selenium code
+------------------------------------------------------
+
 ///////if result is true(checkbox selected before it select) then assertion fail///////////////
     Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected()); //if result is true(checkbox selected before it select) then assertion fail
 		
