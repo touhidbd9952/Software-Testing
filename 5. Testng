@@ -1,3 +1,8 @@
 
-//if result is true(checkbox selected before it select) then assertion fail
-Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected()); 
+///////if result is true(checkbox selected before it select) then assertion fail///////////////
+    Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected()); //if result is true(checkbox selected before it select) then assertion fail
+		
+    driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).click(); //find the id that match with "chk_friendsandfamily"
+
+///////if result is false(after click on checkbox, if it is not selected) then assertion fail///////////////	
+    Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected());
