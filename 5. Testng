@@ -1,0 +1,3 @@
+
+//if result is true(checkbox selected before it select) then assertion fail
+Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected()); 
