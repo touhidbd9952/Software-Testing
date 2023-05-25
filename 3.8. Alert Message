@@ -1,0 +1,2 @@
+
+driver.switchTo().alert().accept();   //alert message ok = accept()
