@@ -6,3 +6,9 @@
 
 ///////if result is false(after click on checkbox, if it is not selected) then assertion fail///////////////	
     Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected());
+    
+    
+    
+    
+    
+    
