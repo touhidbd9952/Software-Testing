@@ -20,8 +20,8 @@ Now, you can use Testng to test your selenium code
 ///////if result is false(after click on checkbox, if it is not selected) then assertion fail///////////////	
     Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).isSelected());
     
-    
-    
-    
+        
+///////if result of "actual" == result of "accpected"  then this assertion is pass otherwise fail
+Assert.assertEquals(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).getText(), "abc");
     
     
