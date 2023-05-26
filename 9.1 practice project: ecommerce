@@ -32,10 +32,11 @@ public class Locator2 {
 					//step-3: ADD TO CART
 					driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
 					System.out.println(searchProductArray[j]);
-					try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+					break;
 				}
 			}
 		}
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
 		//step-4: view cart item
 		driver.findElement(By.xpath("//img[@alt='Cart']")).click();
 		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
@@ -61,16 +62,8 @@ public class Locator2 {
 		//step-10: click on "Proceed" button
 		driver.findElement(By.xpath("//button[text()='Proceed']")).click();
 		
-		
+		driver.quit();
 
 	}
 
 }
-
-
-
-
-
-
-
-
