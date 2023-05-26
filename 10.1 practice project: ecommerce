@@ -1,0 +1,76 @@
+package introduction;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Locator2 {
+
+	public static void main(String[] args) {
+
+		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//step-1: go to site
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
+
+		//step-2: get all product by name
+		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));  
+		String[] searchProductArray = {"Cucumber","Cauliflower"};
+		for(int j=0;j<searchProductArray.length;j++)
+		{
+			for(int i=0;i<products.size();i++)
+			{
+				String productName = products.get(i).getText();   //get product by index 
+				if(productName.contains(searchProductArray[j]))
+				{
+					//step-3: ADD TO CART
+					driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
+					System.out.println(searchProductArray[j]);
+					try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+				}
+			}
+		}
+		//step-4: view cart item
+		driver.findElement(By.xpath("//img[@alt='Cart']")).click();
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		//step-5: click on "PROCEED TO CHECKOUT" button
+		driver.findElement(By.xpath("//button[text()='PROCEED TO CHECKOUT']")).click();
+		//step-6: apply coupon code
+		driver.findElement(By.xpath("//input[@class='promoCode']")).sendKeys("rahulshettyacademy");
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//button[@class='promoBtn']")).click();
+		//step-7: click on "Place Order" button
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//button[text()='Place Order']")).click();
+		//step-8: click on "Choose Country" select dropdown
+		driver.findElement(By.cssSelector("div select")).click();
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		WebElement selectCountry = driver.findElement(By.cssSelector("div select"));  //connect with website dropdown
+		Select countrySelectDropdown = new Select(selectCountry); //get dropdown by Select class object
+		countrySelectDropdown.selectByValue("Bangladesh"); 
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		//step-9: click on "Agree to the Terms & Conditions" checkbox
+		driver.findElement(By.xpath("//input[@class='chkAgree']")).click();
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		//step-10: click on "Proceed" button
+		driver.findElement(By.xpath("//button[text()='Proceed']")).click();
+		
+		
+
+	}
+
+}
+
+
+
+
+
+
+
+
