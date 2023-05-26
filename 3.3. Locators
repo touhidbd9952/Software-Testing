@@ -4,7 +4,7 @@ select * where attribute='value'
 ---------------------------------
 //tagname[@attribute='value']  
 //tagname[text()='value']
-//button[contains(text(),'ADD TO CART')]
+//tagname[contains(text(),'value')]
 //*[@attribute='value']
 
 
