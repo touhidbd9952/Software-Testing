@@ -1,0 +1,19 @@
+Implicit Wait/Global Wait
+--------------------------
+driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+
+Explicit Wait
+-------------------------
+WebDriverWait wdw = new WebDriverWait(driver, 5);   //wait 5 second, until particular message show
+wdw.until(ExpectedConditions.visibilityOfElementLocated(locator))       //locator is: By.cssSelector("p.infoMsg")  //By.....code...
+
+
+
+
+Example: (Implicit Wait/Global Wait)
+------------
+System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		//step-1: go to site
+		driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
