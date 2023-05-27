@@ -1,5 +1,5 @@
 WebElement labels2 = driver.findElement(By.xpath("//a[@href='https://rahulshettyacademy.com/documents-request']"));
-		WebElement aa = (WebElement) ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('target','_blank')",labels2 );
+WebElement aa = (WebElement) ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('target','_blank')",labels2 );
     
     
     
