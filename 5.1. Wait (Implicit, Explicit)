@@ -2,12 +2,32 @@ Implicit Wait/Global Wait
 --------------------------
 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
-Explicit Wait
+Explicit Wait (1. WebDriverWait, 2. Fluent Wait)
 -------------------------
+WebDriverWait
+--------------
+//continue check to find particular element (maximum checking time is 5 second), if not find wait. 
+//when find element don't wait, execute next statement
+
 WebDriverWait wdw = new WebDriverWait(driver, 5);   //wait 5 second, until particular message show
 wdw.until(ExpectedConditions.visibilityOfElementLocated(locator))       //locator is: By.cssSelector("p.infoMsg")  //By.....code...
 
 
+Fluent Wait
+---------------
+// Waiting 30 seconds for an element to be present on the page, checking
+// for its presence once every 5 seconds.
+
+   Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+       .withTimeout(Duration.ofSeconds(30L))
+       .pollingEvery(Duration.ofSeconds(5L))
+       .ignoring(NoSuchElementException.class);
+
+   WebElement foo = wait.until(new Function<WebDriver, WebElement>() {
+     public WebElement apply(WebDriver driver) {
+       return driver.findElement(By.id("foo"));
+     }
+   });
 
 
 Example: (Implicit Wait/Global Wait)
