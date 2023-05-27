@@ -1,4 +1,4 @@
-Study:
+Study: "xpath --> https://www.guru99.com/xpath-selenium.html"
 1. Selenium, Webdriver and its functionality, Chrome driver, Gekko driver, edge driver
 2. Different Locator(id, name, cssSelector, xpath, LinkText, Tag)
 3. implicit wait, explicit wait
