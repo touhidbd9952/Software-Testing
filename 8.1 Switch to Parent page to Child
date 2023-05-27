@@ -1,0 +1,16 @@
+///To go to child page
+		driver.get("your target site url");
+		driver.findElement(By.cssSelector(".blinkingText")).click();    //click on a link to go child page
+		Set<String> windows = driver.getWindowHandles();  //get all the window open by selenium
+		Iterator<String>  it = windows.iterator();   //convert array to iterator array[parentid, childid]
+		String parentId = it.next(); //get parent id from array[0] index
+		String childId = it.next(); //get child id from array[1] index
+		driver.switchTo().window(childId);  //switch to child page
+		////////now you are on child page, do the task that needed here/////
+
+		///////after complete task of child page, go back to parent page and do other task//////
+		driver.switchTo().window(parentId);  
+
+
+
+
