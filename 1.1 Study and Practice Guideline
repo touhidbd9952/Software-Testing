@@ -1,0 +1,27 @@
+Study:
+1. Selenium, Webdriver and its functionality, Chrome driver, Gekko driver, edge driver
+2. Different Locator(id, name, cssSelector, xpath, LinkText, Tag)
+3. implicit wait, explicit wait
+4. Web Element
+5. Mouse (Hover function, other function)
+
+Practice:
+1. add web driver and connect parent page
+2. select input and send data
+3. select checkbox
+4. select radio button
+5. click on button 
+6. get success message and show in console
+7. select item from static dropdown
+8. select item from dynamic dropdown
+9. select item from search dropdown
+10. select date from calendar
+11. search item from amazon (search box)
+12. mouse hover
+13. alert message and its related function
+14. textng validation check
+15. Wating (implicit, explicit: webdriverwait, fluent wait)
+16. Switch to child page and do task and get back to parent page and do task
+
+
+
