@@ -2,3 +2,27 @@
 -------------------
 Actions a = new Actions(driver);
 a.moveToElement(driver.findElement(By.cssSelector("a[id='nav-link-accountList']"))).build().perform();
+
+
+/////mouse hover --> select item --> bind multiple function in one action --> execute action
+----------------------------------------------------------------------------------------------
+		Actions actionObj = new Actions(driver);
+		actionObj.moveToElement(driver.findElement(By.id("nav-link-accountList"))).build().perform();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		actionObj.moveToElement(driver.findElement(By.xpath("//a[@id='nav_prefetch_yourorders']"))).click().build().perform();
+		
+/////mouse hover --> click --> shift key press(for capital letter) --> write data --> bind multiple function in one action --> execute action
+---------------------------------------------------------------------------------------------------------------------------------------------		
+    Actions actionObj = new Actions(driver);
+		actionObj.moveToElement(driver.findElement(By.id("twotabsearchtextbox"))).click().keyDown(Keys.SHIFT).sendKeys("computer").build().perform();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		actionObj.moveToElement(driver.findElement(By.xpath("//div[@id='nav-flyout-searchAjax'] //div[@aria-label='computer mouse']"))).click().build().perform();
+    
+    
+    
+    
+    
+    
+    
+    
+   
