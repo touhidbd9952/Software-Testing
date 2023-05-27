@@ -10,7 +10,10 @@ WebDriverWait
 //when find element don't wait, execute next statement
 
 WebDriverWait wdw = new WebDriverWait(driver, 5);   //wait 5 second, until particular message show
-wdw.until(ExpectedConditions.visibilityOfElementLocated(locator))       //locator is: By.cssSelector("p.infoMsg")  //By.....code...
+wdw.until(ExpectedConditions.visibilityOfElementLocated(locator))       
+//locator is: By.cssSelector("p.infoMsg")  //By.....code...
+1. elementToBeClickable
+2. visibilityOfElementLocated
 
 
 Fluent Wait
