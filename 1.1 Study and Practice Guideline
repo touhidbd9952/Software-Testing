@@ -1,9 +1,10 @@
 Study: "xpath --> https://www.guru99.com/xpath-selenium.html"
 1. Selenium, Webdriver and its functionality, Chrome driver, Gekko driver, edge driver
 2. Different Locator(id, name, cssSelector, xpath, LinkText, Tag)
-3. implicit wait, explicit wait
-4. Web Element
+3. implicit wait, explicit wait: webdriverwait, fluentwait
+4. Web Element (input, select, checkbox, radio)
 5. Mouse (Hover function, other function)
+6. parent page, child page
 
 Practice: "https://rahulshettyacademy.com" "search, mouse hover -->https://www.amazon.com/"
 1. add web driver and connect parent page
