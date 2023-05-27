@@ -5,6 +5,10 @@ Study: "xpath --> https://www.guru99.com/xpath-selenium.html"
 4. Web Element (input, select, checkbox, radio)
 5. Mouse (Hover function, other function)
 6. parent page, child page
+7. core java (variable, array, list, if, for, foreach, while, conversion(one datatype to other datatype, array to list, string to array))
+8. eclips, maven, pom.xml, dependency, debuging, add new library, jdk, celenium for java, testng
+9. testng validation
+
 
 Practice: "https://rahulshettyacademy.com" "search, mouse hover -->https://www.amazon.com/"
 1. add web driver and connect parent page
