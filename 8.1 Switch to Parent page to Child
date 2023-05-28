@@ -14,17 +14,17 @@
 ///////or////////////////////
 
 String parientHandle= driver.getWindowHandle();
-		Set<String> allWindowHandles = driver.getWindowHandles();
+Set<String> allWindowHandles = driver.getWindowHandles();
         
-		for(String currentHandle:allWindowHandles)
-		{
-			if(!currentHandle.equalsIgnoreCase(parientHandle))
-			{
-				driver.switchTo().window(currentHandle);
-				System.out.println("child id:"+currentHandle);
-			}
-			else
-			{
-				System.out.println("parent id:"+parientHandle);
-			}
-		}
+for(String currentHandle:allWindowHandles)
+{
+	if(!currentHandle.equalsIgnoreCase(parientHandle))
+	{
+		driver.switchTo().window(currentHandle);
+		System.out.println("child id:"+currentHandle);
+	}
+	else
+	{
+		System.out.println("parent id:"+parientHandle);
+	}
+}
