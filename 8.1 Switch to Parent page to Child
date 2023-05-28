@@ -11,6 +11,20 @@
 		///////after complete task of child page, go back to parent page and do other task//////
 		driver.switchTo().window(parentId);  
 
+///////or////////////////////
 
-
-
+String parientHandle= driver.getWindowHandle();
+		Set<String> allWindowHandles = driver.getWindowHandles();
+        
+		for(String currentHandle:allWindowHandles)
+		{
+			if(!currentHandle.equalsIgnoreCase(parientHandle))
+			{
+				driver.switchTo().window(currentHandle);
+				System.out.println("child id:"+currentHandle);
+			}
+			else
+			{
+				System.out.println("parent id:"+parientHandle);
+			}
+		}
