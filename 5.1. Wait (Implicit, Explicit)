@@ -1,3 +1,7 @@
+Java wait
+--------------------------
+try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+
 Implicit Wait/Global Wait
 --------------------------
 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
