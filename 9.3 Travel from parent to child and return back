@@ -1,0 +1,12 @@
+1. url : https://the-internet.herokuapp.com/
+2. Multiple Windows (click)
+3. in child1 page, click on "click here"
+4. in child2 page, from "New Window" text, copy "Window" text 
+5. from child1page, copy "Open a new window" text
+6. show in console
+	window
+	Open a new window
+  
+  
+  
+
