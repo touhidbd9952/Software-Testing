@@ -10,7 +10,7 @@ Instruction:
       d. Student
       e. agree(checked)
       f. Sign In
-3. show parent url, child url in console
+3. show parent url, child url in console. use explicit wait when required
 4. in child url page (ecommerce), add to cart all project
 5. checkout 
 6. confirm
