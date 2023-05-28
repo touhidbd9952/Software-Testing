@@ -1,0 +1,130 @@
+Practice Project: Login --> Ecommerce (add to cart, checkout, confirm) 
+site url: https://www.rahulshettyacademy.com/loginpagePractise/
+-------------------------------------------------------------------
+Instruction:
+1. connect to "https://www.rahulshettyacademy.com/loginpagePractise/"
+2. In Login Page:
+      a. Username: rahulshettyacademy
+      b. Password: learning
+      c. User(select) and click on "Okey" from message box
+      d. Student
+      e. agree(checked)
+      f. Sign In
+3. show parent url, child url in console
+4. in child url page (ecommerce), add to cart all project
+5. checkout 
+6. confirm
+7. show confirm message in console
+
+      
+
+package introduction;
+
+import java.util.List;
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginAndOrderProject {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		String mainUrl="https://www.rahulshettyacademy.com/loginpagePractise/";
+		driver.get(mainUrl);
+		driver.manage().window().maximize();
+		
+		/////Step-1:login Form///////////////////////////
+		WebDriverWait wait;
+		
+		driver.findElement(By.id("username")).sendKeys("rahulshettyacademy");
+		driver.findElement(By.id("password")).sendKeys("learning");
+		//user type
+		driver.findElement(By.xpath("//label[@class='customradio'][2]")).click();
+		wait = new WebDriverWait(driver, 5);   //wait 5 second
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("okayBtn")));       
+		driver.findElement(By.id("okayBtn")).click();
+	
+		driver.findElement(By.id("terms")).click(); //agree condition
+		
+		driver.findElement(By.id("signInBtn")).click(); //submit data
+		/////Step-2:ecommerce///////////////////////////
+		try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();} //wait 5 second
+		
+		String parientHandle= driver.getWindowHandle();
+		Set<String> allWindowHandles = driver.getWindowHandles();
+		String childUrl ="";
+		int total_childwindow =0;
+		total_childwindow = allWindowHandles.size();
+		if(total_childwindow == 1)
+		{
+			for(String currentHandle:allWindowHandles)
+			{
+				driver.switchTo().window(currentHandle);
+				childUrl = driver.getCurrentUrl();
+			}
+		}
+		else
+		{
+			for(String currentHandle:allWindowHandles)
+			{
+				if(!currentHandle.equalsIgnoreCase(parientHandle))
+				{
+					driver.switchTo().window(currentHandle);
+					childUrl = driver.getCurrentUrl();
+					
+				}
+			}
+		}
+		
+		System.out.println(mainUrl);
+		System.out.println(childUrl);
+		
+		List<WebElement> products = driver.findElements(By.xpath("//button[@class='btn btn-info']"));
+		for(WebElement product : products)
+		{
+			product.click();
+			try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		}
+		
+		//add product to cart
+		driver.findElement(By.xpath("//div[@id='navbarResponsive'] //a[@class='nav-link btn btn-primary']")).click();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		//
+		driver.findElement(By.xpath("//button[@class='btn btn-success']")).click();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		//delivery location
+		driver.findElement(By.xpath("//input[@id='country']")).sendKeys("Bangladesh"); //country name
+		
+		WebDriverWait wdw = new WebDriverWait(driver, 5);   //wait 5 second, until div suggestions show
+		wdw.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='suggestions']")));
+		
+		driver.findElement(By.xpath("//div[@class='suggestions'] //a[text()='Bangladesh']")).click();
+		
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		
+		driver.findElement(By.xpath("//label[@for='checkbox2']")).click(); //agree
+		
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//input[@type='submit']")).click(); //click on purchase button
+		
+		System.out.println(driver.findElement(By.xpath("//div[@class='alert alert-success alert-dismissible']")).getText());
+		
+		driver.quit();
+		
+
+	}
+
+}
+
+
+
+
+
+
+
