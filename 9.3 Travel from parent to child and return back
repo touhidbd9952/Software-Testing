@@ -6,6 +6,145 @@
 6. show in console
 	window
 	Open a new window
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+package introduction;
+
+import java.util.Set;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class ParentChildTraversing {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		String mainUrl="https://the-internet.herokuapp.com/";
+		String mainUrlId ="";
+		driver.get(mainUrl);
+		driver.manage().window().maximize();
+		
+	/////Step-1:Multiple Window///////////////////////////
+		WebDriverWait wait;
+		
+		WebElement labels2 = driver.findElement(By.xpath("//a[text()='Multiple Windows']"));
+		WebElement aa = (WebElement) ((JavascriptExecutor) driver).executeScript("arguments[0].setAttribute('target','_blank')",labels2 );
+		//Go Child Window -1
+		driver.findElement(By.xpath("//a[text()='Multiple Windows']")).click();
+		
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();} //wait 3 second
+		
+		////////////
+		String parientHandle= driver.getWindowHandle();
+		Set<String> allWindowHandles = driver.getWindowHandles();
+		String childUrl1 ="";
+		String childUrlId1 ="";
+		int total_childwindow =0;
+		total_childwindow = allWindowHandles.size();
+		if(total_childwindow == 1)
+		{
+			for(String currentHandle:allWindowHandles)
+			{
+				mainUrlId=currentHandle;
+				driver.switchTo().window(currentHandle);
+				mainUrl = driver.getCurrentUrl();
+			}
+		}
+		else
+		{
+			for(String currentHandle:allWindowHandles)
+			{
+				if(!currentHandle.equalsIgnoreCase(parientHandle))
+				{
+					childUrlId1=currentHandle;
+					driver.switchTo().window(currentHandle);
+					childUrl1 = driver.getCurrentUrl();
+					
+				}
+			}
+		}
+		//System.out.println(mainUrl);
+		//System.out.println(childUrl1);
+		
+		///////
+		
+	/////Step-2:Go Child Window -2///////////////////////////
+		driver.findElement(By.xpath("//a[contains(@href,'/windows/new')]")).click();
+		
+////////////
+		parientHandle= driver.getWindowHandle();
+		allWindowHandles = driver.getWindowHandles();
+		String childUrl2 ="";
+		String childUrlId2 ="";
+		total_childwindow =0;
+		total_childwindow = allWindowHandles.size();
+		if(total_childwindow == 1)
+		{
+			for(String currentHandle:allWindowHandles)
+			{
+				mainUrlId=currentHandle;
+				driver.switchTo().window(currentHandle);
+				childUrl1 = driver.getCurrentUrl();
+			}
+		}
+		else
+		{
+			for(String currentHandle:allWindowHandles)
+			{
+				if(!currentHandle.equalsIgnoreCase(parientHandle) || !currentHandle.equalsIgnoreCase(childUrlId1))
+				{
+					childUrlId2=currentHandle;
+					driver.switchTo().window(currentHandle);
+					childUrl2 = driver.getCurrentUrl();
+					
+				}
+			}
+		}
+		//System.out.println(childUrl2);
+		
+		//////////
+	/////Step-3:Taking Data1 From Child Window -2///////////////////////////
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();} //wait 2 second
+		String data1 = driver.findElement(By.xpath("//div[@class='example'] //h3")).getText().split(" ")[1];
+		//System.out.println(data1);
+		
+	/////Step-4:Go Back to Child Window -1 and Taking Data2///////////////////////////
+		driver.switchTo().window(childUrlId1);
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();} //wait 2 second
+		String Data2 = driver.findElement(By.xpath("//div[@id='content'] //h3")).getText();
+		
+	/////Step-5: Show in Console///////////
+		System.out.println(data1);
+		System.out.println(Data2);
+		
+	/////Step-6: Close all window///////////
+		driver.quit();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   
