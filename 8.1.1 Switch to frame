@@ -9,8 +9,8 @@ A frame is a seperate content that can attach in your page.
 to select a particular element in iframe from your page. First
 need to switch to that frame
 
-current PagePage >===> Frame
-Frame >===> current Page(defaultContent)
+current Page ===> Frame
+Frame ===> current Page(defaultContent)
 
 Syntex
 ---------
