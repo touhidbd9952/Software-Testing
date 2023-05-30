@@ -5,7 +5,8 @@ need to switch to that frame
 
 Syntex
 ---------
-driver.switchTo().frame(locator);     //locator: driver.findElement(By.cssSelector("iframe.demo-frame"))
+driver.switchTo().frame(locator);     //locator: driver.findElement(By.cssSelector("iframe.demo-frame"))lo
+                                      //locator:0,1,2   //0 index locate first frame
 
 
 
