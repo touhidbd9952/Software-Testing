@@ -1,0 +1,13 @@
+System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+//		System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+//		WebDriver driver = new FirefoxDriver();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS); //implicitly wait
+		driver.manage().window().maximize();    //set size of window
+		//step-1: go to site
+		String mainUrl="https://rahulshettyacademy.com/AutomationPractice/";
+		driver.get(mainUrl);
+    
+    
+    
+    
