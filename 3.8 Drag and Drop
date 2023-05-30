@@ -1,0 +1,9 @@
+Drag and Drop
+----------------------
+you can drag a element and drop into another element by below way
+
+
+Actions a = new Actions(driver);   //create a an object of Action class
+WebElement source = driver.findElement(By.id(“draggable”));  //define source element
+WebElement target = driver.findElement(By.id(“droppable”));  //define destination element/target where source element will set
+a.dragAndDrop(source,target).build().perform(); //bind source and target with action
