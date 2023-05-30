@@ -21,13 +21,13 @@ driver.switchTo().frame(locator);     //locator: driver.findElement(By.cssSelect
 
 
 ////How many frame in your page?/////////////
-Syntex (Frame ===> current Page(defaultContent))
----------
+
 int numberofframe = driver.findElements(By.tagName("iframe")).size();
 
 
 ////How to switch back to your current page, from frame///////
-
+Syntex (Frame ===> current Page(defaultContent))
+---------
 driver.switchTo().defaultContent();  
 
 
