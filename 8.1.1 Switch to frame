@@ -6,3 +6,14 @@ need to switch to that frame
 Syntex
 ---------
 driver.switchTo().frame(locator);     //locator: driver.findElement(By.cssSelector("iframe.demo-frame"))
+
+
+
+
+////How many frame in your page?/////////////
+int numberofframe = driver.findElements(By.tagName("iframe")).size();
+
+
+
+
+
