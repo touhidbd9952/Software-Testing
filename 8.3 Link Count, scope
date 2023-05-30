@@ -1,0 +1,47 @@
+/////Scope: divide a page content in sections (Header, Body, Footer,...) known as scope
+
+
+package introduction;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class LinkCount {
+
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+//		System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+//		WebDriver driver = new FirefoxDriver();
+		
+		String mainUrl="https://rahulshettyacademy.com/AutomationPractice/";
+		driver.get(mainUrl);
+		driver.manage().window().maximize();
+		
+		/////Total link in page
+		List<WebElement> pagelinkelements = driver.findElements(By.tagName("a"));
+		System.out.println("Total link in page: "+pagelinkelements.size());
+		/////link count in footer section
+		List<WebElement> linkelements = driver.findElements(By.cssSelector("div[id='gf-BIG'] a"));
+		System.out.println("Total link in footer: "+linkelements.size());
+		
+		/////link count in footer section first column
+		WebElement footerfirstcolumn = driver.findElement(By.xpath("//div[@id='gf-BIG'] //tr/td[1]"));
+		System.out.println("footerfirstcolumn: "+footerfirstcolumn.findElements(By.tagName("a")).size());
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
