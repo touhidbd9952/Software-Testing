@@ -28,3 +28,17 @@ for(String currentHandle:allWindowHandles)
 		System.out.println("parent id:"+parientHandle);
 	}
 }
+
+
+////////or///////////////////
+
+Set<String> abc = driver.getWindowHandles();   
+Iterator<String> it = abc.iterator();
+
+while(it.hasNext())
+{
+   driver.switchTo().window(it.next());
+   System.out.println(driver.getTitle());
+}
+
+
