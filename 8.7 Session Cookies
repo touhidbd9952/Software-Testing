@@ -1,0 +1,10 @@
+How to delete session/cookies
+----------------------------------
+
+driver.manage().deleteAllCookies();   // delete all cookie
+driver.manage().deleteCookieNamed(“session-key-name”);   //delete singile cookie
+
+
+
+
+
