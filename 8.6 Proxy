@@ -1,0 +1,33 @@
+Q. How to set proxy in selenium
+------------------------------------
+1. create object of Proxy class
+2. set property
+3. set in options
+//////////////////////////////////////////////////////
+
+//ChromeOptions options = new ChromeOptions();
+		FirefoxOptions options = new FirefoxOptions();
+		//EdgeOptions options = new EdgeOptions();
+    
+		Proxy proxy = new Proxy();
+		proxy.setHttpProxy(“ipaddress:4444”);
+		options.setCapability(“proxy”,proxy);
+
+		
+		options.setAcceptInsecureCerts(true);
+
+//		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+//		WebDriver driver = new ChromeDriver(options);
+		
+		System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver(options);
+		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		
+		String mainUrl="https://qaclickacademy.com/practice.php";
+		driver.get(mainUrl);
+		driver.manage().window().maximize();
+    
+    
+    
+    
