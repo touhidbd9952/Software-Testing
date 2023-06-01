@@ -1,5 +1,21 @@
 //////How to select specific month and date in Calendar////////////
+instruction:
+//1. scroll to calendar area if calendar area not visible
+//2. wait (Explicitly) for calendar loading
+//3. now you can click on calendar to open it
 
+JavascriptExecutor js = (JavascriptExecutor)driver;
+js.executeScript("window.scrollBy(0,900)");  //x=0, y=500 (down side)
+
+WebDriverWait wait = new WebDriverWait(driver, 10); 
+wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[contains(@class,'elementor-field-type-date')] //input")));
+
+
+driver.findElement(By.xpath("//div[contains(@class,'elementor-field-type-date')] //input")).click();
+    
+    
+///////////////////////////////////////////////////////////////////////////////////////////////////////    
+    
 
 import java.util.List;
 
