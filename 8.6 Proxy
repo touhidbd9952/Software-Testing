@@ -1,3 +1,6 @@
+For more help: https://chromedriver.chromium.org/capabilities
+
+
 Q. How to set proxy in selenium
 ------------------------------------
 1. create object of Proxy class
