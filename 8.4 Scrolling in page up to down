@@ -1,0 +1,10 @@
+//for scroll from up side to down side
+JavascriptExecutor js = (JavascriptExecutor)driver;
+js.executeScript("window.scrollBy(0,900)");  //x=0, y=500 (down side)
+
+
+
+
+
+
+
