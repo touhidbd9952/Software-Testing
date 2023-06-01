@@ -1,6 +1,16 @@
-//for scroll from up side to down side
+//for scroll from up side to down side in a page
+-----------------------------------------------------
 JavascriptExecutor js = (JavascriptExecutor)driver;
 js.executeScript("window.scrollBy(0,900)");  //x=0, y=500 (down side)
+
+//use wait
+try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+
+//to scroll down in a table
+-------------------------------
+js.executeScript("document.querySelector(‘.tableFixHead’).scrollTop=5000");  //scroll down in a table
+
+
 
 
 
