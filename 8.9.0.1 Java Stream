@@ -46,7 +46,9 @@ ArrayList<String> names = new ArrayList<String>();
 		//convert array to array list
 		List<String> names1 = Arrays.asList("Karim","Rahim","monir","Rana","abir");
 		
-		
+		//concatinating two or more stream to one stream
+		Stream names2 = Stream.concat(names.stream(), names1.stream());
+		names2.forEach(n->System.out.println(n));
 		
 		
 		
