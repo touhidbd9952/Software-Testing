@@ -1,0 +1,39 @@
+
+
+
+ArrayList<String> names = new ArrayList<String>();
+		names.add(“Karim”);
+		names.add(“Rarim”);
+		names.add(“Monir”);
+		names.add(“Kumar”);
+		names.add(“Habib”);
+		int count=0;
+		for(int i=0;i<names.size();i++)
+		{
+		  If(names.get(i).startWith("A"))
+		 {
+		   count ++;
+		 }
+		}
+		System.out.println(count);
+
+		        ||
+		        ||
+		        \/
+		ArrayList<String> names = new ArrayList<String>();
+		names.add(“Karim”);
+		names.add(“Rarim”);
+		names.add(“Monir”);
+		names.add(“Kumar”);
+		names.add(“Habib”);
+		int count = names.stream().filter(s->s.startWith("A")).count();     //list  convert to stream filter(landa operation)some-function()
+		System.out.println(count);
+    
+    
+    
+    
+    
+    
+    
+    
+    
