@@ -40,6 +40,9 @@ ArrayList<String> names = new ArrayList<String>();
     		//apply foreach operation on new collection
 		names.stream().filter(s->s.length()==5).forEach(s->System.out.println(s));
 		
+		//convert to upper case
+		names.stream().filter(n->n.startsWith("a")).sorted().map(n->n.toUpperCase()).forEach(n->System.out.println(n));
+		
 		
 		
 		
