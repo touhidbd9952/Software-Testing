@@ -1,6 +1,21 @@
+////1. import/////
+import org.apache.commons.io.FileUtils;
+
+////2. Download JAR for "Apaches common io"
+
+////3. Add in Java Library
+Right click on “your project name”propertiesJava Build Path Libraries Add External JARs
+
+////4. write below code/////
 driver.get("weburl");
 File src = ((TakesScreenshot)driver).getScreenshotAs(OutType.FILE);
 FileUtils.copyFile(src, new File("c://screenshot.png"));
+
+
+
+
+
+
 
 
 
