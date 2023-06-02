@@ -1,3 +1,6 @@
+Why we use Steam?
+By using steam, we can write "Multiple line operation" in a "single line".
+------------------------------------------------------
 stream() : make an array --> comma separated one string/collection
 filter(item->operation_on_item) : after making main collection, we can create another collection 
 	from main collection by condition. filter method has two part, 1. item, 2. operation_on_item
