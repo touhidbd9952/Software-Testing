@@ -1,0 +1,14 @@
+driver.get("weburl");
+File src = ((TakesScreenshot)driver).getScreenshotAs(OutType.FILE);
+FileUtils.copyFile(src, new File("c://screenshot.png"));
+
+
+
+
+
+
+
+
+    
+    
+    
