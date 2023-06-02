@@ -25,6 +25,36 @@ Now, you can use Testng to test your selenium code
 Assert.assertEquals(driver.findElement(By.cssSelector("input[id*='chk_friendsandfamily']")).getText(), "abc");
 
 
+
+
+////////Show Broken Link with Proper error message by using SoftAssert//////////////////// 
+
+SoftAssert sa = new SoftAssert();
+		List<WebElement> footerdrivers = driver.findElements(By.xpath("//footer a"));
+		for(int i=0;i<footerdrivers.size();i++)
+		{
+			String url = footerdrivers.get(i).getAttribute("href");
+			String sitename = footerdrivers.get(i).getText();
+			HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
+			conn.setRequestMethod("HEAD");
+			conn.connect();
+			int responseCode = conn.getResponseCode();
+//			if(responseCode > 400)
+//			{
+//				System.out.println("sitename: "+sitename+"   error status: "+responseCode);
+//			}
+			sa.assertTrue(responseCode < 400, "sitename: "+sitename+"   error status: "+responseCode);
+		}
+		sa.assertAll();  //to report error that fail
+		
+		
+		
+		
+		
+		
+		
+
+
 if(our_condition == true)
 {
   Assert.assertTrue(true); //pass the result
