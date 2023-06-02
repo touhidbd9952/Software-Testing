@@ -43,6 +43,13 @@ ArrayList<String> names = new ArrayList<String>();
 		//convert to upper case
 		names.stream().filter(n->n.startsWith("a")).sorted().map(n->n.toUpperCase()).forEach(n->System.out.println(n));
 		
+		//convert array to array list
+		List<String> names1 = Arrays.asList("Karim","Rahim","monir","Rana","abir");
+		
+		
+		
+		
+		
 		
 		
 		
