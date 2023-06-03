@@ -3,5 +3,20 @@ Assert.assertEquals(arg0, arg1);  //compare if arg0 == arg1, pass the result els
 Assert.assertTrue(arg0);   //if arg0 is true, pass else fail
 
 
+/////How to install TestNG in Eclips///////////////////
+Eclipse
+1. go to "Help" menu --> Eclipse Market Place
+2. type in searchbox "Testng"
+3. select "TestNG for Eclipse" --> install -->check all the checkbox --> Confirm
+    --> accept the Agreement --> Finish
+4. Install anyway
+
+
+
+
+
+
+
+
 
 
