@@ -1,0 +1,7 @@
+Assert.assertEquals(arg0, arg1);  //compare if arg0 == arg1, pass the result else fail
+
+Assert.assertTrue(arg0);   //if arg0 is true, pass else fail
+
+
+
+
