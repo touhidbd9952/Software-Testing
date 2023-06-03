@@ -27,7 +27,7 @@ Xpath=//*[@type='submit']//preceding::input[1]   //select first input before sub
 xpath=//*[@type='submit']//following-sibling::input   //select item in same level (same row)
 Xpath=//*[@id='rt-feature']//parent::div    // select parent of this child 
 Xpath=//*[@id='rt-feature']//parent::div[1]  //select first parent of this child
-Xpath =//*[@type='password']//self::input   //select itself
+Xpath =//*[@type='password']//self::input   //select only that element
 Xpath=//*[@id='rt-feature']//descendant::a   // select inside element of element
 Xpath=//*[@id='rt-feature']//descendant::a[1]  //select first inside element of element
 
