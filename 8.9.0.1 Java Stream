@@ -2,11 +2,22 @@ Why we use Steam?
 By using steam, we can write "Multiple line operation" in a "single line".
 ------------------------------------------------------
 stream() : make an array --> comma separated one string/collection
+
 filter(item->operation_on_item) : after making main collection, we can create another collection 
 	from main collection by condition. filter method has two part, 1. item, 2. operation_on_item
-	filter method return a new collection base on condition.
+	filter method return a new collection base on condition. filter(s->s.startWith("A"))
+	
 count(): count the element inside the collection
-forEach(): we can apply foreach operation on collection
+
+forEach(): we can apply foreach operation on collection. forEach(n->System.out.println(n))
+
+map(): if need to use function on item to get new collection. map(item->item.getText())
+
+collect(): use to make collection. collect(Collectors.toList())
+
+sorted(): use to sort assending/dessending order. sorted()
+
+
 
 ////////////// Example 1 /////////////////////////////////////////////////////////////
 ArrayList<String> names = new ArrayList<String>();
