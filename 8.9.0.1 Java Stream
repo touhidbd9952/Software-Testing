@@ -9,11 +9,14 @@ filter(item->operation_on_item) : after making main collection, we can create an
 	
 count(): count the element inside the collection
 
-forEach(): we can apply foreach operation on collection. forEach(n->System.out.println(n))
+forEach(item->operation_on_item): we can apply foreach operation on collection. forEach(n->System.out.println(n))
 
-map(): if need to use function on item to get new collection. map(item->item.getText())
+map(item->operation_on_item): if need to use "function" on item to get new collection. map(item->item.getText())
+			      function can be use 2 type, 
+			      1. builtin : map(item->item.getText())
+			      2. custom : map(item->getPriceVeggie(item))
 
-collect(): use to make collection. collect(Collectors.toList())
+collect(): use to make arraylist. collect(Collectors.toList())
 
 sorted(): use to sort assending/dessending order. sorted()
 
