@@ -1,0 +1,42 @@
+Xpath=//tagname[@attribute='value']
+Relative XPath: //div[@class='featured-box cloumnsize1']//h4[1]//b[1]
+Xpath=//input[@name='uid']
+Xpath=//input[@type='text']
+Xpath=//label[@id='message23']
+Xpath=//input[@value='RESET']
+Xpath=//*[@class='barone']
+Xpath=//a[@href='http://demo.guru99.com/']
+Xpath=//img[@src='//guru99.com/images/home/java.png']
+Xpath=//*[contains(@type,'sub')]
+Xpath=//*[contains(@name,'btn')]
+Xpath=//*[contains(@id,'message')]
+Xpath=//*[contains(text(),'here')]
+Xpath=//*[contains(@href,'guru99.com')]
+Xpath=//*[@type='submit' or @name='btnReset']
+Xpath=//input[@type='submit' and @name='btnLogin']
+Xpath=//label[starts-with(@id,'message')]
+Xpath=//td[text()='UserID']
+Xpath=//*[@type='text']//following::input            //select * input that type='text'
+Xpath=//*[@type='text']//following::input[1]       //select * input that type='text' limit 1
+Xpath=//*[text()='Enterprise Testing']//ancestor::div      //selects all ancestors element (grandparent, parent, etc.)
+Xpath=//*[text()='Enterprise Testing']//ancestor::div[1]
+Xpath=//*[@id='java_technologies']//child::li     //Selects all children
+Xpath=//*[@id='java_technologies']//child::li[1]   //Selects all first children
+Xpath=//*[@type='submit']//preceding::input     //Select all input before submit button
+Xpath=//*[@type='submit']//preceding::input[1]   //select first input before submit button
+xpath=//*[@type='submit']//following-sibling::input   //select item in same level (same row)
+Xpath=//*[@id='rt-feature']//parent::div    // select parent of this child 
+Xpath=//*[@id='rt-feature']//parent::div[1]  //select first parent of this child
+Xpath =//*[@type='password']//self::input   //select itself
+Xpath=//*[@id='rt-feature']//descendant::a   // select inside element of element
+Xpath=//*[@id='rt-feature']//descendant::a[1]  //select first inside element of element
+
+
+
+
+
+
+
+
+
+
