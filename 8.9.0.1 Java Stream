@@ -8,7 +8,7 @@ filter(item->operation_on_item) : after making main collection, we can create an
 count(): count the element inside the collection
 forEach(): we can apply foreach operation on collection
 
-
+////////////// Example 1 /////////////////////////////////////////////////////////////
 ArrayList<String> names = new ArrayList<String>();
 		names.add(“Karim”);
 		names.add(“Rarim”);
@@ -49,7 +49,98 @@ ArrayList<String> names = new ArrayList<String>();
 		//concatinating two or more stream to one stream
 		Stream names2 = Stream.concat(names.stream(), names1.stream());
 		names2.forEach(n->System.out.println(n));
+
+
+//////////////// Example 2 //////////////////////////////////////////////////////////////////////////////////////
+use stream() on datatable
+-------------------------
+Instruction:
+1. click on column(product title) of table
+2. take all record of (product title) column in a list "productTitle"
+3. take text from "productTitle" list and create a new list "productTitleText"
+4. sort on "productTitleText" list and create a new list "productTitleTextSorted"
+5. compare "productTitleText" list with "productTitleTextSorted" list
+
+
+
+public static void main(String[] args) throws MalformedURLException, IOException {
+
+		System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe");
+
+		WebDriver driver = new ChromeDriver();
+
+		driver.get("https://rahulshettyacademy.com/greenkart/#/offers");
 		
+		
+
+		// Step-1: click on column of datatable
+
+		driver.findElement(By.xpath("//tr/th[1]")).click();
+
+		// Step-2: capture all data of first column into list
+
+		List<WebElement> elementsList = driver.findElements(By.xpath("//tr/td[1]"));
+
+		// Step-3: capture text of all data (first column) into new(original) list
+
+		List<String> originalList = elementsList.stream().map(s -> s.getText()).collect(Collectors.toList());
+
+		// Step-4: sort on the original list of step 3  and make a list (sortedlist)
+
+		List<String> sortedList = originalList.stream().sorted().collect(Collectors.toList());
+
+		// Step-5: compare original_list vs sorted_list
+
+		Assert.assertTrue(originalList.equals(sortedList));
+		
+		
+		
+		///// Task 2: scan the name column with getText, if "Rice", print the price of the "Rice"///////////
+
+		List<String> price;
+
+		do
+		{
+			List<WebElement> rows = driver.findElements(By.xpath("//tr/td[1]"));
+
+			price = rows.stream().filter(s -> s.getText().contains("Rice"))
+
+					.map(s -> getPriceVeggie(s)).collect(Collectors.toList());
+
+			price.forEach(a -> System.out.println(a));
+
+			if (price.size() < 1)
+			{
+			   driver.findElement(By.cssSelector("[aria-label='Next']")).click();
+			}
+
+		} while (price.size() < 1);
+	}
+
+	private static String getPriceVeggie(WebElement s) 
+	{
+		String pricevalue = s.findElement(By.xpath("following-sibling::td[1]")).getText();
+
+		return pricevalue;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
 		
 		
 		
