@@ -18,3 +18,8 @@ a.	1 number method execute, @AfterMethod execute
 b.	2 number method execute, @ AfterMethod execute
 .
 .
+
+@BeforeClass : before particular class tests execute, it execute.
+@AfterClass : after particular class tests execute, it execute
+
+
