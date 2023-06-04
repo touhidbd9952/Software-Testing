@@ -1,26 +1,185 @@
 
-@Test : to write general test case. On the base of method alphabetic order (a,b,c....z), textng execute test case.
+@Test        : to write general test case. On the base of method alphabetic order (a,b,c....z), textng execute test case.
 @BeforeTest  :  execute first than any other test case. High Prority. Use to open the connection, to delete all data before insert test.
-@AfterTest : execute last of all test case. Use to close the connection, ….
+@AfterTest   : execute last of all test case. Use to close the connection, ….
 @BeforeSuite : execute before all test execution. Use to set environment before test execution
-@AfterSuite : execute after all test execution. Use to close all the things that used to execute test 
-                         cases.
+@AfterSuite  : execute after all test execution. Use to close all the things that used to execute test cases.
 @BeforeMethod : before each of method, it each execute first then one method execute after            
-                                  then @BeforeMethod execute. In this way if a class have 5 method. Before 
-                                  execute any method @Before method execute first. Can be use to delete all the  
-                                  cookies before start next execution. 
+                then @BeforeMethod execute. In this way if a class have 5 method. Before 
+                execute any method @Before method execute first. Can be use to delete all the  
+                cookies before start next execution. 
+                
                 a.	@BeforeMethod execute, 1 number method execute
                 b.	@BeforeMethod execute, 2 number method execute
                 .
                 .
+                
 @AfterMethod : after each of method, it execute then 2nd method execute after then    
-                              @AfterMethod execute. In this way if a class have 5 method. 
-a.	1 number method execute, @AfterMethod execute
-b.	2 number method execute, @ AfterMethod execute
-.
-.
+               @AfterMethod execute. In this way if a class have 5 method. 
+               
+                a.	1 number method execute, @AfterMethod execute
+                b.	2 number method execute, @ AfterMethod execute
+                .
+                .
 
 @BeforeClass : before particular class tests execute, it execute.
 @AfterClass : after particular class tests execute, it execute
+
+
+//////////Example of TestNG Class/////////////////////////////////////////////////
+
+package testNGtutorial;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+public class FirstTest {
+	@Test
+	public void test1()
+	{
+		System.out.println("Hello");
+	}
+	@BeforeTest
+	public void test2()
+	{
+		System.out.println("I am Before Test");
+	}
+	@AfterTest
+	public void test3()
+	{
+		System.out.println("I am After Test");
+	}
+	@BeforeClass
+	public void test4()
+	{
+		System.out.println("I execute before my class test cases");
+	}
+	@AfterClass
+	public void test5()
+	{
+		System.out.println("I execute after my class test cases");
+	}
+	@BeforeMethod
+	public void test6()
+	{
+		System.out.println("I execute first before my class all test cases methods");
+	}
+	@AfterMethod
+	public void test7()
+	{
+		System.out.println("After my class all test cases methods, I execute");
+	}
+	@BeforeSuite
+	public void test8()
+	{
+		System.out.println("I execute before all Suite");
+	}
+	@AfterSuite
+	public void test9()
+	{
+		System.out.println("I execute after all Suite");
+	}
+	
+	
+	@Test(groups={"smoke"})
+	public void test10()
+	{
+		System.out.println("I execute only for smoke tesing");
+	}
+}
+
+
+///////////in testNG.xml///////////////////////////////////////////////////////////////////////
+
+include : only execute this test case
+exclude : execute all test cases but accept this
+-------------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+    <classes>
+    <!--///all the method of FirstTest is is inactive but test1-->
+      <class name="testNGtutorial.FirstTest">   
+      <methods>
+      <include name="test1"></include>
+      </methods>
+      </class>  
+    </classes>
+  </test> 
+  <test name="Test2">
+    <classes>
+      <!--///all the method of SecondTest that start with "saySome" will be inactive (use methodpartialname.*)-->
+      <class name="testNGtutorial.SecondTest">
+      <methods>
+      <exclude name="saySome.*"/>
+      </methods>
+      </class>
+    </classes>
+  </test>
+</suite> 
+
+
+Execute only this package
+-------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+    <packages>
+    <package name="testNGtutorial"/>
+    </packages>
+  </test> 
+  
+</suite> 
+
+
+Generally execute all test cases
+--------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+    <classes>
+      <class name="testNGtutorial.FirstTest"/>
+      <class name="testNGtutorial.SecondTest"/>   
+    </classes>
+  </test> 
+</suite>
+
+
+Group execute, only for "smoke" testing
+--------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite">
+
+  <test name="Test1">
+  <!-- Run all the test cases of smoke group -->
+    <groups>
+    <run>
+    <include name="smoke"/>
+    </run>
+    </groups>
+    <classes>
+      <class name="testNGtutorial.FirstTest"/>     
+    </classes>
+  </test> 
+  
+</suite> 
+
+
+
+
+
+
 
 
