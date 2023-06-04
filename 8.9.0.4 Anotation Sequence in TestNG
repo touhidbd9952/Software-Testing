@@ -1,4 +1,5 @@
-@Test : general test case
+
+@Test : to write general test case. On the base of method alphabetic order (a,b,c....z), textng execute test case.
 @BeforeTest  :  execute first than any other test case. High Prority. Use to open the connection, to delete all data before insert test.
 @AfterTest : execute last of all test case. Use to close the connection, ….
 @BeforeSuite : execute before all test execution. Use to set environment before test execution
