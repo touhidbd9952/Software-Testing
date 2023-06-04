@@ -107,6 +107,19 @@ to stop a method in a test case is used "<methods> <exclude name="saySomeThing2"
   </test>
 </suite> 
 
+//////How to write and execute test case by using package name///////////////
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+    <packages>
+    <package name="testNGtutorial"/>
+    </packages>
+  </test> 
+  
+</suite> 
+
 
 //////How to write comment/////////
 <!--///all the method of FirstTest is active-->    //single line comment in xml
