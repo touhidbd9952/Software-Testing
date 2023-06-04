@@ -80,6 +80,33 @@ to stop a method in a test case is used "<methods> <exclude name="saySomeThing2"
   </test>
 </suite> 
 
+//////Stop all of method that name start with "saySome"////////////////////
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test1">
+    <classes>
+    <!--///all the method of FirstTest is is inactive but test1-->
+      <class name="testNGtutorial.FirstTest">   
+      <methods>
+      <include name="test1"></include>
+      </methods>
+      </class>  
+    </classes>
+  </test> 
+  <test name="Test2">
+    <classes>
+      <!--///all the method of SecondTest that start with "saySome" will be inactive (use methodpartialname.*)-->
+      <class name="testNGtutorial.SecondTest">
+      <methods>
+      <exclude name="saySome.*"/>
+      </methods>
+      </class>
+    </classes>
+  </test>
+</suite> 
+
 
 //////How to write comment/////////
 <!--///all the method of FirstTest is active-->    //single line comment in xml
