@@ -1,0 +1,19 @@
+@Test : general test case
+@BeforeTest  :  execute first than any other test case. High Prority. Use to open the connection, to delete all data before insert test.
+@AfterTest : execute last of all test case. Use to close the connection, ….
+@BeforeSuite : execute before all test execution. Use to set environment before test execution
+@AfterSuite : execute after all test execution. Use to close all the things that used to execute test 
+                         cases.
+@BeforeMethod : before each of method, it each execute first then one method execute after            
+                                  then @BeforeMethod execute. In this way if a class have 5 method. Before 
+                                  execute any method @Before method execute first.
+a.	@BeforeMethod execute, 1 number method execute
+b.	@BeforeMethod execute, 2 number method execute
+.
+.
+@AfterMethod : after each of method, it execute then 2nd method execute after then    
+                              @AfterMethod execute. In this way if a class have 5 method. 
+a.	1 number method execute, @AfterMethod execute
+b.	2 number method execute, @ AfterMethod execute
+.
+.
