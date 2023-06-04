@@ -6,11 +6,12 @@
                          cases.
 @BeforeMethod : before each of method, it each execute first then one method execute after            
                                   then @BeforeMethod execute. In this way if a class have 5 method. Before 
-                                  execute any method @Before method execute first.
-a.	@BeforeMethod execute, 1 number method execute
-b.	@BeforeMethod execute, 2 number method execute
-.
-.
+                                  execute any method @Before method execute first. Can be use to delete all the  
+                                  cookies before start next execution. 
+                a.	@BeforeMethod execute, 1 number method execute
+                b.	@BeforeMethod execute, 2 number method execute
+                .
+                .
 @AfterMethod : after each of method, it execute then 2nd method execute after then    
                               @AfterMethod execute. In this way if a class have 5 method. 
 a.	1 number method execute, @AfterMethod execute
