@@ -1,3 +1,6 @@
+testng.xml: by using testng.xml, we can run one or more test (collection) at a time. testng.xml gives
+us a controll to run the test case what we want and make report on it
+
 in "testng.xml", we will get below section
 1. suite : generally we need to write the department name in its name=""
 2. test : type of test 
