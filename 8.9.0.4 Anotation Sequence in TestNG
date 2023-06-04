@@ -30,6 +30,13 @@
 					  before execute current method, first execute "method_name1","method_name2"
 					  @Test(dependsOnMethods={"method_name1","method_name2"})
 
+@Test(enable=false) : use to scrept/ignore/deactive particular test case
+@Test(enable=true) : use to active particular test case
+
+@Test(timeOut=4000) : it idicate the testng, please wait maximum 40 second if needed to execute this test case. fail it if need more 
+                       than 40 second to execute it.
+
+
 
 //////////Example of TestNG Class/////////////////////////////////////////////////
 
