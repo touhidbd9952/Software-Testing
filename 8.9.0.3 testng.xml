@@ -107,7 +107,7 @@ to stop a method in a test case is used "<methods> <exclude name="saySomeThing2"
   </test>
 </suite> 
 
-//////How to write and execute test case by using package name///////////////
+//////(regression test) How to write and execute test case by using package name///////////////
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
