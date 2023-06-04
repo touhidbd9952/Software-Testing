@@ -110,7 +110,7 @@ you will get a file "testng.xml". open it, click on "Source" to see xml code for
 
 
 2. run test case from "testng.xml"
-   a. right click on "testng.xml" ==> Run As ==> TestNG Suite
+   a. right click on "testng.xml" ==> Run As ==> TestNG Suite 
 
 
 
