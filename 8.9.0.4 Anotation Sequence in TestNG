@@ -26,7 +26,9 @@
 @AfterClass  : after particular class tests execute, it execute
 @Test(groups={"smoke"}) : this test case is only for "smoke" test purpose. First we need to select all the method that are use 
                           for smoke test and write "@Test(groups={“smoke”})" before this methods.
-@Test(dependsOnMethods={"method_name"}) : before execute current method, first execute “method_name”.
+@Test(dependsOnMethods={"method_name1"}) : before execute current method, first execute “method_name”. 
+					  before execute current method, first execute "method_name1","method_name2"
+					  @Test(dependsOnMethods={"method_name1","method_name2"})
 
 
 //////////Example of TestNG Class/////////////////////////////////////////////////
