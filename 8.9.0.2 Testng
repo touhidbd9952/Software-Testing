@@ -3,13 +3,86 @@ Assert.assertEquals(arg0, arg1);  //compare if arg0 == arg1, pass the result els
 Assert.assertTrue(arg0);   //if arg0 is true, pass else fail
 
 
-/////How to install TestNG in Eclips///////////////////
+/////How to install TestNG in Eclips//////////////////////////////
 Eclipse
 1. go to "Help" menu --> Eclipse Market Place
 2. type in searchbox "Testng"
 3. select "TestNG for Eclipse" --> install -->check all the checkbox --> Confirm
     --> accept the Agreement --> Finish
 4. Install anyway
+
+
+//////How to check TestNG properly install or not//////////////////
+Eclipse
+1. go to "Window" menu --> Preferences
+2. In searchbox Type "TestNG"
+
+//////Write your First Test/////////////////////////////////////////
+1. create a package "test" in "src" of java project
+2. create a class "FirstTest" in "test" package folder
+    a. right click on "test" package --> New --> Class 
+	Name: FirstTest
+     b. no need to select main method
+     c. click on "Finish" button
+
+3. write a function "test1"
+
+	package testNGtutorial;
+	public class FirstTest 
+     {
+	     @Test
+	      public void test1()
+	     {
+		
+	     }
+	}
+4. Write “@Test” annotation on your function
+5. Move mouse cursor under “@Test”  click “Add TestNG Library”
+6. Again move mouse cursor under “@Test”  click “Import ‘Test’ (org.testing.annotations)”
+
+	package testNGtutorial;
+	import org.testng.annotations.Test;   //if you do above task, you will see this
+
+	public class FirstTest 
+	{
+	      @Test
+	       public void test1()
+	      {
+		
+	      }
+	}
+
+7. Now, write one line of code "System.out.println("Hello");" in your "test1()"
+
+	package testNGtutorial;
+	import org.testng.annotations.Test;   //if you do above task, you will see this
+
+	public class FirstTest 
+	{
+	    @Test
+	    public void test1()
+	    {
+		   System.out.println("Hello");
+	    }
+	}
+8. Run the test
+	a. right click --> Run As --> TestNG test
+	b. check output: click on "Console" tab at the bottom side
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
