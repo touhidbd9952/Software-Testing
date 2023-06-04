@@ -1,0 +1,30 @@
+in "testng.xml", we will get below section
+1. suite : generally we need to write the department name in its name=""
+2. test : type of test 
+3. classes : in side it, need to declare all the class related with type of test
+4. class : are the name of test case class file that are written for particular test.
+
+in a test project, can have multiple suite and each of suite, can have multiple test type.
+for a particular test, may be you need to write 100 or more classes. Below I have given an example
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Loan Department">
+  <test name="Personal Loan">
+    <classes>
+      <class name="testNGtutorial.LoginPersonalLoan"/>
+      <class name="testNGtutorial.FunctionalPersonalLoanTest"/>
+    </classes>
+  </test> 
+ <test name="Car Loan">
+    <classes>
+      <class name="testNGtutorial.LoginCarLoan"/>
+      <class name="testNGtutorial.FunctionalCarLoanTest"/>
+    </classes>
+  </test> 
+</suite>
+
+
+
+
