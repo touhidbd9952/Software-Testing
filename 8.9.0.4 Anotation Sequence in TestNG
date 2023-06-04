@@ -96,6 +96,17 @@ public class FirstTest {
 	{
 		System.out.println("I execute only for smoke tesing");
 	}
+	@Test(groups={"smoke"})
+	public void test11()
+	{
+		System.out.println("I execute only for smoke tesing");
+	}
+	
+	@Test(dependsOnMethods={"test9"})
+	public void test11()
+	{
+		System.out.println("I execute after 'test9' method");
+	}
 }
 
 
