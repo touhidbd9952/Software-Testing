@@ -37,8 +37,8 @@ Eclipse
 	     }
 	}
 4. Write “@Test” annotation on your function
-5. Move mouse cursor under “@Test”  click “Add TestNG Library”
-6. Again move mouse cursor under “@Test”  click “Import ‘Test’ (org.testing.annotations)”
+5. Move mouse cursor under “@Test” ==> click “Add TestNG Library”
+6. Again move mouse cursor under “@Test” ==> click “Import ‘Test’ (org.testing.annotations)”
 
 	package testNGtutorial;
 	import org.testng.annotations.Test;   //if you do above task, you will see this
