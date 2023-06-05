@@ -1,0 +1,5 @@
+If you want to see test case result report. You need to do the below step
+1.	Run the test case (right click on "testng.xml" ==> run as ==> TestNG Test Suite)
+2.	Right click on  java "test project name" ==> refresh
+3.	click on "test-output" ==> index.html (right click on it) ==> properties ==> Resources ==> Location (copy the path)
+4.	open you browser and paste the path
