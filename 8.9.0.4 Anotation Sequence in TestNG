@@ -36,6 +36,31 @@
 @Test(timeOut=4000) : it idicate the testng, please wait maximum 40 second if needed to execute this test case. fail it if need more 
                        than 40 second to execute it.
 
+@DataProvider : use to execute certain test case method (test11) on the base of provider data (3-row 2-column : 3 itme execute and each time provide 2 (username,pass)parameter). 
+
+		@Test(dataProvider="getData")
+		public void test11(String username, String pass)
+		{
+			System.out.println(username);
+			System.out.println(pass);
+		}
+
+		@DataProvider
+		public Object[][] getData()
+		{
+			Object[][] data = new Object[3][2];  //3-row 2-column
+			data[0][0] = "username1";
+			data[0][1] = "pass1";
+
+			data[1][0] = "username2";
+			data[1][1] = "pass2";
+
+			data[2][0] = "username3";
+			data[2][1] = "pass3";
+
+			return data;
+		}
+
 
 
 //////////Example of TestNG Class/////////////////////////////////////////////////
