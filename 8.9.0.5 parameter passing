@@ -1,4 +1,4 @@
-Parameter Passing: 
+/////Parameter Passing: 
 ------------------
 	you can pass parameter in 
 			a. suite level: indicate as global parameter. apply for all the test in side in suite in testng.xml file
