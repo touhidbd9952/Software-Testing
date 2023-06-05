@@ -1,1 +1,68 @@
-//
+ITestListener : is a interface, used in TestNG. ITestListener has some methods that given proper guide line to a tester.
+                1. onTestStart : what need to do
+                2. onTestSuccess : what need to do
+                3. onTestFailure : if test fail what need to do. suppose, if test fail, we can take a screen short of failure message
+                4. onTestSkipped : if test case skipped, what need to do.
+                5. onTestFailedButWithinSuccessPercentage :
+                6. onStart : 
+                7. onFinish : 
+                
+///////////////////////////////////////////////////////////////////////////////////////////
+
+package testNGtutorial;
+
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+public class InterfaceForTestNG implements ITestListener {
+
+	@Override
+	public void onTestStart(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailure(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+
+
+
+
