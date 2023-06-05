@@ -31,7 +31,8 @@ public class InterfaceForTestNG implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
+		// Show the test case that fail
+		System.out.println("Fail Test: "+result.getName());
 		
 	}
 
