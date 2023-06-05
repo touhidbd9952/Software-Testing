@@ -69,7 +69,7 @@ public class InterfaceForTestNG implements ITestListener {
 <suite name="Suite">
 
   <listeners>
-    <listener name="testNGtutorial.InterfaceForTestNG"/>      <=====
+    <listener class-name="testNGtutorial.InterfaceForTestNG"/>     <=====
   </listeners>
 
   <parameter name="URL" value="abc.com"/>
