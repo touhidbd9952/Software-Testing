@@ -27,7 +27,7 @@ in xml file
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 
-  <parameter name="URL" value="abc.com"/>   //suite level : global parameter
+  <parameter name="baseurl" value="abc.com"/>   //suite level : global parameter
   
   <test name="Test1">
   
@@ -43,11 +43,11 @@ in xml file
 
 in Class file
 ------------------
-  	@Parameters({"URL"})
+  	@Parameters({"baseurl"})
 	@Test
-	public void test0(String url)
+	public void test0(String baseurl)
 	{
-		System.out.println("Hello");
+		System.out.println(baseurl);
 	}
 	
 	@Parameters({"username","password"})
