@@ -1,0 +1,48 @@
+Parameter Passing: 
+  1. write parameter in  testng.xml  "<parameter name="URL" value="abc.com"/>"
+  2. catch in test cases (class)
+      
+      @Parameters({"URL"})
+      @Test
+      public void test0(String url)
+      {
+        String baseUrl = url;
+        System.out.println(baseUrl);
+      }
+      
+
+//////////// Example ///////////////////////////////////////////////////
+
+in xml file
+----------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+
+  <parameter name="URL" value="abc.com"/>
+  
+  <test name="Test1">
+    <classes>
+      <class name="testNGtutorial.FirstTest"/>
+      <class name="testNGtutorial.SecondTest"/>   
+    </classes>
+  </test> 
+</suite>
+
+in Class file
+------------------
+  @Parameters({"URL"})
+	@Test
+	public void test0(String url)
+	{
+		System.out.println("Hello");
+	}
+  
+  
+  
+  
+  
+  
+  
+
+
