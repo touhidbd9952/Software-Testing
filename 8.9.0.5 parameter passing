@@ -44,14 +44,14 @@ in Class file
 ------------------
   	@Parameters({"baseurl"})
 	@Test
-	public void test0(String baseurl)
-	{
+	public void website_url(String baseurl)
+	{	
 		System.out.println(baseurl);
 	}
 	
 	@Parameters({"username","password"})
 	@Test
-	public void test0(String username, String password)
+	public void website_login(String username, String password)
 	{
 		
 	}
