@@ -1,4 +1,12 @@
 Parameter Passing: 
+------------------
+	you can pass parameter in 
+			a. suite level: indicate as global parameter. apply for all the test in side in suite in testng.xml file
+			b. test level: indicate as local parameter. apply only for particular test in testng.xml file.
+
+/////How to write and catch parameter in java selenium testng
+------------------------------------------------------------------------------
+	
   1. write parameter in  testng.xml  "<parameter name="URL" value="abc.com"/>"
   2. catch in test cases (class)
       
