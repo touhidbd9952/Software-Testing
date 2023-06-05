@@ -7,14 +7,13 @@
 /////How to write and catch parameter in java selenium testng
 ------------------------------------------------------------------------------
 	
-  1. write parameter in  testng.xml  "<parameter name="URL" value="abc.com"/>"
+  1. write parameter in  testng.xml  "<parameter name="baseurl" value="abc.com"/>"
   2. catch in test cases (class)
       
-      @Parameters({"URL"})
+      @Parameters({"baseurl"})
       @Test
-      public void test0(String url)
+      public void test0(String baseurl)
       {
-        String baseUrl = url;
         System.out.println(baseUrl);
       }
       
