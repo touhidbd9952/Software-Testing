@@ -12,6 +12,8 @@
                 WebDriverManager.chromedriver().setup();
                 WebDriver driver = new ChromeDriver();
         
+3. we will create class in "src/test/java"   
+
 
 
 
