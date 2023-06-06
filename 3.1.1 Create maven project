@@ -1,0 +1,15 @@
+1. Create Maven Project
+        Archetype/Template : maven-archetype-quickstart
+        Group Id/DomainName : com.abc
+        Artifact Id/ProjectName : testproject
+        
+2. Install dependencies(in pom.xml)
+        1. remove "junit" from dependency
+        2. add "Selenium Java"  //latest most used version
+        3. add "TestNG" //choose a version based on your java version (6.14.3)
+
+
+
+
+
+
