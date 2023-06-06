@@ -1,6 +1,6 @@
 Instruction: create a project in java maven on ecommerce for selenium automation testing
 
-web url   https://rahulshettyacademy.com/client/auth/login
+web url   https://rahulshettyacademy.com/client
 1. create registration
 2. login 
 3. addtocart
