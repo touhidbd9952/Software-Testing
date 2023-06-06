@@ -1,0 +1,41 @@
+Instruction: create a project in java maven on ecommerce for selenium automation testing
+
+web url   https://rahulshettyacademy.com/client/auth/login
+1. create registration
+2. login 
+3. addtocart
+4. addtocart message show in console with Assert Validation
+5. click on "Cart" and view cart items and validate (what ever you addtocart, are 
+    showing in cart list)
+6. click on "checkout"
+7. Payment Method
+     	a. fill-up all the required fields
+     	b. in "Shipping Information" : select country
+     	c. click on "place order" button
+
+8. once you place the order
+	a. make sure you get the confirmation order
+	b. grap the orders number
+9. click on "Orders" menu
+	a. copy a order number 
+	b. come to "orders" menu and verify that order number is in orders list
+	c. click on "view" and make sure all the information is same that you given earliery
+10. click on "Orders" menu
+ 	a. delete your order that cteated few minute ago
+	b. validate (order delete message is shown)
+	c. click on "Go back to shopping again" button to go back to shopping home page
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
