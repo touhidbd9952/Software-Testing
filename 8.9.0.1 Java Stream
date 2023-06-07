@@ -21,6 +21,12 @@ collect(): use to make arraylist. collect(Collectors.toList())
 sorted(): use to sort assending/dessending order. sorted()
 
 
+////////////// Example 0 /////////////////////////////////////////////////////////////
+
+List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
+WebElement prod = products.stream().filter(product->product.findElement(By.cssSelector("b")).getText().equals("ZARA COAT 3")).findFirst().orElse(null);
+prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+		
 
 ////////////// Example 1 /////////////////////////////////////////////////////////////
 ArrayList<String> names = new ArrayList<String>();
