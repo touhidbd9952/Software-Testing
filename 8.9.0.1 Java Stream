@@ -26,6 +26,12 @@ sorted(): use to sort assending/dessending order. sorted()
 List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
 WebElement prod = products.stream().filter(product->product.findElement(By.cssSelector("b")).getText().equals("ZARA COAT 3")).findFirst().orElse(null);
 prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+
+///////////// Example 1 //////////////////////////////////////////////////////////////
+
+List<WebElement> cartProducts = driver.findElements(By.cssSelector(".cartSection h3"));
+Boolean match = cartProducts.stream().anyMatch(cartProduct->cartProduct.getText().equalsIgnoreCase(productName));
+Assert.assertTrue(match);
 		
 
 ////////////// Example 1 /////////////////////////////////////////////////////////////
