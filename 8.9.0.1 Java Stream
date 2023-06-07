@@ -20,6 +20,8 @@ collect(): use to make arraylist. collect(Collectors.toList())
 
 sorted(): use to sort assending/dessending order. sorted()
 
+anyMatch(): return true/false
+
 
 ////////////// Example 0 /////////////////////////////////////////////////////////////
 
