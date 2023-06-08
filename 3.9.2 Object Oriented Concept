@@ -5,6 +5,7 @@ super(driver)
 
 public class AbstractComponent
 {
+	private WebDriverWait wdw;
 	WebDriver driver;
 	public AbstractComponent(WebDriver driver)
 	{
@@ -17,6 +18,12 @@ public class AbstractComponent
 	//switching to window
 	//switching to frame
 	//switching to alert message
+	
+	public void waitForElementToAppear(By locatorBy)
+	{
+		wdw = new WebDriverWait(driver, 5);
+		wdw.until(ExpectedConditions.visibilityOfElementLocated(locatorBy));
+	}
 }
 
 
