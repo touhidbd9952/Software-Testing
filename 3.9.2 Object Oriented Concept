@@ -5,7 +5,9 @@ public class AbstractComponent
 	//write here all the method that will be reuse in your application
 	//wait explicitly
 	//wait java wait
-	
+	//switching to window
+	//switching to frame
+	//switching to alert message
 }
 
 
