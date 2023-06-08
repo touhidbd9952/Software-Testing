@@ -1,0 +1,20 @@
+Productname
+|---src/main/java
+|   |---mainpackage.abstractComponents
+|   |	      |---AbstractComponent
+|   |---mainpackage.pageobjects
+|   |	      |---Login.java
+|   |	      |---Product.java
+|   |	      |---Cart.java
+|   |	      |---Order.java
+|   |---mainpackage.resources
+|   |		    |---GlobalData.properties
+|
+|---src/test/java
+|           |---
+|
+|---JRE System Library
+|---Maven Dependencies
+|---src
+|---target
+|---pom.xml
