@@ -1,7 +1,16 @@
-//////////////AbstractComponent////////////////////////////////////////////////
+//////////////Passing data from child class to parent class///////////////////////////////////////
+super(driver)
+
+//////////////AbstractComponent for reuse function////////////////////////////////////////////////
 
 public class AbstractComponent
 {
+	WebDriver driver;
+	public AbstractComponent(WebDriver driver)
+	{
+		this.driver = driver;
+	}
+	
 	//write here all the method that will be reuse in your application
 	//wait explicitly
 	//wait java wait
