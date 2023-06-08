@@ -1,3 +1,29 @@
+////////////Login////////////////////////////////////////////////////////////////
+
+public class LandingPage
+{
+WebDriver driver;
+
+	public LandingPage(WebDriver driver)
+	{
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	@FindBy(id=”userEmail”)
+	WebElement userEmail;
+	
+	@FindBy(id=”userPassword”)
+	WebElement passwordEle;
+
+	@FindBy(id=”login”)
+	WebElement sumit;
+
+	public void loginApplication(String email, String password)
+	{
+
+	}
+}
 
 
 ////////////Product//////////////////////////////////////////////////////////////
