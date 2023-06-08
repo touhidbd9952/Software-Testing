@@ -226,6 +226,23 @@ Group execute, only for "smoke" testing
 
 
 
+/////////////////Description in short/////////////////////////////////////////////////
+Testng Anotation can be used in Testng Class
+@Test : I will call generally
+@BeforeMethod : I will call before every method in this class
+@AfterMethod : I will call after every method in this class
+@BeforeClass : I will call before this class call
+@AfterClass : I will call after this class call
+@BeforeTest :I will call before this test call
+@AfterTest : I will call after this test call
+@BeforeSuite : I will call before this group of test call
+@AfterSuite : I will call after this group of test call
+@DataProvider : I will call when I provide data
+
+
+
+
+
 
 
 
