@@ -1,0 +1,43 @@
+
+
+////////////Product//////////////////////////////////////////////////////////////
+
+package com.abc.testproject;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Product {
+	
+	List<WebElement> products;
+
+	By products = By.cssSelector(".mb-3");
+	By addToCart = By.xpath("//div[@class="add-to-cart"]);
+	By toastMessage = By.cssSelector("#toast-container");
+
+	public List<WebElement> getProductList()
+	{
+		waitForElementToAppear(products);
+		return products;
+	}
+	public  WebElement   getProductByName(String productName)
+	{
+		WebElement prod = getProductList().stream().filter(product->product.findElement(By.cssSelector("b")).getText().equals(productName)).findFirst().orElse(null);
+		return prod;
+	}
+	public  void addToCartProduct(String productName)
+	{
+		WebElement  prod = getProductByName(productName);
+		prod.findElement(addToCart);
+		waitForElementToAppear(toastMessage);
+	}
+
+
+}
+
+
+
+
