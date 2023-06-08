@@ -90,10 +90,10 @@ public class FirstTest {
 	}
 }
 
+//////////How to convert Java maven project to TestNG project/////////////////////////////////////////////////
+//////////How to create "testng.xml" file to run multiple test case from a single file///////////////////
 
-//////////How to "testng.xml" file to run multiple test case from a single file////////////////////////////////
-
-1. right click on test project ==> TestNG ==> Convert to TestNG ==> Next ==>Finish
+1. right click on projectname ==> TestNG ==> Convert to TestNG ==> Next ==>Finish
 
 you will get a file "testng.xml". open it, click on "Source" to see xml code format
 
