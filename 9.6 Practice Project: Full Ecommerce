@@ -26,6 +26,29 @@ web url   https://rahulshettyacademy.com/client
 	c. click on "Go back to shopping again" button to go back to shopping home page
 
 
+//////////////////Project Structure//////////////////////////////////////////////////
+
+projectname
+|---src/main/java
+|	|---AbstractComponents   //reusable classes
+|	|	|---Base.java
+|	|	|---Wait.java
+|	|---objectpages    //pages
+|		|---Login.java
+|		|---Product.java
+|		|---Checkout.java
+|		|---Order.java
+|---src/test/java
+|	|---com.abc.testproject   //test cases
+|		|---EcommerceTest.java
+|---JRE System Library
+|---Maven Dependencies
+|---src
+|---target
+|---pom.xml    //dependency configuration file
+|---testng.xml   //test case configuration file
+
+
 //////////////////Project Configuration pom.xml//////////////////////////////////////
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
