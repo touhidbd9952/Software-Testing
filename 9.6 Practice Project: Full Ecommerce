@@ -26,7 +26,453 @@ web url   https://rahulshettyacademy.com/client
 	c. click on "Go back to shopping again" button to go back to shopping home page
 
 
+//////////////////Project Configuration pom.xml//////////////////////////////////////
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.abc</groupId>
+	<artifactId>testproject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>testproject</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+
+
+	</dependencies>
+</project>
+
 	
+//////////////////Reuseable components////////////////////////////////////////////////
+1. Base.java
+2. Wait.java
+
+in Base.java
+-------------
+package AbstractComponent;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Base {
+	public WebDriver getDriver()
+	{
+		WebDriver driver = chromedriver();
+		return driver;
+	}
+	
+	public WebDriver chromedriver()
+	{
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		return driver;
+	}
+	
+}
+
+in Wait.java
+---------------------
+package AbstractComponent;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Wait {
+	private WebDriverWait wdw;
+	private WebDriver driver;
+	
+	public Wait(WebDriver driver)
+	{
+		this.driver = driver;
+	}
+	
+	
+	public void visibilityOfElementLocated(int waitingTime, String locatortype, String locator)
+	{
+		wdw = new WebDriverWait(driver, waitingTime);
+		if(locatortype=="id")
+		{
+		  wdw.until(ExpectedConditions.visibilityOfElementLocated(By.id(locator)));
+		}
+		else if(locatortype=="cssSelector")
+		{
+			wdw.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(locator)));
+		}
+		else if(locatortype=="xpath")
+		{
+			wdw.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+		}
+		else if(locatortype=="tagName")
+		{
+			wdw.until(ExpectedConditions.visibilityOfElementLocated(By.tagName(locator)));
+		}
+	}
+	public void javaWait()
+	{
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+	}
+
+}
+
+
+/////////////////////////Page Objects////////////////////////////////////////////////////////////
+1. Login.java
+2. Product.java
+3. Checkout.java
+4. Order.java
+
+in Login.java
+------------------
+package objectpage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import AbstractComponent.Wait;
+
+public class Login extends Wait{
+	
+	WebDriver driver;
+	private String username;
+	private String password;
+	
+	public Login(WebDriver driver, String username, String pass)
+	{
+		super(driver);
+		this.driver = driver;
+		this.username = username;
+		this.password = pass;
+	}
+	
+	public void do_login()
+	{
+		driver.findElement(By.id("userEmail")).sendKeys(username);
+		driver.findElement(By.id("userPassword")).sendKeys(password);
+		driver.findElement(By.id("login")).click();
+		visibilityOfElementLocated(5,"id","toast-container");  //wait 5 second to load product page
+	}
+}
+
+
+in Product.java
+----------------------
+package objectpage;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import AbstractComponent.Wait;
+
+public class Product extends Wait {
+	private WebDriver driver;
+	
+	
+	public Product(WebDriver driver)
+	{
+		super(driver);
+		this.driver = driver;
+	}
+	
+	public void addToCart(String productTitle)
+	{
+		javaWait();
+		List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
+		WebElement prod = products.stream().filter(product->product.findElement(By.cssSelector("b")).getText().equalsIgnoreCase(productTitle)).findFirst().orElse(null);
+		prod.findElement(By.cssSelector(".card-body button:last-of-type")).click();
+		visibilityOfElementLocated(5,"id","toast-container");
+	}
+	public void delete_a_cart_product(int delete_num)
+	{
+		driver.findElement(By.xpath("(//button[@class='btn btn-danger'])["+delete_num+"]")).click();
+		javaWait();
+	}
+	public void cartview()
+	{
+		javaWait();
+		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
+		javaWait();
+	}
+	public void goto_dashboard()
+	{
+		driver.findElement(By.xpath("//button[@routerlink='/dashboard/']")).click();
+		javaWait();
+	}
+}
+
+
+in CheckOut.java
+--------------------------
+package objectpage;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+import AbstractComponent.Wait;
+
+public class Checkout extends Wait 
+{
+	WebDriver driver;
+	public Checkout(WebDriver driver) 
+	{
+		super(driver);
+		this.driver = driver;
+	}
+	
+	public void checkout()
+	{
+		driver.findElement(By.xpath("//button[contains(text(),'Checkout')]")).click();
+		javaWait();
+	}
+	public void do_checkout_page_activity()
+	{
+		WebElement expirymonth_selectDropdown = driver.findElement(By.xpath("(//select[@class='input ddl'])[1]"));  
+		Select expirymonth = new Select(expirymonth_selectDropdown); 
+		expirymonth.selectByIndex(11);
+		
+		WebElement expirydate_selectDropdown = driver.findElement(By.xpath("(//select[@class='input ddl'])[2]"));  
+		Select expirydate = new Select(expirydate_selectDropdown); 
+		expirydate.selectByIndex(24);
+		
+		driver.findElement(By.xpath("(//input)[3]")).sendKeys("311");
+		driver.findElement(By.xpath("//div[text()='Name on Card ']/following-sibling::input")).sendKeys("Md. Touhidul Islam");
+		driver.findElement(By.xpath("//div[text()='Apply Coupon ']/following-sibling::input")).sendKeys("123456789");
+		
+		//scroll
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,1000)");  
+		try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+		
+		//check coupon
+		driver.findElement(By.xpath("//button[text()='Apply Coupon']")).click();
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		System.out.println(driver.findElement(By.xpath("//div[text()='Apply Coupon ']/following-sibling::p")).getText());	
+		
+		driver.findElement(By.xpath("//input[@placeholder='Select Country']")).sendKeys("Ban");
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		List<WebElement> options =  driver.findElements(By.xpath("//button/span"));  
+		for(WebElement option : options)
+		{
+			//System.out.println(option.getText());
+			if(option.getText().contains("Ban"))
+			{
+				option.click();
+				break;  //if match, exit for loop
+			}
+			
+		}
+		
+		javaWait();
+	}
+	public void placeorder()
+	{
+		driver.findElement(By.cssSelector(".btnn.action__submit.ng-star-inserted")).click();
+		visibilityOfElementLocated(5,"id","toast-container");
+	}
+
+}
+
+
+in Order.java
+---------------------
+package objectpage;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+
+import AbstractComponent.Wait;
+
+public class Order extends Wait 
+{
+	WebDriver driver;
+	public Order(WebDriver driver) 
+	{
+		super(driver);
+		this.driver=driver;
+	}
+	
+	public String order_message()
+	{
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		System.out.println(driver.findElement(By.tagName("h1")).getText());
+		String ordernosting = driver.findElement(By.cssSelector("label[class='ng-star-inserted']")).getText();
+		String[] arr = null;
+		arr = ordernosting.split(" ");
+		String orderno = arr[1].trim();
+		System.out.println(orderno);
+		return orderno;
+	}
+	public void view_orderlist()
+	{
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,0)");
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//button[@routerlink='/dashboard/myorders']")).click();
+		javaWait();
+	}
+
+}
+
+
+/////////////////// TestCase ///////////////////////////////////////////////////////////////////////////////
+1. EcommerceTest.java
+
+in EcommerceTest.java
+-----------------------
+package com.abc.testproject;
+
+
+import java.util.List;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
+import AbstractComponent.Base;
+
+import objectpage.Login;
+import objectpage.Order;
+import objectpage.Checkout;
+import objectpage.Product;
+
+
+public class EcommerceTest extends Base {
+
+	@Test
+	public void startApplication() {
+		
+		/////////global variable////////////////
+		Product productObj;
+		
+		///////// Step-1: WebDriver setup ///////////////////////////////////////
+		WebDriver driver = getDriver();
+		String mainUrl="https://rahulshettyacademy.com/client";
+		driver.get(mainUrl);
+		
+		
+		///////// Step-2: Login Page ////////////////////////////////////////////////
+		Login loginObj = new Login(driver,"touhidbd9952@gmail.com","Tori@2015");
+		loginObj.do_login();
+		
+		///////// Step-3: Product Page ////////////////////////////////////////////////
+		productObj = new Product(driver);
+		System.out.println(driver.findElement(By.id("toast-container")).getText()); //login message show
+		
+		///////// Addtocart ////////////
+		productObj.addToCart("ZARA COAT 3");
+		
+		System.out.println(driver.findElement(By.id("toast-container")).getText());
+
+		///////// Step-4: cart view ////////////////////////////////////////////////
+		productObj.cartview();
+		
+		productObj.goto_dashboard();
+		
+		///// Step-3: select second product/////
+		productObj.addToCart("iphone 13 pro");
+		
+		System.out.println(driver.findElement(By.id("toast-container")).getText());
+		
+		///////// Step-4: cart view ////////////////////////////////////////////////
+		productObj.cartview();
+		
+		///////// Step-5: Delete second product/////////////////////////////////////
+		int delete_num = 2;
+		productObj.delete_a_cart_product(delete_num);
+		
+		
+		///////// Step-6: Checkout/////////////////////////////////////
+		Checkout checkoutObj = new Checkout(driver);
+		checkoutObj.checkout();
+		checkoutObj.do_checkout_page_activity();
+		checkoutObj.placeorder();
+		System.out.println(driver.findElement(By.id("toast-container")).getText());
+		
+		////////Step-7: Order/////////////////////////////////////////////
+		Order orderObj = new Order(driver);
+		///////success message/////////
+		String orderno = orderObj.order_message();
+		
+		////////Order Checking//////
+		orderObj.view_orderlist();
+		
+		List<WebElement> orders = driver.findElements(By.xpath("//table//tr//th[1]"));
+		
+		int count=0;
+		for(WebElement order : orders)
+		{
+			if(order.getText().equalsIgnoreCase(orderno))
+			{
+				count++;
+			}
+		}
+		//Assert.assertTrue(count==1);
+		System.out.println(count);
+		
+	}
+
+}
+
+
+///////////////// TestCase Configuration /////////////////////////////////////////////////////////////////////////
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="com.abc.testproject.EcommerceTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
 
 
 
