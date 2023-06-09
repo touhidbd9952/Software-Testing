@@ -18,3 +18,29 @@ Productname
 |---src
 |---target
 |---pom.xml
+
+
+projectname
+|---src/main/java
+|	  |---AbstractComponents   //reusable classes
+|	  |	  |---Base.java
+|	  |	  |---Wait.java
+|	  |---objectpages    //pages
+|		    |---Login.java
+|		    |---Product.java
+|		    |---Checkout.java
+|		    |---Order.java
+|---src/test/java
+|	  |---com.abc.testproject   //test cases
+|		    |---EcommerceTest.java
+|
+|---JRE System Library
+|---Maven Dependencies
+|---src
+|---target
+|---pom.xml    //dependency configuration file
+|---testng.xml   //test case configuration file
+
+
+
+
