@@ -2,6 +2,6 @@ Parallel Testing: if you want to run all test case at a time parallely, you can 
 
 in testng.xml 
 -----------------
-<suite name="Loan Department" Parallel="tests" thread-count="2">      //each time 2 task execute at a time 
+<suite name="Loan Department" Parallel="tests" thread-count="2">      //each time 2 testcase will execute at a time 
 .
 .
