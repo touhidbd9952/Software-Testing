@@ -1,0 +1,98 @@
+///////////Full Ecommerce Testing Before segrigation/////////////////////////
+
+package com.abc.ecommerce.tests;
+
+import java.time.Duration;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class OrderSubmitTest {
+
+	@Test
+	public  void ordersubmit() 
+	{
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		
+		String mainUrl="https://rahulshettyacademy.com/client";
+		driver.get(mainUrl);
+		
+		///////Login Page////////
+		driver.findElement(By.id("userEmail")).sendKeys("touhidbd9952@gmail.com");
+		driver.findElement(By.id("userPassword")).sendKeys("Tori@2015");
+		driver.findElement(By.id("login")).click();
+		
+		///////Product Page///////
+		List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
+		WebElement product = products.stream().filter(p->p.findElement(By.tagName("b")).getText().equalsIgnoreCase("zara coat 3")).findFirst().orElse(null);
+		////addtocart//
+		product.findElement(By.xpath("//button[contains(.,'Add To Cart')]")).click();
+		
+		///////cartview////
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
+		
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		List<WebElement> cartlist = driver.findElements(By.cssSelector(".infoWrap"));
+		boolean itemexist = cartlist.stream().anyMatch(p->p.findElement(By.tagName("h3")).getText().equalsIgnoreCase("zara coat 3"));
+		Assert.assertTrue(itemexist);
+		
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		//checkout click
+		driver.findElement(By.xpath("//button[contains(.,'Checkout')]")).click();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		
+		//driver.findElement(By.xpath("(//div[@class='form__cc']//input)[1]")).sendKeys("4242 4242 4242 4242");
+		
+		WebElement selectDropdown1 = driver.findElement(By.xpath("(//select[@class='input ddl'])[1]"));  
+		Select espireFormDateSelectDropdown = new Select(selectDropdown1); 
+		espireFormDateSelectDropdown.selectByIndex(9); 
+		
+		WebElement selectDropdown2 = driver.findElement(By.xpath("(//select[@class='input ddl'])[2]"));  
+		Select espireToDateSelectDropdown = new Select(selectDropdown2); 
+		espireToDateSelectDropdown.selectByIndex(24);
+		
+		//cwcode
+		driver.findElement(By.xpath("(//input[@class='input txt'])[1]")).sendKeys("311");
+		//name on card
+		driver.findElement(By.xpath("(//input[@class='input txt'])[2]")).sendKeys("Mr. Karim Hossain");
+		//country
+		driver.findElement(By.xpath("//input[contains(@placeholder,'Select Country')]")).sendKeys("bang");
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		List<WebElement> options =  driver.findElements(By.xpath("//button//span"));  //findElements use for to select multiple element
+		options.stream().filter(p->p.getText().contains("Bangladesh")).forEach(p->p.click());
+		//place order click
+		try {Thread.sleep(5000);} catch (InterruptedException e) {e.printStackTrace();}
+		JavascriptExecutor js = (JavascriptExecutor)driver;
+		js.executeScript("window.scrollBy(0,900)");
+		driver.findElement(By.xpath("//a[contains(@class,'action__submit')]")).click();
+		
+		//order success message
+		Assert.assertTrue(driver.findElement(By.cssSelector("h1[class='hero-primary']")).getText().equalsIgnoreCase("Thankyou for the order."));
+		
+		
+	}
+
+}
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+
