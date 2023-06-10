@@ -60,6 +60,14 @@
 
 			return data;
 		}
+		
+		or
+		
+		@DataProvider
+		public Object[][] getData()
+		{
+			return new Object[][] {{"abc1@gmail.com","pass1"},{"abc2@gmail.com","pass2"},{"abc3@gmail.com","pass3"}};  //3-row 2-column
+		}
 
 
 
