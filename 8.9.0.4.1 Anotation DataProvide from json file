@@ -16,7 +16,7 @@ How to provide data from a external json file to selenium test project?
 	}
 ]
 
-////Step-2: Add a JR Library in pom.xml
+////Step-2: Add a JR "jackson" Library in pom.xml
 
 <!-- https://mvn repository.com/artifact/com.fasterxml.jackson.core/jackson-databind <dependency>
 <groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId>
