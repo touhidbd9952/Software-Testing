@@ -43,6 +43,27 @@ public Object[][] getData() throws IOException
 	return new Object[][] {{data.get(0)}, {data.get(1) } };
 }
 
+	||
+	|| Use HashMap in below way
+	\/
+String productName = "ZARA COAT 3";
+@Test(dataProvider="getData")
+public void submitOrder (HashMap<String, String> input)
+{
+	ProductCatalogue productCatalogue landingPage.loginApplication (input.get("email"), input.get("password") List<WebElement> products = productCatalogue.getProductList(); productCatalogue.addProductToCart(input.get("product"));
+	CartPage cartPage = productCatalogue.goToCartPage();
+	Boolean match = cartPage.VerifyProductDisplay (productName); Assert.assertTrue(match);
+	CheckoutPage checkout Page cartPage.goToCheckout(); checkoutPage.selectCountry("india");
+	ConfirmationPage confirmationPage = checkoutPage.submitOrder();
+	String confirmMessage confirmationPage.getConfirmationMessage();
+	Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+}
+	
+	
+	
+	
+	
+
   
   
   
