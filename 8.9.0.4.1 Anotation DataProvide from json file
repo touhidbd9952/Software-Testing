@@ -13,3 +13,36 @@
 }
 ]
 
+////Step-2: Add a JR Library in pom.xml
+
+<!-- https://mvn repository.com/artifact/com.fasterxml.jackson.core/jackson-databind <dependency>
+<groupId>com.fasterxml.jackson.core</groupId> <artifactId>jackson-databind</artifactId>
+<version>2.13.3</version>
+</dependency>
+
+////Step-3: Read Json file --> convert to string --> convert to List of Hashmap
+
+public List<HashMap<String, String>> getJsonDataToMap(String filepath) throws IOException
+	{
+		//read json to string
+		String jsonContent=
+		FileUtils.readFileToString(new File(filepath, 
+		StandardCharsets.UTF_8);
+		//String to HashMap- Jackson Datbind
+		ObjectMapper mapper = new ObjectMapper();
+		List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
+		});
+	
+		return data;
+	}
+
+@DataProvider
+public Object[][] getData() throws IOException
+{
+	List<HashMap<String, String>> data = getJsonDataToMap(System.getProperty("user.dir")+"//src//test//java//rahulshettyacademy//data//PurchaseOrder.json"); 
+	return new Object[][] {{data.get(0)}, {data.get(1) } };
+}
+
+  
+  
+  
