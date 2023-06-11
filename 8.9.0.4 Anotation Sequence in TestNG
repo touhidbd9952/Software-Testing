@@ -69,7 +69,7 @@
 			return new Object[][] {{"abc1@gmail.com","pass1"},{"abc2@gmail.com","pass2"},{"abc3@gmail.com","pass3"}};  //3-row 2-column
 		}
 		
-		@DataProvider
+		@DataProvider                    //Data provide by HashMap
 		public Object[][] getData()
 		{
 			HashMap<String, String> map = new HashMap<String, String>();
@@ -84,6 +84,20 @@
 
 			return new Object[][] {{map},{map1}};
 		}
+		||
+		|| Use in below way
+		\/
+	String productName = "ZARA COAT 3";
+	@Test(dataProvider="getData")
+	public void submitOrder (HashMap<String, String> input)
+		ProductCatalogue productCatalogue landingPage.loginApplication (input.get("email"), input.get("password") List<WebElement> products = productCatalogue.getProductList(); productCatalogue.addProductToCart(input.get("product"));
+		CartPage cartPage = productCatalogue.goToCartPage();
+		Boolean match = cartPage.VerifyProductDisplay (productName); Assert.assertTrue(match);
+		CheckoutPage checkout Page cartPage.goToCheckout(); checkoutPage.selectCountry("india");
+		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
+		String confirmMessage confirmationPage.getConfirmationMessage();
+		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+	}
 
 
 
