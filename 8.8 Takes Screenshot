@@ -24,6 +24,37 @@ public String getScreenshot (String testCaseName) throws IOException
 }
 
 
+/////////////How to create Extent Report //////////////////////////////////////////////////////////////////////////////////
+
+public class ExtentReportDemo
+{
+    @BeforeTest
+    public void config()
+    {
+        // ExtentReports, Extent SparkReporter
+        String path =System.getProperty("user.dir")+"\\reports\\index.html"; 
+        ExtentSparkReporter reporter = new ExtentSparkReporter (path); 
+        reporter.config().setReportName("Web Automation Results"); 
+        reporter.config().setDocumentTitle("Test Results");
+        ExtentReports extent =new ExtentReports(); extent.attachReporter (reporter);
+        extent.setSystemInfo("Tester", "Rahul Shetty");
+    }
+
+    @Test
+    public void initialDemo()
+    {
+        extent.createTest("Initial Demo");
+        System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe"); WebDriver driver =new ChromeDriver(); driver.get("https://rahulshettyacademy.com"); System.out.println(driver.getTitle()); I
+        extent.flush();
+    }
+
+}
+
+
+
+
+
+
 
 
 
