@@ -68,6 +68,22 @@
 		{
 			return new Object[][] {{"abc1@gmail.com","pass1"},{"abc2@gmail.com","pass2"},{"abc3@gmail.com","pass3"}};  //3-row 2-column
 		}
+		
+		@DataProvider
+		public Object[][] getData()
+		{
+			HashMap<String, String> map = new HashMap<String, String>();
+			map.put("email","karim@gmail.com");
+			map.put("password", "abc123");
+			map.put("product", "ZARA COAT 3");
+
+			HashMap<String, String> map1 = new HashMap<String, String>();
+			map.put("email","rarim@gmail.com");
+			map.put("password", "abc124");
+			map.put("product", "ADIDAS ORIGINAL");
+
+			return new Object[][] {{map},{map1}};
+		}
 
 
 
