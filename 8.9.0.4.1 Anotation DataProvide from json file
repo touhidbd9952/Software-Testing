@@ -26,18 +26,18 @@ How to provide data from a external json file to selenium test project?
 ////Step-3: Read Json file --> convert to string --> convert to List of Hashmap
 
 public List<HashMap<String, String>> getJsonDataToMap(String filepath) throws IOException
-	{
-		//read json to string
-		String jsonContent=
-		FileUtils.readFileToString(new File(filepath, 
-		StandardCharsets.UTF_8);
-		//String to HashMap- Jackson Datbind
-		ObjectMapper mapper = new ObjectMapper();
-		List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
-		});
-	
-		return data;
-	}
+{
+	//read json to string
+	String jsonContent=
+	FileUtils.readFileToString(new File(filepath, 
+	StandardCharsets.UTF_8);
+	//String to HashMap- Jackson Datbind
+	ObjectMapper mapper = new ObjectMapper();
+	List<HashMap<String, String>> data = mapper.readValue(jsonContent, new TypeReference<List<HashMap<String, String>>>() {
+	});
+
+	return data;
+}
 
 @DataProvider
 public Object[][] getData() throws IOException
