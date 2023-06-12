@@ -1,0 +1,43 @@
+/////////////How to create Extent Report //////////////////////////////////////////////////////////////////////////////////
+//Step-1:  add library in pom.xml
+
+<!-- https://mvn repository.com/artifact/com.aventstack/extent reports <dependency>-->
+<dependency>
+<groupId>com.aventstack</groupId>
+<artifactId>extent reports</artifactId> <version>5.0.9</version>
+</dependency>
+
+//Step-2: create a class "ExtentReportDemo" in "src/test/java"
+
+public class ExtentReportDemo
+{
+    ExtentReports extent;
+    
+    @BeforeTest
+    public void config()
+    {
+        // ExtentReports, Extent SparkReporter
+        String path =System.getProperty("user.dir")+"\\reports\\index.html"; 
+        ExtentSparkReporter reporter = new ExtentSparkReporter (path); 
+        reporter.config().setReportName("Web Automation Results"); 
+        reporter.config().setDocumentTitle("Test Results");
+        extent =new ExtentReports(); 
+        extent.attachReporter (reporter);
+        extent.setSystemInfo("Tester", "Rahul Shetty");
+    }
+
+    @Test
+    public void initialDemo()
+    {
+        extent.createTest("Initial Demo");
+        System.setProperty("webdriver.chrome.driver", "C://chromedriver.exe"); 
+        WebDriver driver =new ChromeDriver(); 
+        driver.get("https://rahulshettyacademy.com"); 
+        System.out.println(driver.getTitle()); I
+        extent.flush();  //to close extent report operation
+    }
+
+}
+
+
+
