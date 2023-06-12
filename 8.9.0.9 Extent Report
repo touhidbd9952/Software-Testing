@@ -39,5 +39,107 @@ public class ExtentReportDemo
 
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Step-1/////////////////////////////////
+
+public class ExtentReporterNG {
+public static ExtentReports getReportObject()
+{
+    String path =System.getProperty("user.dir")+"//reports//index.html"; 
+   ExtentSparkReporter   reporter  =  new  ExtentSparkReporter (path); 
+   reporter.config().setReportName("Web Automation Results"); 
+   reporter.config().setDocumentTitle("Test Results");
+
+   ExtentReports  extent = new ExtentReports();
+   extent.attachReporter (reporter);
+   extent.setSystemInfo("Tester", "Rahul Shetty");
+   return extent;
+}
+
+//Step-2/////////////////////////////////
+
+public class Listeners implements ITestListener
+{
+   ExtentTest test;
+   ExtentReports extent = ExtentReporterNG.getReportObject(); 
+   WebDriver driver;
+
+   @Override
+   public void onTestStart (ITestResult result) 
+   {
+      test = extent.createTest(result.getMethod().getMethodName());       //1
+   }
+
+   @Override
+   public void onTestSuccess (ITestResult result) 
+   { 
+      test.log(Status. PASS, "Test Passed");    //2
+   }
+
+   @Override
+   public void onTestFailure (ITestResult result) 
+   { 
+      test.fail(result.getThrowable());       //3
+      driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
+      String filePath = null;
+      filePath = getScreenshot (result.getMethod().getMethodName(), driver);
+      test.addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+   }
+
+   @Override
+    public void onFinish (ITestContext context) 
+   { 
+      extent.flush();   //4
+   }
+}
+
+//Step-3: add listeners in pom.xml/////////////////////////////////
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd"> 
+
+<suite parallel = "tests" name="Suite">
+
+<listeners>
+  <listener class-name="rahulshettyacademy. TestComponents. Listeners"/> 
+</listeners>
+
+<test thread-count="5" name="Submit Order Test">
+<classes>
+  <class name="rahulshettyacademy.tests. SubmitOrderTest"/> 
+</classes>
+</test> 
+
+<test thread-count="5" name="Error Validations Test">
+<classes>
+   <class name="rahulshettyacademy.tests. ErrorValidationsTest"/> 
+</classes>
+</test> 
+
+</suite> 
+
+
+///Step-4://////////////////////////////////////////////////
+
+public String getScreenshot (String testCaseName, WebDriver driver) throws IOException
+{
+    TakesScreenshot ts = (TakesScreenshot) driver;
+    File source = ts.getScreenshotAs(OutputType.FILE);
+    File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png"); 
+    FileUtils.copyFile(source, file);  //source, destination
+    return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
