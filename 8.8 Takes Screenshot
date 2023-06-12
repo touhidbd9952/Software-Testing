@@ -25,6 +25,15 @@ public String getScreenshot (String testCaseName) throws IOException
 
 
 /////////////How to create Extent Report //////////////////////////////////////////////////////////////////////////////////
+//Step-1:  add library in pom.xml
+
+<!-- https://mvn repository.com/artifact/com.aventstack/extent reports <dependency>-->
+<dependency>
+<groupId>com.aventstack</groupId>
+<artifactId>extent reports</artifactId> <version>5.0.9</version>
+</dependency>
+
+//Step-2: create a class "ExtentReportDemo" in "src/test/java"
 
 public class ExtentReportDemo
 {
