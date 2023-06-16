@@ -64,27 +64,29 @@ public class Listeners implements ITestListener
    ExtentTest test;
    ExtentReports extent = ExtentReporterNG.getReportObject(); 
    WebDriver driver;
+   ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();    //help in parallel testing
 
    @Override
    public void onTestStart (ITestResult result) 
    {
       test = extent.createTest(result.getMethod().getMethodName());       //1
+      extentTest.set(test); 
    }
 
    @Override
    public void onTestSuccess (ITestResult result) 
    { 
-      test.log(Status. PASS, "Test Passed");    //2
+      extentTest.get().log(Status. PASS, "Test Passed");    //2   extentTest.get() return test
    }
 
    @Override
    public void onTestFailure (ITestResult result) 
    { 
-      test.fail(result.getThrowable());       //3
+      extentTest.get().fail(result.getThrowable());       //3
       driver = (WebDriver) result.getTestClass().getRealClass().getField("driver").get(result.getInstance());
       String filePath = null;
       filePath = getScreenshot (result.getMethod().getMethodName(), driver);
-      test.addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+      extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
    }
 
    @Override
