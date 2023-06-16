@@ -135,6 +135,35 @@ public String getScreenshot (String testCaseName, WebDriver driver) throws IOExc
 
 
 
+/////////// How to retest a testcase ////////////////////////////////////////////////////////////////
+1. create a class "Retry" and impliments it by "IRetryAnalyzer"
+
+package rahulshettyacademy.TestComponents;
+import org.testng. IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class Retry implements IRetryAnalyzer 
+{
+	int count = 0;
+	int maxTry=1;
+	@Override
+	public boolean retry (ITestResult result) 
+	{
+		if (count < maxTry)
+		{
+           count++;
+		   return true;
+		}
+		return false;
+
+	}
+}
+
+
+2. call "Retry" in "Listeners" class
+
+@Test(groups= {"ErrorHandling"}, retryAnalyzer=Retry.class)
+
 
 
 
