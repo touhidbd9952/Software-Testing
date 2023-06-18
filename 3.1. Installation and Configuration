@@ -6,7 +6,7 @@
 
 a.	Install jdk and set environment variable
 b.	Run Eclipse
-c.	Go to browser, type “maven repository” search “selenium Driver” 
+c.	Go to browser, type “maven repository” search “selenium Driver for java” 
 d.	Go to browser, type “maven repository”search ”testng”
 e.	Go to browser, type “chromedriver download” (first check your pc installed chrome version. Exactly same chromedriver version, you have to download )
 f.	Go to browser, type “firefoxdriver download/gecko driver download”  (first check your pc installed firefox version. Exactly same firefoxdriver version, you have to download )
