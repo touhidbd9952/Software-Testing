@@ -1,0 +1,186 @@
+1. count how many page in this table
+2. Search particular fruitname in datatable
+3. if found, show its price
+4. if not found, show not found message
+
+///////////////////////////////////////////////////
+
+package com.abc.testproject2;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class DataTableTest 
+{
+
+	public static void main(String[] args) throws TimeoutException 
+	{
+		//WebDriver setup
+		WebDriverManager.chromedriver().setup();
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.get("https://rahulshettyacademy.com/seleniumPractise/#/offers");
+        
+        
+        
+        //search fruitname in table
+        
+        String fruitname ="Apple";
+        int firstpage=0;
+        boolean itemexist = false;
+        int totalPage = 1; //initially, we thought table have one page.
+        totalPage = totalPageInTable(driver); //count total number of page
+        for(int page=0;page<totalPage;page++)
+        {
+        	List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
+        	int rownumber=0;
+            if(firstpage==0)
+            {
+            	firstpage=1;
+            	
+            	for(int i=0;i<rows.size()-1;i++)
+                {
+                	rownumber = i+1;
+                	if(rows.get(i).findElement(By.xpath("//tr["+rownumber+"]//td[1]")).getText().equalsIgnoreCase(fruitname))
+                	{
+                		System.out.println(rows.get(i).findElement(By.xpath("//tr["+rownumber+"]//td[2]")).getText());
+                		itemexist = true;
+                		break;
+                	}
+                }
+            }
+            
+            if(itemexist== false)
+            {
+            	try 
+            	{
+            		if(showOutPut(driver, fruitname))
+            		{
+            			break;
+            		}
+				} 
+            	catch (Exception e) 
+            	{
+					System.out.println("Item Not Found");
+					break;
+				}
+            }
+        }
+        
+        
+        
+        //WebDriver close
+        try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+        driver.quit();
+
+	}
+	
+	public static boolean showOutPut(WebDriver driver, String fruitname)
+	{
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		WebElement btnNext = driver.findElement(By.xpath("//a[@aria-label='Next']"));
+		
+		if(!btnNext.getAttribute("class").contains("disabled")){
+			btnNext.click();
+			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		}
+		
+		List<WebElement> rows = driver.findElements(By.cssSelector("table tr"));
+        int rownumber=0;
+        int num = rows.size();
+        boolean existitem=false;
+        for(int i=0;i<rows.size();i++)
+        {
+        	rownumber = i+1;
+        	
+        	if(rownumber <rows.size() && rows.get(i).findElement(By.xpath("//tr["+rownumber+"]//td[1]")).getText().equalsIgnoreCase(fruitname))
+        	{
+        		System.out.println(rows.get(i).findElement(By.xpath("//tr["+rownumber+"]//td[2]")).getText());
+        		existitem = true;
+        		break;
+        	}
+        	
+        }
+        return existitem;
+	}
+	
+	public static int totalPageInTable(WebDriver driver) throws TimeoutException
+	{
+		int totalnum =1;
+		WebElement btnNext = driver.findElement(By.xpath("//a[@aria-label='Next']"));
+		while (!btnNext.getAttribute("class").contains("disabled")) {
+			try {
+				btnNext.click();
+				totalnum++;
+				try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+			} catch (Exception e) {
+				break;
+			}
+			
+		}
+//		int totalnum =1;
+//		for(int i=0;i<500;i++)
+//		{
+//			try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+//			WebElement btnNext = driver.findElement(By.xpath("//a[@aria-label='Next']"));
+//			
+//			if(!btnNext.getAttribute("class").contains("disabled")){
+//				btnNext.click();
+//			    totalnum++;
+//			}
+//			else
+//			{
+//				WebElement btnFirst = driver.findElement(By.xpath("//a[@aria-label='First']"));
+//				if(!btnFirst.getAttribute("class").contains("disabled")){
+//					btnFirst.click();
+//				}
+//				break;
+//			}
+//			
+//		}
+		
+		
+		return totalnum;
+	}
+	
+	
+
+}
+
+//////////////////pom.xml////////////////////////////////////
+
+<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+    
+    
+    
+    
+
