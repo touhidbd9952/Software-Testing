@@ -11,6 +11,16 @@
         
                 WebDriverManager.chromedriver().setup();
                 WebDriver driver = new ChromeDriver();
+		
+		or 
+		
+		WebDriverManager.firefoxdriver().setup();
+        	WebDriver driver = new FirefoxDriver();
+        	
+		or 
+		
+        	WebDriverManager.edgedriver().setup();
+        	WebDriver driver = new EdgeDriver();
         
 3. we will create class in "src/test/java"   
 
