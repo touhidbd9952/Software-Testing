@@ -1,0 +1,162 @@
+///This is a Flight Booking Site/////////////////
+///Here i use Calender to set start and end travel date
+
+package com.abc.testproject3;
+
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class FlightBook 
+{
+	public static void main(String[] args) 
+	{
+		//driver setup
+        WebDriverManager.firefoxdriver().setup();
+        WebDriver driver = new FirefoxDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        
+        driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
+        
+        //
+        driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_1")).click();
+        driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+        //(//table[@id='citydropdown'])[1]
+        WebDriverWait wdw = new WebDriverWait(driver, 5);
+        wdw.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//table[@id='citydropdown'])[1]//ul//li//a")));
+        
+        ////ul//li//a
+        
+        
+        List<WebElement> fromCitys = driver.findElements(By.xpath("(//table[@id='citydropdown'])[1]//ul//li//a"));
+        WebElement fromcity =fromCitys.stream().filter(city->city.getText().equalsIgnoreCase("Chennai (MAA)")).findFirst().orElse(null);
+        if(!fromcity.equals(null))
+        {
+        	fromcity.click();
+        	wdw.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//table[@id='citydropdown'])[2]//ul//li//a")));
+        	List<WebElement> toCitys = driver.findElements(By.xpath("(//table[@id='citydropdown'])[2]//ul//li//a"));
+        	WebElement tocity = toCitys.stream().filter(city->city.getText().equalsIgnoreCase("Jaipur (JAI)")).findFirst().orElse(null);
+        	if(!tocity.equals(null))
+        	{
+        		tocity.click();
+        	}
+        }
+        
+        //click on calendar
+        String travelStartMonthYear = "June";
+        String travelStartDate="30";
+        String travelEndMonthYear = "July";
+        String travelEndDate="5";
+      
+        ////div[contains(@class,'ui-datepicker-group-first')]
+        driver.findElement(By.id("ctl00_mainContent_view_date1")).click();
+        WebElement fromDatePicker = driver.findElement(By.xpath("//div[contains(@class,'ui-datepicker-group-first')]"));
+        String currentMountYear = fromDatePicker.findElement(By.xpath("(//div[@class='ui-datepicker-title'])[1]")).getText();
+        if(currentMountYear.contains(travelStartMonthYear))
+        {
+        	List<WebElement> dates = fromDatePicker.findElements(By.xpath("//tr//td"));
+        	WebElement formDate = dates.stream().filter(date->date.getText().equalsIgnoreCase(travelStartDate)).findFirst().orElse(null);
+        	if(!formDate.equals(null))
+        	{
+        		formDate.click();
+        	}
+        }
+        ////div[contains(@class,'ui-datepicker-group-last')]
+        driver.findElement(By.id("ctl00_mainContent_view_date2")).click();
+        try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+        driver.findElement(By.id("ctl00_mainContent_view_date2")).click();
+        try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+        WebElement toDatePicker = driver.findElement(By.xpath("//div[contains(@class,'ui-datepicker-group-last')]"));
+        String nextMountYear = toDatePicker.findElement(By.xpath("(//div[@class='ui-datepicker-title'])[2]")).getText();
+        if(nextMountYear.contains(travelEndMonthYear))
+        {
+        	List<WebElement> dates = toDatePicker.findElements(By.xpath("//div[contains(@class,'ui-datepicker-group-last')]//tr//td/a"));
+        	WebElement toDate = dates.stream().filter(date->date.getText().equalsIgnoreCase(travelEndDate)).findFirst().orElse(null);
+        	String toDateText = toDate.getText();
+        	if(!toDate.equals(null))
+        	{
+        		toDate.click();
+        	}
+        }
+        
+        driver.findElement(By.id("divpaxinfo")).click();
+        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+        for(int i=0;i<1;i++)
+        {
+        	driver.findElement(By.xpath("//div[@id='divAdult']//span[@id='hrefIncAdt']")).click();
+        }
+        
+        for(int i=0;i<1;i++)
+        {
+        	driver.findElement(By.xpath("//div[@id='divChild']//span[@id='hrefIncChd']")).click();
+        }
+        
+        driver.findElement(By.id("btnclosepaxoption")).click();
+        
+        WebElement selectDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));  
+        Select currencySelectDropdown = new Select(selectDropdown); 
+        currencySelectDropdown.selectByValue("USD");  
+        
+        driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
+        
+        try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+        
+        driver.quit();
+	}
+
+}
+
+
+
+//////////////////// pom.xml dependencies/////////////////////////////////////////////////////////////////////////////////////////
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.abc</groupId>
+  <artifactId>testproject3</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>testproject3</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    
+    <dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.141.59</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+    
+  </dependencies>
+</project>
