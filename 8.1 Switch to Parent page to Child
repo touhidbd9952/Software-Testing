@@ -13,6 +13,8 @@
 		driver.switchTo().window(parentId);  
 		//get popup window/new widow/tab window title
 		System.out.println("Popup window title: "+driver.getTitle());
+		//after work finish, close only child window
+		driver.close(); 
 
 ///////or////////////////////
 
