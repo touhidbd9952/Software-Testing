@@ -11,6 +11,8 @@
 
 		///////after complete task of child page, go back to parent page and do other task//////
 		driver.switchTo().window(parentId);  
+		//get popup window/new widow/tab window title
+		System.out.println("Popup window title: "+driver.getTitle());
 
 ///////or////////////////////
 
