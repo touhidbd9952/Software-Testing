@@ -17,7 +17,10 @@ public class SelfIntroduction {
 		
 		//System.setProperty("webdriver.edge.driver", "D:\\alldriver\\edgedriver_win64\\msedgedriver.exe");
 		//WebDriver driver = new EdgeDriver();
-		
+
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //wait 5 second if need to complete any task
+		driver.manage().window().maximize(); //set window maximum size
+
 		driver.get("https://woodyengineering.com");   //to go particular page
 		System.out.println(driver.getTitle());  //to get title of the website
 		System.out.println(driver.getCurrentUrl()); //to get current website url
