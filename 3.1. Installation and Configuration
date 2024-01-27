@@ -58,7 +58,7 @@ Step-3: download and add drivers (selenium for java, testng, chromedriver, gecko
 
 
 
-        now open "pom.xml" file and paste in below way
+        now open "pom.xml" file and paste as dependency in below way
                   -------
 
 
