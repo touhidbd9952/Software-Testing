@@ -56,6 +56,8 @@ Step-3: download and add drivers (selenium for java, testng, chromedriver, gecko
                     <version>4.17.0</version>
                 </dependency>
 
+
+
         now open "pom.xml" file and paste in below way
                   -------
 
@@ -78,6 +80,7 @@ Step-3: download and add drivers (selenium for java, testng, chromedriver, gecko
 
 	<dependencies>
 
+                <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
