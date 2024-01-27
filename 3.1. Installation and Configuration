@@ -46,7 +46,26 @@ Step-2: convert java project to maven project  (right click on YourProjectName -
  
 Step-3: download and add drivers (selenium for java, testng, chromedriver, geckodriver, edgedriver)
 
-        Go to "https://mvnrepository.com/" and download selenium for java and testng
+        Go to "https://mvnrepository.com/" and type "selenium for java" in search box and 
+          select "Selenium Java", in "central" tab select latest version and copy below code
+
+	      <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+    		  <groupId>org.seleniumhq.selenium</groupId>
+    		    <artifactId>selenium-java</artifactId>
+                    <version>4.17.0</version>
+                </dependency>
+
+        now open "pom.xml" file and paste in below way
+
+
+
+
+
+
+
+        Go to "https://mvnrepository.com/" and download "testng"
+
         Go to google and download chromedriver for chrome browser
         Go to google and download geckodriver for firefox browser
         Go to google and download edgedriver for edge browser
