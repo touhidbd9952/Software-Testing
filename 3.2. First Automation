@@ -1,4 +1,7 @@
-//Create a Class named "SelfIntroduction" with main function
+1. File --> New --> Java Project, name "introduction"
+2. right click on "project name" --> configure --> Convert to Maven Project
+4. add dependencies in "porm.xml" file
+3. right click on "src" of project --> Create a Class named "SelfIntroduction" with main function
 
 package introduction;
 
@@ -33,6 +36,11 @@ public class SelfIntroduction {
 	}
 
 }
+
+
+//right click on any space in class --> run --> Java Application
+
+
 
 
 ///////////////////////////////////////////////////////
