@@ -51,7 +51,7 @@ Step-3: download and add drivers (selenium for java, testng, chromedriver, gecko
         Go to google and download geckodriver for firefox browser
         Go to google and download edgedriver for edge browser
         
-Step-4: Create a Class  in your java project and do work below way
+Step-4: Create a Class named "Introduction"  in your java project and do work below way
         a. right click on "src"-->new-->Class
         b. Class Name: Introduction
         c. select "main method"
