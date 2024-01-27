@@ -33,6 +33,40 @@ public class SelfIntroduction {
 }
 
 
+///////////////////////////////////////////////////////
+
+package introduction;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+
+public class SelfIntroduction {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//WebDriverManager.chromedriver().setup();
+        //WebDriver driver = new ChromeDriver();
+		
+		System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //wait 5 second if need to complete any task
+		driver.manage().window().maximize();    //set size of window
+        
+        driver.get("https://ocean.com.bd");
+        System.out.println(driver.getTitle());
+        driver.quit();
+        driver.
+	}
+
+}
+
+
+
 /////Run Application////////////////////////////////////
 a. right click on java class name-->Run-->Java Application 
 
