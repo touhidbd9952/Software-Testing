@@ -1,5 +1,8 @@
 /////Required Software and drivers (Java, Eclipse, selenium driver, testng, chromedriver, geckodriver, edgedriver) to work on basic automation
 ---------------------------------------------------------------------------------------------------------------------------
+How to Install "Java jdk and Eclipse" Video Link
+------------------------------------------------
+https://www.udemy.com/course/selenium-real-time-examplesinterview-questions/learn/lecture/29096110#overview
 
 1.	Download “Java jdk” version 10/11
 2.	Download “Eclipse” (java developer, maven supported)
