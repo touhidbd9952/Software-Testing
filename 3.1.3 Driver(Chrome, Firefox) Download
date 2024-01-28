@@ -22,7 +22,10 @@ d. place the driver in D drive and connect it with project below way
   	System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
 	WebDriver driver = new FirefoxDriver();
 
-
+	//for google edge browser, download msedgedriver
+  	-------------------------------------------
+	System.setProperty("webdriver.edge.driver", "D:\\alldriver\\edgedriver_win64\\msedgedriver.exe");
+	WebDriver driver = new EdgeDriver();
 
 
 
