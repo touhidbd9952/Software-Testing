@@ -14,5 +14,15 @@ b. search chrome driver of particular version, select driver for windows 64 and 
 c. download the driver
 d. place the driver in D drive and connect it with project below way
 
-  System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+	System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+	WebDriver driver = new ChromeDriver();
+
+	//for firefox browser, download geckodriver
+  	-------------------------------------------
+  	System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
 	WebDriver driver = new FirefoxDriver();
+
+
+
+
+
