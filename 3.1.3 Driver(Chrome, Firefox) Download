@@ -1,1 +1,18 @@
+https://www.udemy.com/course/selenium-real-time-examplesinterview-questions/learn/lecture/29096176#overview
+
 //To download chrome driver
+1. first check version of your pc chrome browser
+2. download particular version driver
+
+//How to check version of your pc chrome browser
+a. At the top right corner of your chrome browser, your will see (:) three dot sign
+b. click on (:) --> Help --> About Google Chrome
+
+//How to download chrome driver of particular version
+a. open any browser, type "chrome driver download" and enter
+b. search chrome driver of particular version, select driver for windows 64 and copy the link and paste in browser url
+c. download the driver
+d. place the driver in D drive and connect it with project below way
+
+  System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+	WebDriver driver = new FirefoxDriver();
