@@ -98,6 +98,9 @@ public class Main {
   static void myMethod() {
     System.out.println("Hello World!");
   }
+public void speed(int maxSpeed) {
+    System.out.println("Max speed is: " + maxSpeed);
+  }
 }
 
 //////////////////objects//////////////////
@@ -107,6 +110,21 @@ public class Main {
 
   public static void main(String[] args) {
     Main myObj = new Main();
+    System.out.println(myObj.x);
+  }
+}
+
+//////////////////constructor//////////////////
+-----------------------------------------------------------------
+public class Main {
+  int x;
+
+  public Main(int y) {
+    x = y;
+  }
+
+  public static void main(String[] args) {
+    Main myObj = new Main(5);
     System.out.println(myObj.x);
   }
 }
