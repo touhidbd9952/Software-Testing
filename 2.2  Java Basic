@@ -1,5 +1,5 @@
-Variables
----------
+//////////////////Variables//////////////////
+-----------------------------------------------------------------
 int myNum = 5;               // Integer (whole number)
 float myFloatNum = 5.99f;    // Floating point number
 char myLetter = 'D';         // Character
@@ -16,8 +16,8 @@ int myInt = (int) myDouble; // Manual casting: double to int
 System.out.println(myDouble);   // Outputs 9.78
 System.out.println(myInt);      // Outputs 9
 
-Arrays
----------
+//////////////////Arrays//////////////////
+-----------------------------------------------------------------
 String[] cars;
 String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
 int[] myNum = {10, 20, 30, 40};
@@ -29,8 +29,8 @@ cars[0] = "Opel";
 System.out.println(cars[0]);
 System.out.println(cars.length);
 
-Arraylist
----------
+//////////////////Arraylist//////////////////
+-----------------------------------------------------------------
 import java.util.ArrayList;
 
 public class Main {
@@ -45,8 +45,8 @@ public class Main {
 }
 
 
-For loop
----------
+//////////////////For loop//////////////////
+-----------------------------------------------------------------
 for (int i = 0; i < 5; i++) {
   System.out.println(i);
 }
@@ -77,8 +77,8 @@ for (int i = 0; i < cars.length; i++) {
 
 
 
-if else
----------
+//////////////////if else//////////////////
+-----------------------------------------------------------------
 if (20 > 18) {
   System.out.println("20 is greater than 18");
 }
@@ -92,16 +92,16 @@ if (time < 18) {
 
 String result = (time < 18) ? "Good day." : "Good evening.";
 
-Methods
----------
+//////////////////Methods//////////////////
+-----------------------------------------------------------------
 public class Main {
   static void myMethod() {
     System.out.println("Hello World!");
   }
 }
 
-objects
----------
+//////////////////objects//////////////////
+-----------------------------------------------------------------
 public class Main {
   int x = 5;
 
