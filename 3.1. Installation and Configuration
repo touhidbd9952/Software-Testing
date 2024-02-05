@@ -11,7 +11,7 @@ https://www.udemy.com/course/selenium-real-time-examplesinterview-questions/lear
 1.	Download “Java jdk” version 10/11
 2.	Download “Eclipse” (java developer, maven supported)
 
-a.	Install jdk and set environment variable
+a.	Install jdk and set environment variable (https://www.computerhope.com/issues/ch000549.htm)
 b.	Run Eclipse
 c.	Go to browser, type “maven repository” search “selenium Driver for java” 
 d.	Go to browser, type “maven repository”search ”testng”
