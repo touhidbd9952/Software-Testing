@@ -19,7 +19,7 @@ e.	Go to browser, type “chromedriver download” (first check your pc installe
 f.	Go to browser, type “firefoxdriver download/gecko driver download”  (first check your pc installed firefox version. Exactly same firefoxdriver version, you have to download )
 g.	Go to browser, type “edgedriver download” (first check your pc installed edge version. Exactly same edgedriver version, you have to download )
 
-Step-1: Open Eclipse and create new java project
+Step-1: Open Eclipse and create new java project (File --> New --> Java Project)
 Step-2: convert java project to maven project  (right click on YourProjectName --> configure--> convert to java maven project)
 
       pom.xml
