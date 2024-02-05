@@ -2,7 +2,7 @@ For more help: https://www.guru99.com/xpath-selenium.html      //xpath
 
 XPath Syntax
 ----------------------------
-XPath ওয়েব পৃষ্ঠায় অবস্থিত উপাদানের পথ ধারণ করে। Standard XPath syntax for creating XPath is.
+XPath contains the path of the element situated at the web page. Standard XPath syntax for creating XPath is.
 
 Xpath=//tagname[@attribute='value']
 
