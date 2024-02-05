@@ -50,7 +50,7 @@ public class Locator {
 		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //wait 5 second if need to complete any task
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //Global wait 5 second if need to complete any task
 		driver.manage().window().maximize();    //set size of window
 		
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
