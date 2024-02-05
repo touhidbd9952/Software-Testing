@@ -69,7 +69,7 @@ public class Locator {
 		driver.findElement(By.name("inputPassword")).sendKeys(loginpassword);  //name
 		driver.findElement(By.className("signInBtn")).click();  //className
 		
-		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
+		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}  //java wait
 		
 		System.out.println(driver.findElement(By.cssSelector("p.error")).getText()); //cssSelector
 		driver.findElement(By.linkText("Forgot your password?")).click();  //linkText
