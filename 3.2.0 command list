@@ -1,21 +1,10 @@
 Type of Locator:
 -----------------
-ID             		    driver.findElement(By.id("inputUsername")).sendKeys(loginusername);   //id
-name			            driver.findElement(By.name("inputPassword")).sendKeys(loginpassword);  //name
-Class Name		        driver.findElement(By.className("signInBtn")).click();  //className
-Tag Name		          driver.findElement(By.tagName("input"));   //tagName
-Link Text		          driver.findElement(By.linkText("Forgot your password?")).click();  //linkText
-Partial Link Text	    driver.findElement(By.partialLinkText("here")).click();   //partialLinkText
-cssSelector		        System.out.println(driver.findElement(By.cssSelector("p.error")).getText());   //cssSelector
-Xpath			            driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
-
-
-
-
-
-
-
-
-
-
-
+ID             		driver.findElement(By.id("inputUsername")).sendKeys(loginusername);   //id
+name			driver.findElement(By.name("inputPassword")).sendKeys(loginpassword);  //name
+Class Name		driver.findElement(By.className("signInBtn")).click();  //className
+Tag Name		driver.findElement(By.tagName("input"));   //tagName
+Link Text		driver.findElement(By.linkText("Forgot your password?")).click();  //linkText
+Partial Link Text	driver.findElement(By.partialLinkText("here")).click();   //partialLinkText
+cssSelector		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());   //cssSelector
+Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
