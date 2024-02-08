@@ -13,18 +13,18 @@ Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("r
 //Driver Setup
 ---------------------------
 System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+WebDriver driver = new ChromeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //Global wait 5 second if need to complete any task
-		driver.manage().window().maximize();    //set size of window
+driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //Global wait 5 second if need to complete any task
+driver.manage().window().maximize();    //set size of window
+driver.get("https://rahulshettyacademy.com/locatorspractice/");
 
 //Navigator 
 ---------------------------
-driver.get("https://rahulshettyacademy.com/locatorspractice/");
-		
-		//driver.navigate().to("https://rahulshettyacademy.com");   //we can open other window if need
-		//driver.navigate().back();    //back to previous page
-		//driver.navigate().forward(); //go to forward page
+driver.navigate().to("https://rahulshettyacademy.com");   //we can open other window if need
+driver.navigate().back();    //back to previous page
+driver.navigate().forward(); //go to forward page
+
 
 
 
