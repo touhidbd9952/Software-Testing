@@ -10,8 +10,16 @@ cssSelector		System.out.println(driver.findElement(By.cssSelector("p.error")).ge
 Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
 
 
-Driver Setup
+//Driver Setup
 ------------
+System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver = new ChromeDriver();
+		
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //Global wait 5 second if need to complete any task
+		driver.manage().window().maximize();    //set size of window
+
+//Navigator 
+
 
 
 
