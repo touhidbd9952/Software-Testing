@@ -1,3 +1,14 @@
+Type of Locator:
+-----------------
+ID
+name
+Class Name
+Tag Name
+Link Text
+Partial Link Text
+Xpath
+
+
 For more help: https://www.guru99.com/xpath-selenium.html      //xpath
 
 XPath Syntax
