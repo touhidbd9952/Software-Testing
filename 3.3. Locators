@@ -1,12 +1,13 @@
 Type of Locator:
 -----------------
-ID
-name
-Class Name
-Tag Name
-Link Text
-Partial Link Text
-Xpath
+ID             		driver.findElement(By.id("inputUsername")).sendKeys(loginusername);   //id
+name			driver.findElement(By.name("inputPassword")).sendKeys(loginpassword);  //name
+Class Name		driver.findElement(By.className("signInBtn")).click();  //className
+Tag Name		driver.findElement(By.tagName("input"));
+Link Text		driver.findElement(By.linkText("Forgot your password?")).click();  //linkText
+Partial Link Text	driver.findElement(By.partialLinkText("here")).click();
+cssSelector		System.out.println(driver.findElement(By.cssSelector("p.error")).getText()); //cssSelector
+Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
 
 
 For more help: https://www.guru99.com/xpath-selenium.html      //xpath
