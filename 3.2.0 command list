@@ -8,3 +8,12 @@ Link Text		driver.findElement(By.linkText("Forgot your password?")).click();  //
 Partial Link Text	driver.findElement(By.partialLinkText("here")).click();   //partialLinkText
 cssSelector		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());   //cssSelector
 Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
+
+
+Driver Setup
+------------
+
+
+
+
+
