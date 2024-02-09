@@ -1,0 +1,24 @@
+//junit is one type of testing.
+//to test your test case by junit, you do not need main()
+//create a test class File-->new-->Class-->name: SearchProductTest-->Finish
+//add junit library in "porm.xml"
+
+in "SearchProductTest.java" file, write below way code
+-----------------------------------------------------
+import org.junit.Test;
+
+@Test
+public void searchProductByKeyword()
+{
+ 	WebDriver driver = Base.getDriver();
+	driver.get("http://www.automationpractice.com");
+	driver.findElement(By.id("search_query_top")).sendKeys("Printed Dress");
+	driver.findElement(By.name("submit_search")).click();
+	int total_num_img = driver.findElements(By.xpath("//img[@itemprop='image']")).size();
+	
+	Assert.assertEquals(5, total_num_img );   //expected, actual
+}
+
+//save your code
+//Right click on any space --> Run As --> Java Application
+
