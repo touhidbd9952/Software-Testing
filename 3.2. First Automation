@@ -1,40 +1,65 @@
 1. File --> New --> Java Project, name "introduction"
 2. right click on "project name" --> configure --> Convert to Maven Project
-4. add dependencies in "porm.xml" file
-3. right click on "src" of project --> Create a Class named "SelfIntroduction" with main function
+3. add dependencies in "porm.xml" file
+4. create a package in "src", right click on "src"
+	File --> New --> Package -->Name: com.yourprojectname.automation --> Finish
+5. right click on "com.yourprojectname.automation" of src --> Create a Class named "Base" with main function
+	File --> New --> Class --> Name: Base --> Finish
+6. right click on "com.yourprojectname.automation" of src --> Create a Class named "Home" with main function
+	File --> New --> Class --> Name: Home --> Finish
 
-package introduction;
+in "Base" class
+---------------
+package com.yourprojectname.automation;
+
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class SelfIntroduction {
-
-	public static void main(String[] args) {
+public class Base 
+{
+	public static WebDriver getDriver()
+	{
+		//System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
+		//WebDriver driver = new ChromeDriver();
 		
-		System.setProperty("webdriver.chrome.driver", "D:\\alldriver\\chromedriver_win32\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-		
-		//System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
-		//WebDriver driver = new FirefoxDriver();
+		System.setProperty("webdriver.gecko.driver", "D:\\alldriver\\geckodriver-v0.33.0-win32\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
 		
 		//System.setProperty("webdriver.edge.driver", "D:\\alldriver\\edgedriver_win64\\msedgedriver.exe");
 		//WebDriver driver = new EdgeDriver();
 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  //wait 5 second if need to complete any task
 		driver.manage().window().maximize(); //set window maximum size
+		
+		return driver;
+	}
 
+}
+
+
+in "Home" class
+---------------
+
+package com.yourprojectname.automation;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Home {
+
+	public static void main(String[] args) {
+		WebDriver driver = Base.getDriver();
 		driver.get("https://woodyengineering.com");   //to go particular page
+
 		System.out.println(driver.getTitle());  //to get title of the website
 		System.out.println(driver.getCurrentUrl()); //to get current website url
 		//driver.close();  //to close particular web tab that opened by selenium webdriver
 		driver.quit(); //to close all(associated) the web tab that are opened by selenium webdriver
-		
-
 	}
-
 }
 
 
@@ -43,7 +68,7 @@ public class SelfIntroduction {
 
 
 
-///////////////////////////////////////////////////////
+//////////////////or/////////////////////////////////////
 
 package introduction;
 
@@ -54,7 +79,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 
-public class SelfIntroduction {
+public class Home {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
