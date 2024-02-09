@@ -6,7 +6,7 @@
 5. right click on "com.yourprojectname.automation" of src --> Create a Class named "Base" with main function
 	File --> New --> Class --> Name: Base --> Finish
 6. right click on "com.yourprojectname.automation" of src --> Create a Class named "Home" with main function
-	File --> New --> Class --> Name: Home --> Finish
+	File --> New --> Class --> Name: Home --> main function (check mark) --> Finish
 
 in "Base" class
 ---------------
