@@ -34,6 +34,9 @@ select * where attribute='value'
 //tagname[contains(text(),'value')]
 //*[@attribute='value']
 
+//a[preceding-sibling[//div[@id="abc"]]]       //preceding-sibling : before brother sister
+//a[following-sibling[//span[@id='xyz']]]        //following-sibling : after brother sister
+
 
 
 select * where attribute='value'(select * where attribute='value')
