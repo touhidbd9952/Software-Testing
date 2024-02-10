@@ -23,7 +23,8 @@ XPath Syntax
 XPath contains the path of the element situated at the web page. Standard XPath syntax for creating XPath is.
 
 Xpath=//tagname[@attribute='value']
-Xpath=//tagname[@attribute='value' and @attribute='value' and ....]      
+Xpath=//tagname[@attribute='value' and @attribute='value' and ....]  
+Xpath=(//tagname[@attribute='value'])[1]
 
 
 select * where attribute='value'
