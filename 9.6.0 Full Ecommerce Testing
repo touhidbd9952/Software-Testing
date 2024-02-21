@@ -29,19 +29,25 @@ public class OrderSubmitTest {
 		
 		String mainUrl="https://rahulshettyacademy.com/client";
 		driver.get(mainUrl);
-		
-		///////Login Page////////
+
+
+		///////Login Page////////////////////////////////////
+
 		driver.findElement(By.id("userEmail")).sendKeys("touhidbd9952@gmail.com");
 		driver.findElement(By.id("userPassword")).sendKeys("Tori@2015");
 		driver.findElement(By.id("login")).click();
-		
-		///////Product Page///////
+
+
+		///////Product Page////////////////////////////////////
+
 		List<WebElement> products = driver.findElements(By.cssSelector(".mb-3"));
 		WebElement product = products.stream().filter(p->p.findElement(By.tagName("b")).getText().equalsIgnoreCase("zara coat 3")).findFirst().orElse(null);
 		////addtocart//
 		product.findElement(By.xpath("//button[contains(.,'Add To Cart')]")).click();
-		
-		///////cartview////
+
+
+		///////cartview////////////////////////////////////
+
 		try {Thread.sleep(3000);} catch (InterruptedException e) {e.printStackTrace();}
 		driver.findElement(By.xpath("//button[@routerlink='/dashboard/cart']")).click();
 		
@@ -64,7 +70,10 @@ public class OrderSubmitTest {
 		WebElement selectDropdown2 = driver.findElement(By.xpath("(//select[@class='input ddl'])[2]"));  
 		Select espireToDateSelectDropdown = new Select(selectDropdown2); 
 		espireToDateSelectDropdown.selectByIndex(24);
-		
+
+
+		/////////Payment/////////////////////////////////////////////////////////
+
 		//cwcode
 		driver.findElement(By.xpath("(//input[@class='input txt'])[1]")).sendKeys("311");
 		//name on card
@@ -79,8 +88,10 @@ public class OrderSubmitTest {
 		JavascriptExecutor js = (JavascriptExecutor)driver;
 		js.executeScript("window.scrollBy(0,900)");
 		driver.findElement(By.xpath("//a[contains(@class,'action__submit')]")).click();
-		
-		//order success message
+
+
+		//order success message////////////////////////////////////
+
 		Assert.assertTrue(driver.findElement(By.cssSelector("h1[class='hero-primary']")).getText().equalsIgnoreCase("Thankyou for the order."));
 		
 		
