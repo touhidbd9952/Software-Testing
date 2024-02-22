@@ -55,8 +55,11 @@ public void submitOrder (HashMap<String, String> input)
 {
 	ProductCatalogue productCatalogue landingPage.loginApplication (input.get("email"), input.get("password") List<WebElement> products = productCatalogue.getProductList(); productCatalogue.addProductToCart(input.get("product"));
 	CartPage cartPage = productCatalogue.goToCartPage();
-	Boolean match = cartPage.VerifyProductDisplay (productName); Assert.assertTrue(match);
-	CheckoutPage checkout Page cartPage.goToCheckout(); checkoutPage.selectCountry("india");
+	Boolean match = cartPage.VerifyProductDisplay (productName); 
+	Assert.assertTrue(match);
+
+	CheckoutPage checkoutPage cartPage.goToCheckout(); 
+	checkoutPage.selectCountry("india");
 	ConfirmationPage confirmationPage = checkoutPage.submitOrder();
 	String confirmMessage confirmationPage.getConfirmationMessage();
 	Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
