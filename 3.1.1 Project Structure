@@ -42,5 +42,20 @@ projectname
 |---testng.xml   //test case configuration file
 
 
+Project Structure(Folders)	Dependencies
+-------------------------------------------------------------------------
+base                          src/test/java	Selenium WebDriver
+utilities                     src/test/java	Test NG
+testcase                   src/test/java	Report NG
+configfiles       src/test/resources	Log4j, Log4j Core, Log4j API      (Apache)
+testdata          src/test/resources	Apache POI, Apache POI Common
+logs                 src/test/resources	Webdriver Manager
+reports           src/test/resources	
+
+
+
+
+
+
 
 
