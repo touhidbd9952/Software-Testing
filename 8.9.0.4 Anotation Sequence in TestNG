@@ -1,6 +1,6 @@
 TestNG Tags-Complete List
 
-List of Annotation @			Description
+List of Annotation @				Description
 -----------------------------------------------------------------------------------------------
 BeforeSuite				|	One time execute. if exist, it execute before all test
     BeforeTest				|	Execute before Test, if exist
