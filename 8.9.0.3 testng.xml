@@ -4,7 +4,7 @@ us a controll to run the test case what we want and make report on it
 in "testng.xml", we will get below section
 1. suite : generally we need to write the department name in its name=""
 2. test : type of test 
-3. classes : in side it, need to declare all the class related with type of test
+3. classes : in side of it, need to declare all the class related with type of test
 4. class : are the name of test case class file that are written for particular test.
 
 in a test project, can have multiple suite and each of suite, can have multiple test type.
