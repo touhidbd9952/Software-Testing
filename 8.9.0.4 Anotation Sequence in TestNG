@@ -1,19 +1,19 @@
 TestNG Tags-Complete List
 
-List of Annotation @				Description
+Annotation Sequence 				Description
 -----------------------------------------------------------------------------------------------
-BeforeSuite				|	One time execute. if exist, it execute before all test. use for browser setup.
-    BeforeTest				|	Execute before Test, if exist
-        BeforeGroups			|	Execute before Group Test, if exist
-            BeforeClass			|	Execute before Class
-                BeforeMethod		|	Execute before Method
-                        Test		|	Test Method
-                         DataProvider	|	Use for to provide test data
-                 AfterMethod		|	Execute after Method
-             AfterClass			|	Execute after Class
-         AfterGroups			|	Execute after Group Test,
-    AfterTest				|	Execute after Test, if exist
-AfterSuite				|	One time execute. if exist, it execute after all test
+@BeforeSuite				|	One time execute. if exist, it execute before all test. use for browser setup.
+    @BeforeTest				|	Execute before Test, if exist
+        @BeforeGroups			|	Execute before Group Test, if exist
+            @BeforeClass		|	Execute before Class
+                @BeforeMethod		|	Execute before Method
+                        @Test		|	Test Method
+                         @DataProvider	|	Use for to provide test data
+                 @AfterMethod		|	Execute after Method
+             @AfterClass		|	Execute after Class
+         @AfterGroups			|	Execute after Group Test,
+    @AfterTest				|	Execute after Test, if exist
+@AfterSuite				|	One time execute. if exist, it execute after all test
 
 
 
