@@ -2,7 +2,7 @@ TestNG Tags-Complete List
 
 List of Annotation @				Description
 -----------------------------------------------------------------------------------------------
-BeforeSuite				|	One time execute. if exist, it execute before all test
+BeforeSuite				|	One time execute. if exist, it execute before all test. use for browser setup.
     BeforeTest				|	Execute before Test, if exist
         BeforeGroups			|	Execute before Group Test, if exist
             BeforeClass			|	Execute before Class
