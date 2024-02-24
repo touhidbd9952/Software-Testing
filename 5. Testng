@@ -5,6 +5,8 @@ a. open eclipse
 b. go to "help menu" --> Eclipse market place --> Find: testng  <----|
 c. select "TestNG for Eclipse" --> install 
 
+to check TestNG install or not, go to Window menu --> Preferences --> in searchbox, type testng
+
 Step-2:
 Create Project in Eclipse
 
