@@ -10,7 +10,22 @@ in "testng.xml", we will get below section
 in a test project, can have multiple suite and each of suite, can have multiple test type.
 for a particular test, may be you need to write 100 or more classes. Below I have given an example
 
+Basic Structure of testng.xml file
+-------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
+<suite name="ReportSectionName">
+  <test thread-count="5" name="TestFolderName">
+    <classes>
+      <class name="PackageFolderName.TestFileName"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+Example of testng.xml file
+----------------------------------
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Loan Department">
