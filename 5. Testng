@@ -37,6 +37,12 @@ Create "testng.xml" file to run your test case
 
 	right click on "your Project name" --> TestNG --> Convert to TestNG
 
+Step-8:
+To run your test case
+
+	right click on "testng.xml" file --> Run As --> TestNG Suite
+
+
 
 
 Now, you can use Testng to test your selenium code
