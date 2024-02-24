@@ -1,5 +1,29 @@
+How to install TestNG in Eclipse
+------------------------------------
+Step-1: 
+a. open eclipse
+b. go to "help menu" --> Eclipse market place --> Find: testng  <----|
+c. select "TestNG for Eclipse" --> install 
 
-To use Testng, you have to add below maven dependency in you pom.xml file
+Step-2:
+Create Project in Eclipse
+
+	File --> new --> Java Project
+
+Step-3:
+Convert Project to Maven Project
+
+	right click on "Project Name" --> Confique --> Convert to Maven Project
+
+Step-4:
+Create Project Structure
+
+Step-5:
+Create Base Class and Create test Pages
+
+
+Step-6:
+To use Testng, you have to add below maven dependency in you pom.xml file of your java project
 
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <dependency>
@@ -7,6 +31,12 @@ To use Testng, you have to add below maven dependency in you pom.xml file
     <artifactId>testng</artifactId>
     <version>6.14.3</version>
 </dependency>
+
+Step-7:
+Create "testng.xml" file to run your test case
+
+	right click on "your Project name" --> TestNG --> Convert to TestNG
+
 
 
 Now, you can use Testng to test your selenium code
@@ -64,4 +94,6 @@ else
    Assert.assertTrue(false); //fail the result
 }
     
-    
+
+
+
