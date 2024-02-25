@@ -11,7 +11,7 @@ ITestListener : is a interface, used in TestNG. ITestListener has some methods t
 We can easily show which test case is fail by doing below 2 task
 
 //////////// Step-1: Implement ITestListener///////////////////////////////////////////////////////////////////////////////
-1. Create a class name "Listener"
+1. Create a class name "Listeners"
 2. implements it by ITestListener
 
 
@@ -21,7 +21,7 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class InterfaceForTestNG implements ITestListener {
+public class Listeners implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
