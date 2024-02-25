@@ -1,4 +1,4 @@
-Parallel Testing: if you want to run all test case at a time parallely, you can do below way
+Parallel Testing: if you want to run all test case at a time or one time parallely, you can do below way
 
 in testng.xml 
 -----------------
