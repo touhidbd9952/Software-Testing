@@ -148,6 +148,54 @@ to stop a method in a test case is used "<methods> <exclude name="saySomeThing2"
 </class>
 
 
+//////How to Run only that test cases that are in group "Smoke"///////////
+
+Step-1:
+Add test case in groups @Test(groups={"Smoke"})
+
+public class day1
+{
+	@Test(groups={"Smoke"})
+	public void MobileLoginLoan()
+	{
+   	    //System.out.println("Mobilelogin");
+	}
+}
+
+public class day2
+{
+	@Test(groups={"Smoke"})
+	public void MobileLoginLoan2()
+	{
+   	    //System.out.println("Mobilelogin2");
+	}
+}
+
+
+Step-2:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Loan Department">
+  <test thread-count="5" name="Regression">
+    <groups>
+        <run>
+             <include name="smoke"/>
+        </run>
+    </groups>
+    <classes>
+      	<class name="test.day1"/>
+	<class name="test.day2"/>
+	<class name="test.day3"/>
+	<class name="test.day4"/>
+    </classes>
+  </test> 
+</suite> 
+
+
+
+
 
 
 
