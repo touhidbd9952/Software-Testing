@@ -1,12 +1,15 @@
 ITestListener : is a interface, used in TestNG. ITestListener has some methods that given proper guide line to a tester.
-                1. onTestStart : what need to do
-                2. onTestSuccess : what need to do
+                1. onTestStart : When test start, what need to do
+                2. onTestSuccess : When test success, what need to do
                 3. onTestFailure : if test fail what need to do. suppose, if test fail, we can take a screen short of failure message
                 4. onTestSkipped : if test case skipped, what need to do.
                 5. onTestFailedButWithinSuccessPercentage :
                 6. onStart : 
                 7. onFinish : 
-                
+
+
+We can easily show which test case is fail by doing below 2 task
+
 //////////// Step-1: Implement ITestListener///////////////////////////////////////////////////////////////////////////////
 
 package testNGtutorial;
@@ -30,7 +33,7 @@ public class InterfaceForTestNG implements ITestListener {
 	}
 
 	@Override
-	public void onTestFailure(ITestResult result) {
+	public void onTestFailure(ITestResult result) {                   <<====== if particular test fail, show the test name
 		// Show the test case that fail
 		System.out.println("Fail Test: "+result.getName());
 		
@@ -69,7 +72,7 @@ public class InterfaceForTestNG implements ITestListener {
 <suite name="Suite">
 
   <listeners>
-    <listener class-name="testNGtutorial.InterfaceForTestNG"/>     <=====
+    <listener class-name="testNGtutorial.InterfaceForTestNG"/>         <<===== add listeners in testNg.xml
   </listeners>
 
   <parameter name="URL" value="abc.com"/>
