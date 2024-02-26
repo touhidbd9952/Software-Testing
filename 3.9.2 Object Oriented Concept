@@ -1,3 +1,21 @@
+1. Create Maven Project and add dependencies. (remove JUnit from prom.xml)
+2. Create a class "OneAlonePage" and write automation code
+3. Create Project Structure
+4. divide automation code in PageObjectModule
+
+How to create Maven project
+----------------------------------
+File --> New --> Project --> Maven --> Maven Project 
+--> Next 
+--> Next --> 
+Category: all category
+--> Filter: Maven-archetype-quickstart 
+--> Next --> 
+Group id: Company Name or Company Website Url, Artifact id: your project name, package: automationtesting 
+--> Next
+
+
+
 //////////////Passing data from child class to parent class///////////////////////////////////////
 super(driver)
 
@@ -37,6 +55,7 @@ WebDriver driver;
 
 	public LandingPage(WebDriver driver)
 	{
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -45,14 +64,16 @@ WebDriver driver;
 	WebElement userEmail;
 	
 	@FindBy(id=”userPassword”)
-	WebElement passwordEle;
+	WebElement password;
 
 	@FindBy(id=”login”)
 	WebElement sumit;
 
-	public void loginApplication(String email, String password)
+	public void loginApplication(String email, String pass)
 	{
-
+		userEmail.sendKeys(email);
+		password.sendKeys(pass);
+		sumit.click();
 	}
 }
 
