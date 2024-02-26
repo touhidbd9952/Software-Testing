@@ -1,0 +1,42 @@
+Step-1:
+1. Create a file "GlobalData.properties" 
+     File --> New --> File, name: GlobalData.properties
+2. Type     
+     browser = chrome
+
+
+Step-2:
+1. Create a function in "Base" class
+
+public void driverSetup()
+{
+    Properties   prop  = new  Properties();
+    FileInputStream  fis = new  FileInputStream(System.getProperty("user.dir")+"//src//resources//GlobalData.properties");
+    prop.load(fis);
+    String browserName = prop.getProperty("browser");
+
+     if(browserName.equalsIgnoreCase("chrome"))
+     {
+          WebDriverManager.chromedriver().setup();
+           driver  =  new  ChromeDriver();
+      }
+      else if(browserName.equalsIgnoreCase("firefox"))
+      {
+           WebDriverManager.firefoxdriver().setup();
+           driver  =  new  FirefoxDriver();
+       }
+       else if(browserName.equalsIgnoreCase("edge"))
+      {
+           WebDriverManager.edgedriver().setup();
+           driver  =  new  EdgeDriver();
+       }
+
+       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);  
+       driver.manage().window().maximize();
+}
+
+
+
+
+
+
