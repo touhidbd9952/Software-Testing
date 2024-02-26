@@ -1,5 +1,5 @@
 1. Create Maven Project and add dependencies. (remove JUnit from prom.xml)
-2. Create a class "OneAlonePage" and write automation code
+2. Create a class "OneStandAlonePage" and write automation code
 3. Create Project Structure
 4. divide automation code in PageObjectModule
 
