@@ -25,7 +25,8 @@ public class LoginFinctionalityTest
 	public void setUP()
 	{
 		WebDriverManager.chromedriver().setup();
-		driver = new chromeDriver();
+		driver = new ChromeDriver();
+		driver.get("https://www.google.com/");
 		driver.get("https://rahulshettyacademy.com"); 
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
