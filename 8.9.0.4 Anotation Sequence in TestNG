@@ -16,6 +16,17 @@ Annotation Sequence 				Description
 @AfterSuite				|	One time execute. if exist, it execute after all test
 
 
+@Test Attribute
+-----------------
+@Test(priority = 1)       (1,2,3,....)
+@Test(priority = 2)       (1,2,3,....)
+@Test(alwaysRun = true)
+@Test(groups = {"sanitary"})
+@Test(dependsOnMethods = {"yourMethodName"})
+@Test(dependsOnGroups = {"sanity","regression"})
+@Test(priority=1,dependsOnMethods = {"setUP"})
+@Test(priority=1,dependsOnGroups = {"sanity","regression"})
+
 
 
 @Test        : to write general test case. On the base of method alphabetic order (a,b,c....z), textng execute test case.
