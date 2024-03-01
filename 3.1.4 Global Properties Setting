@@ -1,7 +1,7 @@
 Step-1:
 1. Create a file "GlobalData.properties" 
      File --> New --> File, name: GlobalData.properties
-2. Type     
+2. open "GlobalData.properties" file and Type     
      browser = chrome
 
 
