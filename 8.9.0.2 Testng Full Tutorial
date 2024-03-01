@@ -17,6 +17,35 @@ Eclipse
 1. go to "Window" menu --> Preferences
 2. In searchbox Type "TestNG"
 
+//////testng structure//////////////////////////////////////////////
+public class LoginFinctionalityTest
+{
+	WebDriver driver;
+	@BeforeTest
+	public void setUP()
+	{
+		WebDriverManager.chromedriver().setup();
+		driver = new chromeDriver();
+		driver.get("https://rahulshettyacademy.com"); 
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+	}
+	@Test(priority=1)
+	public void loginTest()
+	{
+		//login test code
+		driver.findElement(By.id("email")).sendKeys("abc@gmail.com");
+		driver.findElement(By.id("pass")).sendKeys("123");
+		driver.findElement(By.id("submit")).click();
+	}
+	@AfterTest
+	public void tearDown()
+	{
+		driver.close();
+		driver.quit();
+	}
+
+}
 //////Write your First Test/////////////////////////////////////////
 1. create a package "test" in "src" of java project
 2. create a class "FirstTest" in "test" package folder
