@@ -3,6 +3,7 @@ Step-1:
      File --> New --> File, name: GlobalData.properties
 2. open "GlobalData.properties" file and Type     
      browser = chrome
+3. right click on "GlobalData.properties" file --> properties , copy the file path
 
 
 Step-2:
