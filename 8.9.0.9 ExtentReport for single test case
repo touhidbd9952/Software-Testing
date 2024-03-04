@@ -1,4 +1,4 @@
-////////HExtentReport/////////////////////////////////
+////////How to create ExtentReport for single test case/////////////////////////////////
 
 1. create a maven project
 2. add dependency
