@@ -1,0 +1,237 @@
+How to use ExtentReport for multiple test case in parally
+------------------------------------------------------------------------------
+1. create BaseClass
+2. create TestClass
+3. create ReportClass
+4. create ListenersClass and call ReportClass
+5. add listeners in testng.xml and add paralles="tests" in <suite>
+
+////////BaseClass////////
+-------------------
+
+package testComponents;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class BaseClass 
+{
+	static WebDriver driver;
+	
+	public static WebDriver getDriver()
+	{
+		WebDriverManager.chromedriver().setup();
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		return driver;
+	}
+	
+	public static String takeScreenShot(String testCaseName)
+	{
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File sourceFile = ts.getScreenshotAs(OutputType.FILE);
+		File destrinationfile = new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png");
+		try {
+			FileUtils.copyFile(sourceFile, destrinationfile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		String errorScreenShot = System.getProperty("user.dir")+"//reports//"+testCaseName+".png";
+		return errorScreenShot;
+		
+	}
+
+}
+
+
+/////////TestClass1////////////////
+
+package testcases;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+import testComponents.BaseClass;
+
+
+public class FunctionalityTest1
+{
+	WebDriver driver;
+	
+	@Test
+	public void testLogin1()
+	{
+		driver = BaseClass.getDriver();
+		driver.get("https://www.google.com/");
+		driver.close();
+	}
+
+}
+
+/////////TestClass2////////////////
+package testcases;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
+import testComponents.BaseClass;
+
+
+public class FunctionalityTest2
+{
+	WebDriver driver;
+	
+	@Test
+	public void testLogin2()
+	{
+		driver = BaseClass.getDriver();
+		driver.get("https://www.google.com/");
+		driver.close();
+	}
+
+}
+
+
+/////////ReportClass////////////////////////////////
+
+package testComponents;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class ExtendReportNG 
+{
+	public static ExtentReports getReportObject()
+	{
+		String path = System.getProperty("user.dir")+"//reports//index.html";
+		ExtentSparkReporter reporter = new ExtentSparkReporter(path);
+		reporter.config().setReportName("Web Automation Results");
+		reporter.config().setDocumentTitle("Test Results");
+		
+		ExtentReports reports = new ExtentReports();
+		reports.attachReporter(reporter);
+		reports.setSystemInfo("Tester", "Md. Touhidul Islam");
+		return reports;
+	}
+
+}
+
+
+///////create ListenersClass and call ReportClass//////////////////////////////
+
+package testComponents;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+
+public class Listeners implements ITestListener  
+{
+	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
+	
+	ExtentTest test;
+
+	ExtentReports reports = ExtendReportNG.getReportObject();
+	
+	
+	@Override
+	public void onTestStart(ITestResult result) {
+		// TODO Auto-generated method stub
+		test = reports.createTest(result.getMethod().getMethodName());
+		
+		extentTest.set(test);  //Thread safe
+	}
+
+	@Override
+	public void onTestSuccess(ITestResult result) {
+		// TODO Auto-generated method stub
+		extentTest.get().log(Status.PASS, "Test Passed");
+	}
+
+	@Override
+	public void onTestFailure(ITestResult result) 
+	{
+		// throw error
+		extentTest.get().fail(result.getThrowable());
+		
+		//take screenshot and attach it to report
+		String filePath = BaseClass.takeScreenShot(result.getMethod().getMethodName());
+		extentTest.get().addScreenCaptureFromPath(filePath, result.getMethod().getMethodName());
+	}
+
+	@Override
+	public void onTestSkipped(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onTestFailedWithTimeout(ITestResult result) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStart(ITestContext context) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onFinish(ITestContext context) {
+		// TODO Auto-generated method stub
+		reports.flush();
+	}
+
+}
+
+
+
+//////////add listeners in testng.xml and add paralles="tests" in <suite>/////////////////////////
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+	<listeners>
+		<listener class-name="testComponents.Listeners"></listener>
+	</listeners>
+
+
+	<test thread-count="5" name="Test">
+		<classes>
+			<class name="testcases.FunctionalityTest1" />
+			<class name="testcases.FunctionalityTest2" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+
+
+
+
+
+
+
+
+
