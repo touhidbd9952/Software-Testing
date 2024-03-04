@@ -1,13 +1,20 @@
-How to use ExtentReport for multiple test case in parally
+How to use ExtentReport for multiple test case and run parallely
 ------------------------------------------------------------------------------
+Step-1
+1. create maven project
+2. create project structure
+
+Step-2
 1. create BaseClass
 2. create TestClass
 3. create ReportClass
 4. create ListenersClass and call ReportClass
 5. add listeners in testng.xml and add paralles="tests" in <suite>
 
-////////BaseClass////////
--------------------
+
+
+////////create BaseClass////////
+---------------------------------------
 
 package testComponents;
 
@@ -57,7 +64,7 @@ public class BaseClass
 }
 
 
-/////////TestClass1////////////////
+/////////create TestClass1 add driver from BaseClass////////////////
 
 package testcases;
 
@@ -80,7 +87,7 @@ public class FunctionalityTest1
 
 }
 
-/////////TestClass2////////////////
+/////////create TestClass2 add driver from BaseClass////////////////
 package testcases;
 
 import org.openqa.selenium.WebDriver;
@@ -103,7 +110,7 @@ public class FunctionalityTest2
 }
 
 
-/////////ReportClass////////////////////////////////
+/////////create ReportClass////////////////////////////////
 
 package testComponents;
 
