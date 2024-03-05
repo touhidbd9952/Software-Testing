@@ -1,4 +1,7 @@
 //How to run project from command prompt (cmd)
+
+for more help follow below website
+https://www.qamadness.com/knowledge-base/how-to-install-maven-and-configure-environment-variables/
 -----------------------------------------------------------------
 
 1. go to browser and type "maven download" , download apache-maven-...-src.zip
