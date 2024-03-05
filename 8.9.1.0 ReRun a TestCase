@@ -1,0 +1,48 @@
+/////How to ReRun a TestCase if it is Fail////////////////
+if a testCase is first time fail when it is execute, 
+we can run it again by using IRetryAnalyzer
+
+1. First we need to create a class "Retry" and implements it by IRetryAnalyzer interface
+2. 
+
+
+///////create a class "Retry" and implements it by IRetryAnalyzer interface//////////////////
+
+package testComponents;
+
+import org.testng.IRetryAnalyzer;
+import org.testng.ITestResult;
+
+public class Retry implements IRetryAnalyzer 
+{
+
+	int count=0;
+	int maxTry=1;
+	
+	@Override
+	public boolean retry(ITestResult result) 
+	{
+		if(count < maxTry)
+		{
+			count++;
+			return true;
+		}
+		return false;
+	}
+}
+
+/////////Add @Test(retryAnalyzer = Retry.class) anotation with testcase////////////////
+
+public class FunctionalityTest1
+{
+	WebDriver driver;
+	
+	@Test(retryAnalyzer = Retry.class)
+	public void testLogin1()
+	{
+		driver = BaseClass.getDriver();
+		driver.get("https://www.google.com/");
+		driver.close();
+	}
+
+}
