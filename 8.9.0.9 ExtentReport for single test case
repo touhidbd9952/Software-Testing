@@ -3,12 +3,12 @@
 1. create a maven project
 2. add dependency
 3. create a class for writting test case
-    a. configure report
-    b. add report in test case
+    a. configure Extent report
+    b. add Extent report in test case
 4. create testng.xml file to run project
 5. run project
 6. refresh project
-7. see report from "reports" folder
+7. see report from "reports" folder (index.html)
 
 /////Create a Maven Project////////////
 File-->New-->Project-->Maven-->Maven Project
