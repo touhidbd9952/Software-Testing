@@ -1,0 +1,86 @@
+//How to run project from command prompt (cmd)
+-----------------------------------------------------------------
+
+1. go to browser and type "maven download" , download apache-maven-...-src.zip
+2. extract the zip file and copy it in your c:\program-file
+3. add maven-home in your system variable
+
+	variable name: MAVEN-HOME
+	variable value: c:\Program-file\Maven\apache-maven-3.6.3
+
+4. edit "path" in your system variable and add "new"
+
+	%MAVEN_HOME%\bin
+
+5. close command prompt if open and open it and check maven version
+	
+	mvn -version
+
+6. go to browser and type "Maven testng integration", copy below plugin and add it 
+in <plugins> of prom.xml file
+	
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+
+7. in this plugin, change below  line as project
+
+	<suiteXmlFile>test-output/testng.xml</suiteXmlFile>
+
+**********************************************
+if your project have more testng.xml file then your can configure it by profile below way
+
+<profiles>
+  <profile>
+  <id>Regression</id>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  </profile>
+
+<profile>
+  <id>errorLogin</id>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>errorlogin.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  </profile>
+
+  </profiles>
+
+**********************************************
+
+8. to run testcase from command prompt, type below code in command prompt (run-->cmd)
+
+	mvn test -pRegression    <----|
+
+
+
