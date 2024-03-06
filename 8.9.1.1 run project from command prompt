@@ -83,7 +83,8 @@ if your project have more testng.xml file then your can configure it by profile 
 
 8. to run testcase from command prompt, type below code in command prompt (run-->cmd)
 
-	mvn test -pRegression    <----|
+	mvn test -pRegression    <----|     //maven run the test that profile is Regression
+	mvn test -pRegression -Dbrowser=firefox    <----|   //maven run the test that profile is Regression and set browser firefox
 
 
 
