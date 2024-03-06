@@ -8,7 +8,7 @@ https://www.qamadness.com/knowledge-base/how-to-install-maven-and-configure-envi
 2. extract the zip file and copy it in your C:\Program Files\Maven
 3. add maven-home in your system variable
 
-	variable name: MAVEN-HOME
+	variable name: MAVEN_HOME
 	variable value: c:\Program-file\Maven\apache-maven-3.6.3
 
 4. edit "path" in your system variable and add "new"
