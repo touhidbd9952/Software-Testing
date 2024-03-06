@@ -5,7 +5,7 @@ https://www.qamadness.com/knowledge-base/how-to-install-maven-and-configure-envi
 -----------------------------------------------------------------
 
 1. go to browser and type "maven download" , download apache-maven-...-src.zip
-2. extract the zip file and copy it in your c:\program-file
+2. extract the zip file and copy it in your C:\Program Files\Maven
 3. add maven-home in your system variable
 
 	variable name: MAVEN-HOME
