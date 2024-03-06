@@ -1,0 +1,71 @@
+//How to run testcase project from Jenkins//////////////
+
+1. go to browser and type "jenkin download"  <---|
+
+	(https://jenkins.io/download)
+
+2. select "Generic java package.war"
+3. copy "Generic java package.war" in C:Program file/Jenkins
+4. open C:Program file/Jenkins and type cmd to open command prompt
+
+	C:Program file/Jenkins> java -jar jenkins.war -httpport=9090  <-----|
+
+5. open browser and type: localhost:9090   <------|     //it will run jenkins server
+
+6. register and login to jenkins website
+
+7. To run project by using jenkins, you need to create a job
+
+	a. To create new job:
+	
+		click on "New Item" from menu
+		i. Enter an item name: your project name
+		ii. select "Freestyle Project"
+		iii. click "OK"
+
+		in "General" tab
+		i. click on "Advanced" button
+		ii. click on "Use custom workspace"
+		     Directory:  type your project path
+		      (if project in GIT, select git and copy and paste git project path)
+		iii. in "Build" click on "Add build Step"
+		     click on "invoke top level maven targets"
+		iv. Goals: type here maven command
+		
+			"test -pRegression -Dbrowser=firefox"
+
+	b. To set project as parameterized:
+		i. click on "This project is parameterized"
+		ii. click on "Add Parameter"
+			Choice Parameter:
+			Name: browserName
+			Choices:   chrome
+				firefox
+				edge
+
+		iii. click on "Add Parameter"
+			Choice Parameter:
+			Name: profile
+			Choices:   Regression
+				Purchase
+				ErrorValidation
+
+	c. Now change -Build command:
+
+		test -p"$profile" -Dbrowser="$browserName"
+
+	d. click on "Save"  button to save
+
+8. To run testcase project:
+	a. in right side menu, click on "Build with parameter"
+		i. BrowserName: firefox
+		ii. Profile:Regression
+		iii. click on "Build"
+
+9. To see output in console:
+	 in menu , click on "Console Output"
+
+
+
+			
+ 
