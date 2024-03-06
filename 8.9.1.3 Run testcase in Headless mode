@@ -21,10 +21,10 @@ Step-1: SetUP driver with headless settings
 		
 	WebDriverManager.chromedriver().setup();
 	if(browserName.contains("headless"))
-                  {
+        {
 	     driver = new ChromeDriver(options);
-                  }
-                  else
+        }
+        else
 	{
 	     driver = new ChromeDriver();
 	     driver.manage().window().maximize();
@@ -32,12 +32,13 @@ Step-1: SetUP driver with headless settings
 	}
      }
 
+
 Step-2: Run TestCase by maven or Jenkins
 ---------------------
 
 Run TestCase by Maven:      
 	
-		mvn test -pRegression -Dbrowser=chromeheadless         //p=profile, D=Global Data
+		mvn test -pRegression -Dbrowser=chromeheadless   <----|         //p=profile, D=Global Data
 
 or
 
