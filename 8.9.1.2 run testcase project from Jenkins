@@ -39,14 +39,15 @@
 		ii. click on "Add Parameter"
 			Choice Parameter:
 			Name: browserName
-			Choices:   chrome
+			Choices:chrome
+				chromeheadless
 				firefox
 				edge
 
 		iii. click on "Add Parameter"
 			Choice Parameter:
 			Name: profile
-			Choices:   Regression
+			Choices:Regression
 				Purchase
 				ErrorValidation
 
