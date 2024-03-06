@@ -1,0 +1,55 @@
+/////How to Run testcase in Headless mode/////////////////////////
+
+Headless mode: 
+	In this method, Driver run testcase behind the browser.
+	So, Tester can't see execution process but it helps to find the 
+	test result with in short time.
+
+Creating Steps
+---------------------
+Step-1: SetUP driver with headless settings
+
+    Properties   prop  = new  Properties();
+    FileInputStream  fis = new  FileInputStream(System.getProperty("user.dir")+"//src//resources//GlobalData.properties");
+    prop.load(fis);
+    String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
+
+     if(browserName.contains("chrome"))
+     {
+	ChromeOptions options = new ChromeOptions();
+	options.addArguments("headless");
+		
+	WebDriverManager.chromedriver().setup();
+	if(browserName.contains("headless"))
+                  {
+	     driver = new ChromeDriver(options);
+                  }
+                  else
+	{
+	     driver = new ChromeDriver();
+	     driver.manage().window().maximize();
+  	     //driver.manage().window().setSize(new Dimension(1440,900));
+	}
+     }
+
+Step-2: Run TestCase by maven or Jenkins
+---------------------
+
+Run TestCase by Maven:      
+	
+		mvn test -pRegression -Dbrowser=chromeheadless         //p=profile, D=Global Data
+
+or
+
+Run testcase by jenkins
+
+		Choice Parameter:
+			Name: browserName
+			Choices:chrome
+				chromeheadless
+				firefox
+				edge
+
+
+
+
