@@ -11,7 +11,7 @@ https://www.qamadness.com/knowledge-base/how-to-install-maven-and-configure-envi
 	variable name: MAVEN_HOME
 	variable value: C:\Program Files\Maven\apache-maven-3.6.3    (copy the actual path from your pc)
 
-4. edit "path" in your system variable and add "new"
+4. edit "path" in your system variable and click "new" button and type below line
 
 	%MAVEN_HOME%\bin
 
