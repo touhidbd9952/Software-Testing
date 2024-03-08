@@ -9,15 +9,18 @@ Productname
 |   |	      |---Product.java
 |   |	      |---Cart.java
 |   |	      |---Order.java
+|   |---testcases
+|   |         |---Ecommerce.java (stand alone page)
 |   |---mainpackage.resources
 |   |		    |---GlobalData.properties
 |         
 |
 |---JRE System Library
 |---Maven Dependencies
-|---src
+|---Reports
 |---target
 |---pom.xml
+|---testng.xml
 
 
 projectname
