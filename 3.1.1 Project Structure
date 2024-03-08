@@ -59,9 +59,9 @@ reports           src/test/resources
                    .     |    Components      |        |      Bese         |
                 .	 ---------------------	    .  |      Test         |              ---------------
              .  extends                           .    ---------------------    <-----   |    Json       |
-          .			-----------------                                        |    files      |
------------------------		|     TestCase   |   ----------------------------->      |               |
-|   Page Object       |		|	         |       <------- Data Provider           ---------------
+          .			-----------------         Data Provider                  |    files      |
+-----------------------		|     TestCase   |   ----------------------------->       ---------------           
+|   Page Object       |		|	         |                                        -------------
 |                     |		|  (Stand-Alone) |     		                         |  Extent     |
 |         P1          |		|       (page)   |                        	       . |  Report     |
 |                     | <------ |	         |                    		   .     |             |
