@@ -55,7 +55,7 @@ reports           src/test/resources
 
 
                          ---------------------  
-	                 |    Abstract        |        ---------------------
+	               . |    Abstract        |        ---------------------
                    .     |    Components      |        |      Bese         |
                 .	 ---------------------	    .  |      Test         |              ---------------
              .  extends                           .    ---------------------    <-----   |    Json       |
@@ -67,7 +67,7 @@ reports           src/test/resources
 |                     | <------ |	         |                    		   .     |             |
 |         P2          | <------	|         T1	                               .          -------------
 |                     | <------ |	         | implements  ----------------
-|          P2         |		|         T2	 |   =====>   |  Listeners     |      Thread
+|         P2          |		|         T2	 |   =====>   |  Listeners     |      Thread
 |                     |	        |          .	 |            |                |
 -----------------------	        |          .	 |            |                |      LocalGroup
 	                      .  ----------------             |   Retry        |
@@ -75,8 +75,8 @@ reports           src/test/resources
                     XML   .
                 ------------------       ---------------------------
                 | testng.xml     |       |     porm.xml            |
-                | testnge.xml    | ====> |                         |
-                |                |       |     Profiles            |  <======= Maven Commands
+                | testng2.xml    | ====> |                         |
+                |        :       |       |     Profiles            |  <======= Maven Commands
                 ------------------       ---------------------------
 
 
