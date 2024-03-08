@@ -1,17 +1,17 @@
-Productname
+projectname
 |---src/main/java
 |
 |---src/test/java
-|   |---mainpackage.abstractComponents
-|   |	      |---AbstractComponent
-|   |---mainpackage.pageobjects
-|   |	      |---Login.java
-|   |	      |---Product.java
-|   |	      |---Cart.java
-|   |	      |---Order.java
-|   |---testcases
-|   |         |---Ecommerce.java (stand alone page)
-|   |---mainpackage.resources
+|   |---projectname.abstractComponents
+|   |	      |---BaseClass
+|   |---projectname.pageobjects
+|   |	      |---TestLogin.java
+|   |	      |---TestProduct.java
+|   |	      |---TestCart.java
+|   |	      |---TestOrder.java
+|   |---projectname.testcases
+|   |         |---TestEcommerce.java (stand alone page)
+|   |---projectname.resources
 |   |		    |---GlobalData.properties
 |         
 |
