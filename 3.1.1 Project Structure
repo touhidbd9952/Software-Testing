@@ -1,5 +1,7 @@
 Productname
 |---src/main/java
+|
+|---src/test/java
 |   |---mainpackage.abstractComponents
 |   |	      |---AbstractComponent
 |   |---mainpackage.pageobjects
@@ -9,9 +11,7 @@ Productname
 |   |	      |---Order.java
 |   |---mainpackage.resources
 |   |		    |---GlobalData.properties
-|
-|---src/test/java
-|           |---
+|         
 |
 |---JRE System Library
 |---Maven Dependencies
@@ -21,22 +21,27 @@ Productname
 
 
 projectname
+|
 |---src/main/java
+|
+|---src/test/java
 |	  |---AbstractComponents   //reusable classes
 |	  |	  |---Base.java
 |	  |	  |---Wait.java
 |	  |---objectpages    //pages
-|		    |---Login.java
-|		    |---Product.java
-|		    |---Checkout.java
-|		    |---Order.java
-|---src/test/java
-|	  |---com.abc.testproject   //test cases
-|		    |---EcommerceTest.java
+|	  |    	  |---Login.java
+|	  |       |---Product.java
+|	  |       |---Checkout.java
+|         |       |---Order.java
+|         |---testcases
+|         |       |---EcommerceTest.java  (stand alone page)
+|         |---resources
+|         
 |
 |---JRE System Library
 |---Maven Dependencies
-|---src
+|---Reports
+|    |---index.html
 |---target
 |---pom.xml    //dependency configuration file
 |---testng.xml   //test case configuration file
