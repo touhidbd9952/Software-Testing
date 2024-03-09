@@ -147,5 +147,36 @@ Step-4
 to run project, right click on "TestnGTestRunner.java" ---> Run As ---> TestNG test
 
 
+////////if you want to run cucumber testcase by maven command/////////////////////////
+1. add a <profile> in <profiles> for Cucumber Tests
+
+<profiles>
+  <profile>
+  <id>CucumberTests</id>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <includes>
+            <include>**/TestNGTestRunner</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  </profile>
+
+
+//////To run cucumber testcase from maven command//////////////////
+open command prompt (cmd) and type below command
+
+	mvn test -PCCucumberTests     <------|
+
+
+
+
 
 
