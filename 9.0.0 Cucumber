@@ -53,7 +53,7 @@ Cucumber Keywords:
 
 Step-1
 -------
-create a file "SubmitOrder.Feature" and write below way 
+create a file "SubmitOrder.feature" and write below way 
 -----------------------------
 @tag
 Feature: Purchase the order from Ecommerce Website
@@ -88,35 +88,39 @@ public class StepDefinitionImpl extends BaseTest
 	{
 		landingPage = launchApplication();
 	}
+
 	@Given("^Logged in with username (.+) and password (.+)$")
 	public void I_landed_on_Ecommerce_Page() 
 	{
 		productCatalogue = landingPage.loginApplication(username, password);
 	}
-}
 
-@when("^I add product (.+) to Cart$")
-public void i_add_product_to_cart(String productName)
-{
-	List<WebElement> products = productCatalogue.getProductList();
-	productCatalogue.addProductToCart(productName);
-}
-@When("^Checkout (.+) and submit the order$")
-public void checkout_submit_order(String productName)
-{
-	CartPage cartPage = productCatalogue.goToCartPage();
+
+	@when("^I add product (.+) to Cart$")
+	public void i_add_product_to_cart(String productName)
+	{
+		List<WebElement> products = productCatalogue.getProductList();
+		productCatalogue.addProductToCart(productName);
+	}
+
+	@When("^Checkout (.+) and submit the order$")
+	public void checkout_submit_order(String productName)
+	{
+		CartPage cartPage = productCatalogue.goToCartPage();
 	
-	Boolean match = cartPage.verifyProductDisplay(productName);
-	Assert.assertTrue(match);
-	CheckoutPage checkoutPage = cartPage.goToCheckout();
-	checkoutPage.selectCountry(“india”);
-	confirmationPage = checkoutPage.submitOrder();
-}
-@Then("{string} message is displayed on confirmationPage")
-public void message_displayed_confirmationPage(String string)
-{
-	String confirmMessage = confirmationPage.getconfirmationMessage(); 
-	Assert.assertTrue(confirmMessage.equalsIgnoreCase(string));
+		Boolean match = cartPage.verifyProductDisplay(productName);
+		Assert.assertTrue(match);
+		CheckoutPage checkoutPage = cartPage.goToCheckout();
+		checkoutPage.selectCountry(“india”);
+		confirmationPage = checkoutPage.submitOrder();
+	}
+
+	@Then("{string} message is displayed on confirmationPage")
+	public void message_displayed_confirmationPage(String string)
+	{
+		String confirmMessage = confirmationPage.getconfirmationMessage(); 
+		Assert.assertTrue(confirmMessage.equalsIgnoreCase(string));
+	}
 }
 
 
