@@ -62,7 +62,7 @@ Feature: Purchase the order from Ecommerce Website
    Background:
    Given I landed on Eceommerce Page
 
-    @tag2
+    @tag2                                                                 //you can change this tag name as @regression
     Scenario Outline: Positive Test of Submitting the order
 
         Given Logged in with username <name> and password <password>
