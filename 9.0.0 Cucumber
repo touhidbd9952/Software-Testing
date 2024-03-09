@@ -1,16 +1,23 @@
-What is Cucumber:
+What is Cucumber: Cucumber is an open-source testing framework that supports Behavior Driven Development for 
+                  automation testing of web applications.
+                  The tests are first written in a simple scenario form that describes the expected behavior 
+                  of the system from the user's perspective.
 
 Ghockin: It is business readable domain specific language that describle software behaviour
 
 Cucumber Keywords:
-	Scenario:  	          Every testcase is a scenario
-	Feature: 	           All testcase
-	Feature file:         testcase file (something.feature)
-	Scenario outline:  Positive/Negative test
-	Step Definition:    1. Given ....  When .... And ... And ... Then ....    (Positive Test)
-		             2. Given .... When .... And ... Then ... But ....    (Negative Test)
+	Scenario:  	   Every testcase is a scenario
 
-		            	Given First Step
+	Feature: 	   All testcase
+
+	Feature file:      testcase file (something.feature)
+
+	Scenario outline:  Positive/Negative test
+
+	Step Definition:   1. Given ....  When .... And ... And ... Then ....    (Positive Test)
+		           2. Given .... When .... And ... Then ... But ....    (Negative Test)
+
+		        Given First Step
 			When Scond Step
 			And Third Step
 			Then Result
@@ -24,9 +31,29 @@ Cucumber Keywords:
 			But show error
 
 
+///////How to install Cucumber//////////////////////////////
+
+1. Download dependency
+	a. cucumber java
+	b. cucumber testng
+
+2. Download cucumber
+	a. Go to eclipse ---> help (menu) ---> Eclipse Marketplace
+
+	   Search "cucumber" and select "cucumber eclipse plugin" ---> install
+
+	b. restart eclipse
+	c. download "tidy gerkin" chrome plugin
+
+
+///////How to work in cucumber//////////////////////////////
+	src/test/java
+		|---cucumber(package)
+
+
 Step-1
 -------
-in "SubmitOrder.Feature" file write below 
+create a file "SubmitOrder.Feature" and write below way 
 -----------------------------
 @tag
 Feature: Purchase the order from Ecommerce Website
@@ -48,7 +75,8 @@ Feature: Purchase the order from Ecommerce Website
 	     |   abc@gmail.com |   abc123		|  ZARA COAT 3  |
 
 
-in "StepDefinitionImpl.java"
+
+Step-2: create a class "StepDefinitionImpl.java" and write below way
 ----------------------------------
 public class StepDefinitionImpl extends BaseTest
 {
