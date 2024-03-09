@@ -6,9 +6,9 @@ What is Cucumber: Cucumber is an open-source testing framework that supports Beh
 Ghockin: It is business readable domain specific language that describle software behaviour
 
 Cucumber Keywords:
-	Scenario:  	   Every testcase is a scenario
+	Scenario:  	   a single testcase
 
-	Feature: 	   All testcase
+	Feature: 	   What to test
 
 	Feature file:      testcase file (something.feature)
 
