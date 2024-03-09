@@ -72,7 +72,7 @@ Feature: Purchase the order from Ecommerce Website
 
 	Examples:
 	     |   name		|   password	|  productName     |
-	     |   abc@gmail.com |   abc123		|  ZARA COAT 3  |
+	     |   abc@gmail.com  |   abc123	|  ZARA COAT 3     |
 
 
 
