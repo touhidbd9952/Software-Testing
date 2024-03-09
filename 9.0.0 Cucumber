@@ -1,5 +1,5 @@
 What is Cucumber: Cucumber is an open-source testing framework that supports Behavior Driven Development for 
-                  automation testing of web applications.
+                  web applications automation testing.
                   The tests are first written in a simple scenario form that describes the expected behavior 
                   of the system from the user's perspective.
 
