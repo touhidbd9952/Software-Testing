@@ -83,25 +83,25 @@ public class StepDefinitionImpl extends BaseTest
     	public LandingPage landingPage;
 	public ProductCatalogue productCatalogue;
 
-	@Given(“I landed on Ecommerce Page”)
+	@Given("I landed on Ecommerce Page")
 	public void I_landed_on_Ecommerce_Page() 
 	{
 		landingPage = launchApplication();
 	}
-	@Given(“^Logged in with username (.+) and password (.+)$”)
+	@Given("^Logged in with username (.+) and password (.+)$")
 	public void I_landed_on_Ecommerce_Page() 
 	{
 		productCatalogue = landingPage.loginApplication(username, password);
 	}
 }
 
-@when(“^I add product (.+) to Cart$”)
+@when("^I add product (.+) to Cart$")
 public void i_add_product_to_cart(String productName)
 {
 	List<WebElement> products = productCatalogue.getProductList();
 	productCatalogue.addProductToCart(productName);
 }
-@When(“^Checkout (.+) and submit the order$”)
+@When("^Checkout (.+) and submit the order$")
 public void checkout_submit_order(String productName)
 {
 	CartPage cartPage = productCatalogue.goToCartPage();
@@ -112,12 +112,36 @@ public void checkout_submit_order(String productName)
 	checkoutPage.selectCountry(“india”);
 	confirmationPage = checkoutPage.submitOrder();
 }
-@Then(“{string} message is displayed on confirmationPage”)
+@Then("{string} message is displayed on confirmationPage")
 public void message_displayed_confirmationPage(String string)
 {
 	String confirmMessage = confirmationPage.getconfirmationMessage(); 
 	Assert.assertTrue(confirmMessage.equalsIgnoreCase(string));
 }
+
+
+Step-3
+-----------------
+/////Create a class “TestnGTestRunner” to cucumber testcase project and write below way code//////////////
+
+@CumumberOptions(features="src/test/java/cucumber", glue="filename.stepDefinitions", monochrome=true, plugin={"html:target/cucumber.html"})
+public class TestNGTestRunner extends AbstractTestNGCucumberTests
+{
+}
+
+*********************************************************************
+Note:
+@CumumberOptions                          //anotation
+1. features="src/test/java/cucumber"      //Run all feature file located in "cucumber" package
+2. glue="filename.stepDefinitions"        //To map them by filename.StepDefinitions
+3. monochrome=true                        //print the result in readable format 
+4. plugin={"html:target/cucumber.html"}   //Generate the report in html format by pluging
+*********************************************************************
+
+Step-4
+-----------------
+to run project, right click on "TestnGTestRunner.java" ---> Run As ---> TestNG test
+
 
 
 
