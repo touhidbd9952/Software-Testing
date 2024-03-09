@@ -1,0 +1,51 @@
+What is Cucumber:
+
+Ghockin: It is business readable domain specific language that describle software behaviour
+
+Cucumber Keywords:
+	Scenario:  	          Every testcase is a scenario
+	Feature: 	           All testcase
+	Feature file:         testcase file (something.feature)
+	Scenario outline:  Positive/Negative test
+	Step Definition:    1. Given ....  When .... And ... And ... Then ....    (Positive Test)
+		             2. Given .... When .... And ... Then ... But ....    (Negative Test)
+
+		            	Given First Step
+			When Scond Step
+			And Third Step
+			Then Result
+
+			or 
+
+			Given First Step
+			When Scond Step
+			And Third Step
+			Then  if something is wrong
+			But show error
+
+
+Step-1
+-------
+in "SubmitOrder.Feature" file write below 
+-----------------------------
+@tag
+Feature: Purchase the order from Ecommerce Website
+   I want to use this template for my feature file
+
+   Background:
+   Given I landed on Eceommerce Page
+
+    @tag2
+    Scenario Outline: Positive Test of Submitting the order
+
+         	Given Logged in with username <name> and password <password>
+	When I add product <productName> to Cart
+	And Checkout <productName> and submit the order
+	Then "THANK YOU FOR THE ORDER" message is displayed on ConfirmationPage
+
+	Examples:
+	     |   name		|   password	|  productName     |
+	     |   abc@gmail.com |   abc123		|  ZARA COAT 3  |
+
+
+
