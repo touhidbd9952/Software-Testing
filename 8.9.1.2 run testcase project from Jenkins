@@ -50,6 +50,7 @@
 			Choices:Regression
 				Purchase
 				ErrorValidation
+				CucumberTests
 
 	c. Now change -Build command:
 
