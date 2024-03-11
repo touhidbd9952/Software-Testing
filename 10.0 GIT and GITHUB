@@ -1,0 +1,171 @@
+GIT:  is a free and open source distributed version control system.
+
+GITHUB: is a server. GitHub is a developer platform that allows developers 
+                 to create, store, manage and share their code
+                 
+
+//////How to work in GIT///////////////////////////
+
+Step-1:  Download "GIT" and "Install" in your pc
+
+	a. go to browser and type "Git" and select "windows" version
+
+	b. after download, install it ---> Next ----> Next ---> 
+	    "Use Git from the windows comand Prompt" ---> Next 
+
+Step-2: Create an account in "Github" and create new repository (folder)
+
+	a. go to browser and type "Github" ---> https://github.com
+
+	                             x
+                              ||
+			                        ||
+		                          \/
+		                ----------------------
+		                |    Github          |
+	           y ====>|                    |<=====Z
+		                ----------------------
+
+///////How to create new repository////////////////////////////////////////////////////////////
+
+	a. login to github account
+	b. click on "New Repository"
+		Repository Name: GitDemo
+		(.) public   
+		() private      //for team work
+		----> click on "Create Repository" button
+
+
+///////How  to set "Self Introduction" in git from your pc//////////////////////////////
+
+	a. open command prompt (cmd) and type below line of code
+
+		git config --global user.name "Your Name"     <-----|
+		git config --global user.email "Your email"      <-----|
+
+///////How to upload project or your necessary files and folder to github server/////////
+
+	a. Create a folder "YourProjectName" in d drive
+	b. Open your "YourProjectName" folder and copy and paste your necessary files and folder in it
+	c. Open your "YourProjectName" folder and type "cmd" in address bar and press enter to open 
+	    command prompt
+	
+	      	D:\YourProjectName>
+
+	d. Project Upload to GitHUB (working steps)
+
+		1. initialization
+		2. add files
+		3. see files status
+		4. commit with message
+		5. destination remote path set
+		6. push
+
+		git init		<-----|
+		git add *		<-----|
+		git status		<-----|
+		git commit -m "your message"		<-----|
+		git remote add origin https://......git	<-----|
+		git push origin master		<-----|
+
+
+///////How to download Project from GITHUB to your PC///////////////////////////////
+
+	a. Go to browser and login GITHUB account 
+	b. click on your project from repository list ---> click on "download" from right side top corner
+	c. copy the github project link
+	d. in your pc, open project folder if exist or create a folder and open it and type cmd in address bar and press enter
+	    to open command prompt (cmd) and type below code
+
+		git clone https://.........git  	<------|
+
+////////How to download project from github by eclipse//////////////////////////////////////
+
+	a. 	File ---> import ---> General --->
+		Existing project into Workspace 
+		----> Next
+		----> Browser and select project
+		----> OK
+		----> Finish
+
+////////How to Upload your project to github after some update that downloaded from github///////////////////////////
+
+	a. open project from d drive and type "cmd" in address bar
+	
+		D:\YourProjectName>
+
+	b. now type below line of code
+
+		git add *       //add all file
+		git status	   //see every thing is ok or not
+		git commit -m "your message"       //save with message in local
+		git push orgin master 	//upload to master
+
+
+////////How to Download only project last update from github/////////////////////
+
+	a. open project from d drive and type "cmd" in address bar
+	
+		D:\YourProjectName>
+
+	b. now type below line of code
+
+		git pull orgin master       <-----|
+
+
+////////How to upload last update of project to github/////////////////////////////////
+
+	a. open project from d drive and type "cmd" in address bar
+	
+		D:\YourProjectName>
+
+	b. now type below line of code
+
+		git status      <-----|
+		git add *       <-----|
+		git commit -m "your message"		<-----|
+		git push orgin master			<-----|
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// Branching//////////////////////////////////////////////////////////////////////////
+Some keyword with meaning
+login to branch "develop" :  git checkout develop
+create new branch "develop" from master branch : git checkout -b develop     //-b : create
+
+	git checkout -b develop	<-----|
+	git branch       <-----|      //see branch lish
+
+///////Save project in Branch///////////////////
+
+	git add *
+	git commit -m "your message"
+	git push orgin develop
+
+///////Download last update from Branch "develop"///////////
+
+	git push origin develop
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// Marching//////////////////////////////////////////////////////////////////////////
+how to march code from branch "develop" to master branch
+
+	a. login to master
+	b. copy and download last update
+	c. march code branch "develop" to master branch
+
+	git checkout master
+	git pull origin master
+	git marge develop
+
+
+
+
+			
+	
+	
+
+
+
+
