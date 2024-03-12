@@ -1,4 +1,9 @@
-//How to run testcase project from Jenkins//////////////
+
+1. How to run testcase project from Jenkins
+2. How to ReInstall Jenkins
+
+
+//////////How to run testcase project from Jenkins///////////////////////////////////////
 
 1. go to browser and type "jenkin download"  <---|
 
@@ -69,5 +74,57 @@
 
 
 
-			
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+////////How to ReInstall Jenkins///////////////////////////
+
+Step-1:  	a. Go to browser and type "Jenkins download"   <----|
+
+	b. before you download  "Jenkins version" check java version of your pc.
+
+	c. click on  "Generic Java package(.war)"
+ 
+Step-2: 	Clean previous Jenkin version from your pc (hidden file)
+	------------------------------------------------------------------------------
+
+	a. Go to "C:\users\yourname\.jenkins"
+	b. copy "jobs" folder and paste it in some other place
+	c. remove all files and folder of "jenkins"
+	d. copy "Generic java package(.war)" ---> C:\program file\jenkins
+	e. go to c:\program file\jenkins  and open command prompt and type
+	
+	      C:\program file\jenkins> java -jar jenkins.war --httport=9090    <-----|
+
+	f. open browser and type: 
+				localhost:9090 
+
+		Administrator password: copy password from command prompt and paste it here
+		----> Continue
+		----> Install suggested plugins
+		----> create First Admin User
+		
+		Username: admin
+		password: abc123
+		confirm: abc123
+		fullname: your fullname
+		E-mail address: youremail@gmail.com
+
+		----> Save and Continue 
+		----> Jenkins URL: http:/localhost:9090
+		----> Save and Finish
+		----> Start using jenkins
+
+	g. in "Jenkins" ---> Manage Jenkins ----> Plugins ----> Available plugins
+
+		search: maven  <----|
+		select "Maven integration" ----> install
+
+	h. Stop Jenkins Server (ctrl + c)
+	    Start Jenkins server
+
+
+
+
+
  
