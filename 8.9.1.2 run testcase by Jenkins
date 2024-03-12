@@ -1,6 +1,7 @@
 
 1. How to run testcase local project from Jenkins
 2. How to ReInstall Jenkins
+3. How to run project from GIT by Jenkins
 
 
 //////////How to run testcase local project from Jenkins///////////////////////////////////////
@@ -126,5 +127,74 @@ Step-2: 	Clean previous Jenkin version from your pc (hidden file)
 
 
 
+/////////////How to run project from GIT by Jenkins/////////////////////////////////////////////
 
+1. Run Jenkins Server
+2. Click on "New Item"
+	Enter an item name: SeleniumAutomationTest
+	----> Maven Project ----> OK
+	
+	Source code management
+	|--- select "GIT"
+
+	Repository
+	|--- Repository Url: https//github.com/.....git
+	|--- Credientials: Jenkins
+	|--- Branch specifier: */main
+	|--- Build Triggers: select "Github hook trigger for ..."
+	click on "Save" button
+
+	Jenkins Credentials Provider: Jenkins
+	(1)
+	|--- Kind: Secret text 
+	|--- Secret: paste sectret token from (2)
+	|--- ID: Github Intregration
+	|--- Description: Github Intregration
+
+	(2)
+	Go back to GITHUB and login ---> Settings ---> Developer Settings 
+	---> Personal access token ---> Tokens (classic) ---> Generate a new token
+
+	Select Scopes (Select all)
+	Repo		 Workflow 		Write-package
+	delete-packages	admin			admin-public
+	admin-repo-hook	gist			user
+	notifications	delete-repo		write-discussion
+	admin-enterprise	audit-tag			codespace
+	copilot		project			admin-gpq key
+	admin:ssh-sig
+
+	----> Generate Token
+	----> Note: Jenkins-git-access
+	----> click on "Generate Token" 
+
+	Copy the token and paste in (1) 	
+
+	(1) click on "Add" button
+
+             ///////Add Maven plugin in Jenkins//////
+	in "Jenkins" Deshboard, click on "Manage Jenkins" menu
+	----> Tools ----> Add Maven
+	uncheck "Install automatically"
+
+	Maven installations
+	|---name:3.9.6         //write your maven version number 
+	|---maven:C:\program-file\maven\apache-maven-3.9.6    //check your maven version in c
+	click on "Save"
+
+           ///////Set Maven command in Jenkins///////
+	go to "Dashboard" and select "SeleniumAutomationTest" your created job ---> Configure
+
+	Build
+	|---Root POM: pom.xml
+	|---Goals and options: test-PRegression
+	click on "Save"
+
+         ////////To run project in Jenkins//////////
+	go to Jenkins ---> Dashboad ---> Select: Particular JOB ---> "SeleniumAutomationTests"
+	----> click on "Build Now"
+ 	
+
+
+	
  
