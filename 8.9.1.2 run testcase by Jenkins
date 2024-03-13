@@ -127,7 +127,7 @@ Step-2: 	Clean previous Jenkin version from your pc (hidden file)
 
 
 
-/////////////How to run project from GIT by Jenkins/////////////////////////////////////////////
+/////////////How to run testcase from GITHUB by Jenkins/////////////////////////////////////////////
 
 1. Run Jenkins Server
 2. Click on "New Item"
