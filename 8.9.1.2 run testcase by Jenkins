@@ -2,6 +2,7 @@
 1. How to run testcase local project from Jenkins
 2. How to ReInstall Jenkins
 3. How to run testcase from GITHUB by Jenkins
+4. How to GitHUB WebHook Trigger and Configer (to track github project update)
 
 
 //////////How to run testcase local project from Jenkins///////////////////////////////////////
@@ -196,5 +197,51 @@ Step-2: 	Clean previous Jenkin version from your pc (hidden file)
  	
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+	//////How to GitHUB WebHook Trigger and Configer//////////////
+To know GitHUB project update from Jenkins, we can configer WebHook of GitHUB with Jenkins
+
+
+1. Login to GitHUB and open your project repository
+2. Go to Settings ----> Webhooks ---> add webhook
+
+	Webhooks
+	|---Payload URL/Jenkins url: (i)
+	|---Content type:
+	|---Secret:
+	|---event: select "Just the push event"
+	|---Active
+	click on "Add webhook"
 	
+	(i) How to get Jenkins Url
+	------------------------------------
+Open Jenkins server ---> "Manage Jenkins" ---> System ---> Github 
+
+	Github
+	|---click on "Advanced"
+		|---Override Hook URL
+		     checkmark "Specify another hook URL for github configuration" to see the link
+		     -----------------------------------------------------------------------
+		     |	http://........:9090	<======	                   |
+		     -----------------------------------------------------------------------
+
+	copy the url and paste it in "Payload URL/Jenkins url" above
+                  (after copy the link and uncheck it and don't click on "Save" button )
+
+
+3. Confiqure the job, by which Jenkins url will be triggere
+
+	a. Go to Jenkins Dashboard and select particular job ---> Config ---> Build Triggers
+
+	Build Triggers
+	|---check mark "Github hook trigger for GIT Scem polling" 
+	
+	click on "Save" button 
+
+
+
+
+	
+
  
