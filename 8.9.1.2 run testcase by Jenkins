@@ -14,7 +14,7 @@
 3. copy "Generic java package.war" in C:Program file/Jenkins
 4. open C:Program file/Jenkins and type cmd to open command prompt
 
-	C:Program file/Jenkins> java -jar jenkins.war -httpport=9090  <-----|
+	C:Program file/Jenkins> java -jar jenkins.war --httpport=9090  <-----|
 
 5. open browser and type: localhost:9090   <------|     //it will run jenkins server
 
