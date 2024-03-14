@@ -1,0 +1,131 @@
+Selenium Grid: it is a Proxy Server. It helps to run tests in parallel on multiple machines.
+
+		                        Your Code (client)
+			                             |
+			                             |
+		                               \/
+		                     ------------------------------                                  Selenium Hub
+		                     |    Selenium Hub	          |                                  |----Router: client send request to router.
+		                     |        (Router)            |                                  |----Distributor: it receives a new sessionID.
+		                     ------------------------------                                  |-----Session Map: Node information is stored
+	                                   .
+		                            .    .     .
+                             .       .          .
+                          .          .              .
+                      .              .                  .
+	                .                  .                     .
+      --------------------      -------------------    -------------------
+      |    Firefox        |     |    Chrome       |    |    opera         |
+      --------------------       ------------------     -------------------
+              PC1                          PC2                    PC3          
+
+                                  Selenium Nodes
+
+
+
+How to work in Selenium Grid
+------------------------------------------
+Step-1: In PC-1, open browser and download Selenium Grid from "https://www.selenium.dev/downloads/" or download "selenium server" dependencies
+
+	a. create a folder "Grid" in C:\Program Files
+	b. copy and paste related all executable files in it
+
+		Grid
+		|---SeleniumServer 4.1.2.jar
+		|---chromedriver
+		|---geckodriver
+		
+	c. open "Grid" folder and type "cmd" in address bar  <------|
+	d. to install SeleniumHUB, type below command
+
+		java -jar selenium-server-4.1.2.jar hub    <------|
+
+	e. check, Selenium Grid Server Running or not
+
+		go to browser and type
+		
+			localhost:4444        <------|     //selenium-server port 4444
+
+	f. now we need to add node (pc) with server
+
+		java -jar selenium-server-4.1.2.jar node --detect-drivers true      <------|
+
+
+Step-2: 
+	a. Open PC-2, and connect it from PC-1 to PC2 by teamViewer 
+	b. In PC-2, create a folder "Grid" in C:\Program Files and copy and paste related all executable files in it
+
+		Grid
+		|---SeleniumServer 4.1.2.jar
+		|---chromedriver
+
+	c. open "Grid" folder and type "cmd" in address bar  <------|
+	d. in command prompt, type below code
+
+		//java -jar selenium-server-4.1.2.jar node --detect-drivers true --publish-events tcp://pc-1 ip address(server pc) --subscribe-events tcp://pc2 ip address    <------|
+		java -jar selenium-server-4.1.2.jar node --detect-drivers true --publish-events tcp://192.168.1.139:4442 --subscribe-events tcp://192.168.1.139:4443    <------|
+
+
+Step-3: Now cteate a project with multiple testcases. for example, create 2 class.
+
+	in Class-1
+	-------------
+	public class GoogleTest
+	{
+	     @Test
+	     public void HomePageCheck()
+	     {
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setBrowsersName("chrome");
+		
+		//URL takes 2 parameter: 1. selenium-server ip 2. object of DesiredCapabilities
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), caps);
+
+		driver.get("http://google.com");
+		System.out.println(driver.getTitle);
+		driver.findElement(By.name("q")).sendkeys("Selenium");
+		driver.close();
+	      }
+	}
+
+	in Class-2
+	-------------
+	public class GoogleTest
+	{
+	     @Test
+	     public void HomePageCheck()
+	     {
+		DesiredCapabilities caps = new DesiredCapabilities();
+		caps.setBrowsersName("firefox");
+		
+		//URL takes 2 parameter: 1. selenium-server ip 2. object of DesiredCapabilities
+		WebDriver driver = new RemoteWebDriver(new URL("http://192.168.1.139:4444"), caps);
+
+		driver.get("http://rahulshettyacademy.com");
+		System.out.println(driver.getTitle);
+		driver.findElement(By.name("q")).sendkeys("Selenium");
+		driver.close();
+	      }
+	}
+
+
+	Now convert the testcase project to TestNG
+	----------------------------------------------------------
+	right click on "project name" ----> TestNG/Config ---> Convert to TestNG
+	
+		parallel mode: classes
+
+	---->Next ---> Finish
+
+
+Step-4: Now run project
+
+	right click on "project name" ---> Run As ---> TestNG Suit
+
+
+
+
+
+
+
+
