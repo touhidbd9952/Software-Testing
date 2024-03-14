@@ -7,7 +7,7 @@ Selenium Grid: it is a Proxy Server. It helps to run tests in parallel on multip
 		        ------------------------------                                  Selenium Hub
 		        |    Selenium Hub	     |                                  |----Router: client send request to router.
 		        |        (Router)            |                                  |----Distributor: it receives a new sessionID.
-		        ------------------------------                                  |-----Session Map: Node information is stored
+		        ------------------------------                                  |----Session Map: Node information is stored
 	                             .
 		                .    .     .
                              .       .          .
