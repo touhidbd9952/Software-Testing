@@ -1,23 +1,23 @@
 Selenium Grid: it is a Proxy Server. It helps to run tests in parallel on multiple machines.
 
-		                        Your Code (client)
-			                             |
-			                             |
-		                               \/
-		                     ------------------------------                                  Selenium Hub
-		                     |    Selenium Hub	          |                                  |----Router: client send request to router.
-		                     |        (Router)            |                                  |----Distributor: it receives a new sessionID.
-		                     ------------------------------                                  |-----Session Map: Node information is stored
-	                                   .
-		                            .    .     .
+		            Your Code (client)
+			            |
+			            |
+		                    v
+		        ------------------------------                                  Selenium Hub
+		        |    Selenium Hub	     |                                  |----Router: client send request to router.
+		        |        (Router)            |                                  |----Distributor: it receives a new sessionID.
+		        ------------------------------                                  |-----Session Map: Node information is stored
+	                             .
+		                .    .     .
                              .       .          .
                           .          .              .
                       .              .                  .
-	                .                  .                     .
+	        .                    .                     .
       --------------------      -------------------    -------------------
       |    Firefox        |     |    Chrome       |    |    opera         |
       --------------------       ------------------     -------------------
-              PC1                          PC2                    PC3          
+              PC1                       PC2                    PC3          
 
                                   Selenium Nodes
 
