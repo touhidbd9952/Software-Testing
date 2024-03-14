@@ -36,7 +36,7 @@ Step-1: In PC-1, open browser and download Selenium Grid from "https://www.selen
 		|---geckodriver
 		
 	c. open "Grid" folder and type "cmd" in address bar  <------|
-	d. to install SeleniumHUB, type below command
+	d. to run Selenium grid server with HUB, type below command
 
 		java -jar selenium-server-4.1.2.jar hub    <------|
 
@@ -52,14 +52,14 @@ Step-1: In PC-1, open browser and download Selenium Grid from "https://www.selen
 
 
 Step-2: 
-	a. Open PC-2, and connect it from PC-1 to PC2 by teamViewer 
+	a. Open PC-2, and connect it from PC-1 by teamViewer 
 	b. In PC-2, create a folder "Grid" in C:\Program Files and copy and paste related all executable files in it
 
 		Grid
 		|---SeleniumServer 4.1.2.jar
 		|---chromedriver
 
-	c. open "Grid" folder and type "cmd" in address bar  <------|
+	c. open "Grid" folder of PC-2 and type "cmd" in address bar  <------|
 	d. in command prompt, type below code
 
 		//java -jar selenium-server-4.1.2.jar node --detect-drivers true --publish-events tcp://pc-1 ip address(server pc) --subscribe-events tcp://pc2 ip address    <------|
