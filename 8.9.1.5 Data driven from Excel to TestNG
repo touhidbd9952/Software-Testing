@@ -7,12 +7,12 @@
 
 3. open Excel and type below way data and save excel file as "demodata"
 
-                  ---------------------------------------
-	| Testcase	| Data-1 |	Data-2 |
+        ----------------------------------------
+	| Testcase	| Data-1  |	Data-2 |
 	---------------------------------------
-	|  Login-1	| karim   |   abc123 |
+	|  Login-1	| karim   |   abc123   |
 	---------------------------------------
-	|  Login-2  | rahim    |   bdc123 |
+	|  Login-2      | rahim   |   bdc123   |
 	----------------------------------------	
 
 4. in maven project, 
