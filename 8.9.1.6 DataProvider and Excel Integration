@@ -12,13 +12,13 @@ from excel file to selenium java. Below I have showed the process
 3. create a excel file "excelDriven" and type below way data
 
 	----------------------------------------
-	| Data-1	| Data-2  |	Data-3 |
+	| Data-1	| Data-2 |  Data-3    |
 	---------------------------------------
 	|  hello	| test   |   abc123   |
 	---------------------------------------
-	|  nice        | text2  |   bdc124   |
+	|  nice         | text2  |   bdc124   |
 	----------------------------------------
-	|  good       | text3  |   bdc125   |
+	|  good         | text3  |   bdc125   |
 	----------------------------------------
 
 4. create a class "dataDriven" 
