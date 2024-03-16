@@ -1,0 +1,70 @@
+/////DataProvider and Excel Intregration//////////////////////////
+
+Generally, by using @DataProvider in selenium we can  pass hard coded data to Testcase. But if we want, we can pass data dynamically
+from excel file to selenium java. Below I have showed the process
+
+1. create a maven project
+2. add dependencies in pom.xml
+	a. poi-ooxml
+	b. poi
+	c. testng
+
+3. create a excel file "excelDriven" and type below way data
+
+	----------------------------------------
+	| Data-1	| Data-2  |	Data-3 |
+	---------------------------------------
+	|  hello	| test   |   abc123   |
+	---------------------------------------
+	|  nice        | text2  |   bdc124   |
+	----------------------------------------
+	|  good       | text3  |   bdc125   |
+	----------------------------------------
+
+4. create a class "dataDriven" 
+in "dataDriven" class, write below way code 
+
+@Test(dataProvider = "driveTest")
+public  void  testCaseData(String greeting, String communication, String id)
+{
+     System.out.println(greeting+communication+id);
+}
+
+@DataProvider(name="driveTest")
+public  object[][] getData()
+{
+    //Generally, by using @DataProvider in selenium we can  pass hard coded data to Testcase
+    //object[][]  data  = {{"data-00","data-01","data-02"},{"data-10","data-11","data-12"},{"data-20","data-21","data-22"}};
+
+    //But if we want, we can pass data dynamicallyfrom excel file to selenium java
+    FileInputStream   fis  =  new FileInputStream("C:\\Users\\touhid\\Documents\\excelDriven.xlsx");
+    XSSFWorkbook   wb  =  new XSSFWorkbook(fis);
+
+    XSSFSheet   sheet  =  wb.getSheetAt(0);     //get sheet-1
+
+    int rowCount  =  sheet.getPhysicalNumberOfRows();   //count rows of sheet-1 that has data
+
+    XSSFRow  row  = sheet.getRow(0);   //get first row
+
+    int  colCount  =  row.getLastCellNum();  //count cells of first row that has data
+
+    object  data[][]  =  new  Object[rowCount-1][colCount];   //create a multi dimention array by row and column
+
+     DataFormatter  formatter  =  new DataFormatter();    //use to convert data
+
+     for(int i=0; i < rowCount-1; i++)
+     {
+          row = sheet.getRow(i+1);
+
+          for(int j=0; j<colCount; j++)
+          {
+      	XSSFCell  cell = row.getCell(j);
+	data[i][j] = formatter.formatCellValue(cell);     //insert data to array after convert to string
+           }
+      }
+      return data;
+}
+
+
+
+
