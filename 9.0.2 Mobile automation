@@ -1,1 +1,39 @@
-//
+////How to check website in Mobile Emulator////////////////
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "MobileEmulatorTest" and write code like below
+
+public class MobileEmulatorTest
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+       //for Mobile Emulator, we need to use ChromeDriver Class and DevTools Class
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+         //set mobile screen size
+         //devTools.send(Emulation.setDeviceMetricsOverride(width, height, deviceScaleFactor, mobile, some other optional parameters));
+         devTools.send(Emulation.setDeviceMetricsOverride(600, 1000, 50, true, Optional.empty, .....,Optional.empty ));
+         
+         driver.get("https://rahulshettyacademy.com/angularAppdemo/");
+         
+         driver.findElement(By.cssSelector(".navbar-toggler")).click();
+         Thread.sleep(3000);
+      
+         driver.findElement(By.linkText("Library")).click();
+   
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
+
+
+
