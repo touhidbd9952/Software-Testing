@@ -1,0 +1,12 @@
+FileInputStream  fis  =  new  FileInputStream("filename with path");
+XSSFWorkbook  workbook  =  new  XSSFWorkbook(fis);
+XSSFSheet  sheet  =  workbook.getSheet("Sheet1");
+Row rowField  =  sheet.getRow(rownumber - 1);
+Cell  cellField  =  rowField.getCell(cellnumber - 1);
+cellField.setCellValue(updateValue);
+FileOutputStream  fos  =  new  FileOutputStream(fileName);
+workbook.write(fos);
+workbook.close();
+
+
+
