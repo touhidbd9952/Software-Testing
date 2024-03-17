@@ -1,0 +1,6 @@
+//download
+driver.findElement(By.cssSelector("#downloadButton")).click();
+
+
+
+
