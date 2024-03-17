@@ -1,0 +1,15 @@
+/////Alert message///////////
+driver.switchTo().alert().accept();   //alert message ok = accept()
+driver.switchTo().alert().dismiss();  //alert message cancel = dismiss()
+
+driver.switchTo().alert().getText();  //to get alert message 
+
+/////Toaster message///////////
+By  toastLocator  =  By.cssSelector(".Toastify_toast-body div:nth-child(2)");
+String  toastText  =  driver.findElement(toastLocator).getText();
+
+Assert.assertEquals("Updated Excel Data Successfully.",  toastText);
+
+
+
+
