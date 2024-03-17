@@ -1,3 +1,9 @@
+Chrome Dev & Chrome DevTools Protocol
+-------------------------------------
+Chrome has several tools (Elements, Console, Sources, Netwook, Performance, Memory, Application, Security) etc.
+to know more about chrome Dev method/functionality, go to browser and type "chrome devtools protocol". Here you
+can see many domains section. To see network related functionality, go to Domains ----> Network 
+
 ////How to check website in Mobile Emulator/Screen////////////////
 
 1. create a maven java project
