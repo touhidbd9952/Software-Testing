@@ -23,7 +23,7 @@ public class MobileEmulatorTest
         DevTools   devTools  =  driver.getDevTools();
         devTools.createSession();
        
-         //set mobile screen size
+         //set mobile screen size buitin command
          //devTools.send(Emulation.setDeviceMetricsOverride(width, height, deviceScaleFactor, mobile, some other optional parameters));
          devTools.send(Emulation.setDeviceMetricsOverride(600, 1000, 50, true, Optional.empty, .....,Optional.empty ));
          
