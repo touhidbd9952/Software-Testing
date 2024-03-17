@@ -1,0 +1,6 @@
+//upload
+WebElement  upload  =  driver.findElement(By.cssSelector("input[type='file']"));
+upload.sendKeys("/Users/touhid/downlaods/download.xlsx");
+
+
+
