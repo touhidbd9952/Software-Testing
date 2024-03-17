@@ -2,3 +2,39 @@
 
 Assert.assertEquals("Updated Excel Data Successfully.",  toastText);
 
+
+
+AssertFalse: If the boolean value is false, then assertion passes the test case
+
+ 	//Assert.AssertFalse(condition); 
+	Assert.assertFalse(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
+
+AssertTrue: If the boolean value is true, then assertion passes the test case
+
+	//Assert.AssertTrue(condition);
+	Assert.assertTrue(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());  
+
+AssertEquals: If both the actual and expected results are same, then the assertion pass
+
+	//Assert.assertEquals(actual,expected); 
+	Assert.assertEquals("5Adult",driver.findElement(By.id("divpaxinfo")).getText());
+
+AssertNotEquals: If both the actual and expected results are not the same, then the assertion pass
+
+	//AssertNotEquals(actual,expected,message); 
+	Assert.assertNotEquals("Hello", "How are you");  
+
+AssertNull: If an object is null, then assertion passes the test case
+	//Assert.assertNull(object); 
+	int abc = 10;
+	Assert.assertNull(abc);
+
+AssertNotNull: If an object is not null, then assertion passes the test case
+
+	//Assert.assertNotNull(object); 
+	int abc = 10;
+	Assert.assertNotNull(abc);
+
+
+
+
