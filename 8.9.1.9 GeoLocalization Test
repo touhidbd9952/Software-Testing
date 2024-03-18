@@ -1,0 +1,44 @@
+////How to check website Language in different Country Wise////////////////
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "GeoLocationTest" and write code like below
+
+public class GeoLocationTest
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+       //for Mobile Emulator, we need to use ChromeDriver Class and DevTools Class
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+         //set mobile screen size
+         Map<String, Object>  coordinates  =  new HashMap<String, Object>();
+         coordinates.put("latitude",40);
+         coordinates.put("longitude",3);
+         coordinates.put("accuracy",1);
+
+         //call custom CdpCommand
+         driver.executeCdpCommand("Emulation.setGeolocationOverride", coordinates);
+         
+         driver.get("https://google.com");
+         
+         driver.findElement(By.name("q")).sendKeys("netflix", keys.ENTER);
+         driver.findElements(By.cssSelector(".LC20lb")).get(0).click();
+         String title = driver.findElement(By.cssSelector(".our-story-card-title")).getText();
+         System.out.println(title);
+   
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
+
+
+
