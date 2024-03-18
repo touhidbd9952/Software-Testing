@@ -46,4 +46,10 @@ public class RequestResponseTest
 	a. right click on "project name" ---> Run As ---> Java Application
 
 
+For more help:
+--------------
+open browser and type "chrome devtools protocol" ---> select "Chrome DevTools Protocol" --->Domains --->Network  
+  (https://chromedevtools.github.io/devtools-protocol/tot/Network/)
+
+
 
