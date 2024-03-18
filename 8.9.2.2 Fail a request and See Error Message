@@ -1,0 +1,37 @@
+////How to Fail a request and See Error Message by Selenium////////////////
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "FailRequestAndShowMessage" and write code like below
+
+public class FailRequestAndShowMessage
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+        //only get the url that has "GetBook" text
+        //java.util.Optional<java.lang.String> urlPattern
+        Optional<List<RequestPattern>>  patterns  = Optional.of(Arrays.asList(new RequestParrern(Optional.of("*GetBook*"), Optional.empty(), Optional.empty())));
+        
+         devTools.send(Fetch.enable(patterns, Optional.empty() ));
+
+         devTools.addListener(Fetch.requestPaused(), request ->{
+	devTools.send(Fetch.failRequest(request.getRequestId(), ErrorReason.FAILED));
+         });
+
+          driver.get("https://rahulshettyacademy.com/angularAppdemo");
+          driver.findElement(By.cssSelector("button[routerlink*='library']")).click();
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
+
