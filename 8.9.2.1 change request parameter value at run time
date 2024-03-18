@@ -21,20 +21,20 @@ public class NetworkMocking
 
         //paused request and change parameter value
          devTools.addListener(Fetch.requestPaused(), request -> {
-	      if(request.getRequest().getUrl().contains("shetty"))
-	      {
-    	   String mockedUrl  =  request.getRequest().getUrl().replace("shetty","Badbuy");
+	if(request.getRequest().getUrl().contains("shetty"))
+	{
+    	       String mockedUrl  =  request.getRequest().getUrl().replace("shetty","Badbuy");
 	       System.out.println(mockedUrl);
 
 	       //after change parameter value, continue request
 	       devTools.send(Fetch.continueRequest(request.getRequestId(),  Optional.of(request.getRequest().getMethod())),
                                                                 Optional.empty(), Optional.empty()); 
-	     }
-	    else
-	    {
-        devTools.send(Fetch.continueRequest(request.getRequestId(),  Optional.of(request.getRequest().getMethod())),
+	}
+	else
+	{
+             devTools.send(Fetch.continueRequest(request.getRequestId(),  Optional.of(request.getRequest().getMethod())),
                                                                 Optional.empty(), Optional.empty()); 
-	    }
+	}
          });
 
           driver.get("https://rahulshettyacademy.com/angularAppdemo");
