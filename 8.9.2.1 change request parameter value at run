@@ -1,0 +1,53 @@
+////How to change request parameter value at run time for testing by Selenium////////////////
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "NetworkMocking" and write code like below
+
+public class NetworkMocking
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+        //Enable Fetch
+         devTools.send(Fetch.enable(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty()));
+
+        //paused request and change parameter value
+         devTools.addListener(Fetch.requestPaused(), request -> {
+	      if(request.getRequest().getUrl().contains("shetty"))
+	      {
+    	   String mockedUrl  =  request.getRequest().getUrl().replace("shetty","Badbuy");
+	       System.out.println(mockedUrl);
+
+	       //after change parameter value, continue request
+	       devTools.send(Fetch.continueRequest(request.getRequestId(),  Optional.of(request.getRequest().getMethod())),
+                                                                Optional.empty(), Optional.empty()); 
+	     }
+	    else
+	    {
+        devTools.send(Fetch.continueRequest(request.getRequestId(),  Optional.of(request.getRequest().getMethod())),
+                                                                Optional.empty(), Optional.empty()); 
+	    }
+         });
+
+          driver.get("https://rahulshettyacademy.com/angularAppdemo");
+          driver.findElement(By.cssSelector("button[routerlink*='library']")).click();
+          
+          Thread.sleep(3000);
+          System.out.println(driver.findElement(By.cssSelector("p")).getText());
+   
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
+
+
