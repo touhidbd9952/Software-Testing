@@ -41,4 +41,15 @@ public class GeoLocationTest
 
 
 
+For more help:
+--------------
+open browser and type "chrome devtools protocol" ---> select "Chrome DevTools Protocol" --->Domains --->Emulation  
+  (https://chromedevtools.github.io/devtools-protocol/tot/Emulation/)
+
+
+
+
+
+
+
 
