@@ -50,4 +50,9 @@ public class NetworkMocking
 	a. right click on "project name" ---> Run As ---> Java Application
 
 
+For more help:
+--------------
+open browser and type "chrome devtools protocol" ---> select "Chrome DevTools Protocol" --->Domains --->Fetch  
+  (https://chromedevtools.github.io/devtools-protocol/tot/Fetch/)
+
 
