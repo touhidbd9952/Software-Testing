@@ -4,9 +4,9 @@
 2. add dependencies
            |---Selenium-java
 
-3. create a class "GeoLocationTest" and write code like below
+3. create a class "RequestResponseTest" and write code like below
 
-public class GeoLocationTest
+public class RequestResponseTest
 {
    public static void main(String[] args)
    {
