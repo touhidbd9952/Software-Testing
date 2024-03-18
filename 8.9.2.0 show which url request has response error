@@ -1,0 +1,49 @@
+////How to show which url request has response error////////////////
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "GeoLocationTest" and write code like below
+
+public class GeoLocationTest
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+       //for Mobile Emulator, we need to use ChromeDriver Class and DevTools Class
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+        //Enable Network
+         devTools.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty(), Optional.empty()));
+
+        //Get what Request was sent
+         devTools.addListener(Network.requestWillBeSent(), request -> {
+	Request  req  =  request.getRequest();
+	System.out.println(req.getUrl());
+         });
+
+        //Get what Response will get
+          devTools.addListener(Network.responseReceived(), response ->{
+          	Response  res  =  response.getResponse();
+	//System.out.println(res.getStatus());
+      	if(res.getStatus().toString().startsWith("4"))
+	{
+	   System.out.println(res.getUrl()+" is failing with status code "+res.getStatus());
+	}
+          });
+
+          driver.get("https://rahulshettyacademy.com/angularAppdemo");
+          driver.findElement(By.cssSelector("button[routerlink*='library']")).click();
+   
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
+
+
