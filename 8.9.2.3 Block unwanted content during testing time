@@ -1,0 +1,35 @@
+////How to Block unwanted content during testing time by Selenium////////////////
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "BlockNetworkRequests" and write code like below
+
+public class BlockNetworkRequests
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+        devTools.send(Network.enable(Option.empty(), Option.empty(), Option.empty()));
+        devTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg","*.css")));   //block all jpg and css
+
+          driver.get("https://rahulshettyacademy.com/angularAppdemo");
+          driver.findElement(By.linkText("Browse Products")).click();
+          driver.findElement(By.linkText("Selenium")).click();
+          driver.findElement(By.cssSelector(".add-to-cart")).click();
+         
+          System.out.println(driver.findElement(By.cssSelector("p")).getText());
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
+
+
