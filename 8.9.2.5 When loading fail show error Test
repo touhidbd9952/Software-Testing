@@ -1,0 +1,41 @@
+////When loading fail show error Test by Selenium////////////////
+sometime it is necessary to see that how software will behave if network speed reduce
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "LodingFailShowErrorTest" and write code like below
+
+public class LodingFailShowErrorTest
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+        ChromeDriver   driver  =  new  ChromeDriver();
+        DevTools   devTools  =  driver.getDevTools();
+        devTools.createSession();
+       
+        devTools.send(Network.enable(Option.empty(), Option.empty(), Option.empty()));
+        devTools.send(Network.emulateNetworkConditions(true, 3000, 20000, 100000, Option.of(ConnectionType.ETHERNET)));   //offline connection, delay, download time, upload time, network conection type
+        
+        devTools.addListener(Network.loadingFailed(), loadingFailed->{
+	System.out.println(loadingFailed.getErrorText());   //when loading fail show error
+	System.out.println(loadingFailed.getTimeStamp()); //show exact time when loading fail
+         });
+          long startTime = System.currentTimeMillis();
+
+          driver.get("https://rahulshettyacademy.com/angularAppdemo");
+
+          driver.findElement(By.cssSelector("button[routerlink*='library']")).click();
+
+          long startTime = System.currentTimeMillis();
+          System.out.println(endTime - startTime);
+          driver.close();
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
