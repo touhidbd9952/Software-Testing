@@ -19,12 +19,16 @@ public class BlockNetworkRequests
         devTools.send(Network.enable(Option.empty(), Option.empty(), Option.empty()));
         devTools.send(Network.setBlockedURLs(ImmutableList.of("*.jpg","*.css")));   //block all jpg and css
 
+	long testStartTime = System.currentTimeMillis();
+
           driver.get("https://rahulshettyacademy.com/angularAppdemo");
           driver.findElement(By.linkText("Browse Products")).click();
           driver.findElement(By.linkText("Selenium")).click();
           driver.findElement(By.cssSelector(".add-to-cart")).click();
          
           System.out.println(driver.findElement(By.cssSelector("p")).getText());
+        long testEndTime = System.currentTimeMillis();
+	System.out.println("Test Duration Time: "+endTime - startTime);
     }
 }
 
@@ -37,4 +41,6 @@ For more help:
 --------------
 open browser and type "chrome devtools protocol" ---> select "Chrome DevTools Protocol" --->Domains --->Fetch  
   (https://chromedevtools.github.io/devtools-protocol/tot/Fetch/)
+
+
 
