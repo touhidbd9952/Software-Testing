@@ -1,0 +1,39 @@
+////How to Show Console Related Error by Selenium////////////////
+
+
+1. create a maven java project
+2. add dependencies
+           |---Selenium-java
+
+3. create a class "ShowConsoleErrorTest" and write code like below
+
+public class ShowConsoleErrorTest
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        
+        ChromeDriver   driver  =  new  ChromeDriver();
+
+        driver.get("https://rahulshettyacademy.com/angularAppdemo");
+        driver.findElement(By.linkText("Browse Projects")).click();
+        driver.findEelemet(By.partialLinkText("Selenium")).click();
+        dirver.findElement(By.cssSelector(".add-to-cart")).click();
+        driver.findElement(By.linkText("Cart")).click();
+        driver.findElement(By.id("exampleInputEmaill")).clear();
+        driver.findElement(By.id("exampleInputEmaill")).sendKeys("2");
+
+        LogEntries  entry =  driver.manage().logs().get(LogType.BROWSER);
+        List<LogEntry>  logs  = entry.getAll();
+
+        for(LogEntry  e  :  logs)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+    }
+}
+
+4. Run Test:   
+	a. right click on "project name" ---> Run As ---> Java Application
+
