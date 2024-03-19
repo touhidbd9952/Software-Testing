@@ -33,3 +33,8 @@ public class BlockNetworkRequests
 
 
 
+For more help:
+--------------
+open browser and type "chrome devtools protocol" ---> select "Chrome DevTools Protocol" --->Domains --->Fetch  
+  (https://chromedevtools.github.io/devtools-protocol/tot/Fetch/)
+
