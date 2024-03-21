@@ -1,0 +1,26 @@
+//////pass parameter in windowPopUp///////////
+
+1. create a maven project
+2. add dependencies in pom.xml
+	|---selenium for java
+	
+3. create a class "windowPopUp"
+
+in "windowPopUp"
+
+public class windowPopUp
+{
+   public static void main(String[] args)
+   {
+        System.setProperty("webdriver.chrome.driver", "/Users/touhid/Documents/chromedriver");
+        WebDrivere  driver = ChromeDriver();
+
+        //driver.get("http://the-internet.herokuapp.com/");
+        driver.get("http://admin:admin123@the-internet.herokuapp.com/");  //pass parameter with url
+
+        driver.findElement(By.linkText("Basic Auth")).click();
+   }
+
+}
+
+
