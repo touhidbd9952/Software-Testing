@@ -1,3 +1,5 @@
+//System.get("user.dir")
+
 Step-1:
 1. Create a file "GlobalData.properties" 
      File --> New --> File, name: GlobalData.properties
