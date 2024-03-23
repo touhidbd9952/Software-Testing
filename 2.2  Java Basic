@@ -193,5 +193,26 @@ class Main {
 }
 
 
+//////////////////Inheritances//////////////////
+-----------------------------------------------------------------
+public class A
+{
+   public int i =10;
+}
+
+public class B extends A
+{
+   public int i =20;
+}
+
+public class ABC
+{
+   public static void main(String[] args)
+   {
+       A   a  =  new B();
+       System.out.println(a.i);   //10
+    }
+}
+
 
 
