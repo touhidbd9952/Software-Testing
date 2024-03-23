@@ -2,6 +2,7 @@
 
 for more help follow below website
 https://www.qamadness.com/knowledge-base/how-to-install-maven-and-configure-environment-variables/
+https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html
 -----------------------------------------------------------------
 
 1. go to browser and type "maven download" , download apache-maven-...-src.zip
