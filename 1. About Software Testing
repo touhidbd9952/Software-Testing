@@ -13,3 +13,6 @@
 •	Through http Protocol, Json Code transfer to Browser Driver (Each browser contains a separate browser driver) in Server
 •	Browser drivers communicate with its browser and executers the commands
 •	Brower Driver receivers responses from the browser and it sends as Json response to Client machine.
+
+
+for email to instructor: rahulonlinetutor@gmail.com
