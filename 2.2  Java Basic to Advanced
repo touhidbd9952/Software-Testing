@@ -324,7 +324,7 @@ public class dateDemo
            //or your can use Calendar Class to get date time
            Calendar  cal  =  Calendar.getInstance();
            SimpleDateFormat  sdf  =  new  SimpleDateFormat("M/d/yyyy");
-           System.out.println(sdf.format(cal.getTime));     //3/24/2024
+           System.out.println(sdf.format(cal.getTime()));     //3/24/2024
            System.out.println(cal.get(Calendar.Day_OF_MONTH)); 
      }
 
