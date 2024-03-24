@@ -215,4 +215,58 @@ public class ABC
 }
 
 
+//////////////////Method Overriding//////////////////
+-----------------------------------------------------------------
+In a class, methods can have same name but must be parameter different
+
+public class A
+{
+   public int i =10;
+   public void add(int a)
+   {
+      System.out.println(a);
+   }
+   public void add(int a, int b)
+   {
+      System.out.println(a+b);
+   }
+   public static void main(String[] args)
+   {
+      A aobj = new A();
+      System.out.println(aobj.add(1));  //1
+      System.out.println(aobj.add(1,2));  //3
+   }
+}
+
+//////////////////Method Overriding//////////////////
+-----------------------------------------------------------------
+public class A
+{
+   public int i =10;
+   public void color()
+   {
+      System.out.println("red");
+   }
+}
+
+public class B extends A
+{
+   public int i =20;
+   public void color()
+   {
+      System.out.println("green");
+   }
+}
+
+public class ABC
+{
+   public static void main(String[] args)
+   {
+       B   b  =  new B();
+       System.out.println(b.color());   //result==> green
+       //if we commented-up color() method of B class then result will be "red"
+    }
+}
+
+
 
