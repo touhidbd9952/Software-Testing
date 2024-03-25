@@ -87,6 +87,20 @@ public class Main {
   }
 }
 
+/////Some use of Arraylist//////////////
+ArrayList<String>  alist =  new  ArrayList<String>();
+alist.add("java");
+alist.add("c");
+System.out.println(alist);
+alist.add(0, "c");
+alist.add(1, "java");
+System.out.println(alist);
+alist.remove("c");
+if(alist.contains("java")){....}
+int a = alist.indexOf("java");
+if(alist.isEmpty()){....}
+int listsize = alist.size();
+
 
 //////////////////For loop//////////////////
 -----------------------------------------------------------------
