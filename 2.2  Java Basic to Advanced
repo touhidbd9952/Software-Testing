@@ -126,6 +126,33 @@ while(i.hasNext())
     System.out.println(i.next());
 }
 
+////HashMap  List////////////////////////////////////
+HashMap is a arraylist that put/add data as key value pare.
+here key can be integer or string like :  
+
+HashMap<String,String> hm  =  new HashMap<String,String>(); 
+hm.put("name","Karim");
+hm.put("address","123, Dhaka");
+
+For Example:
+----------------
+HashMap<Integer,String> hm  =  new HashMap<Integer,String>(); 
+hm.put(0, "hello"); 
+hm.put(1, "Gudbye"); 
+hm.put(2, "morning"); 
+hm.put(3, "evening"); 
+System.out.println(hm.get(2)); 
+hm.remove(2); 
+System.out.println(hm.get(2)); 
+Set sn= hm.entrySet();    // convert to Set
+Iterator  it  =  sn.iterator(); 
+ 
+while(it.hasNext()) 
+{ 
+    Map.Entry mp=(Map.Entry)it.next();   //seperate key value
+    // System.out.println(mp.getKey()); 
+    System.out.println(mp.getValue()); 
+ }
 
 
 //////////////////For loop//////////////////
