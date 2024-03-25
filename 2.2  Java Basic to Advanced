@@ -74,6 +74,10 @@ System.out.println(cars.length);
 
 //////////////////Arraylist, HashSet//////////////////
 -----------------------------------------------------------------
+1. accept duplicate values
+2. indexing
+3. order follows/has data sequence 
+
 import java.util.ArrayList;
 
 public class Main {
@@ -105,6 +109,7 @@ int listsize = alist.size();
 ////HashSet  List////////////////////////////////////
 1. Does not accept duplicate values
 2. No indexing
+3. No order follows/No data sequence 
 
 HashSet<String>  hs  =  new  HashSet<String>();
 hs.add("USA");
