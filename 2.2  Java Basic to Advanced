@@ -115,6 +115,13 @@ hs.remove("UK");
 if(hs.isEmpty()){....}
 int a = hs.size();
 
+Iterator<String>  i  =  hs.iterator();
+while(i.hasNext())
+{
+    System.out.println(i.next());
+}
+
+
 
 //////////////////For loop//////////////////
 -----------------------------------------------------------------
