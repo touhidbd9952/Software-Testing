@@ -332,6 +332,38 @@ public class dateDemo
 
 
 
+//////////////////Access Modifier//////////////////
+-----------------------------------------------------------------
+
+default:     you can access method anywhere only in package
+public:       you will have access across all the package
+private:     you cannot access outside the class
+protected: you can access only in sub class 
+
+//// default variable, default method
+int a = 5;    
+void getData()
+{
+
+}
+
+//// public variable, public method
+public int a = 5;    
+public void getData()
+{
+
+}
+
+//// private variable, private method
+private int a = 5;    
+private void getData()
+{
+
+}
+
+//// protected variable, protected method
+protected int a = 5;    
+protected void getData()
 
 
 
