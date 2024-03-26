@@ -1,4 +1,19 @@
 ////////Testcase Template///////////////////////////////////////
+TC ID		:  Testcase ID Number
+Created By	:  Type the name of person who created this testcase
+Reviewed By	:  Type the name of person who reviewed this testcase (Manager Name/Senior Tester)
+Reviewed Date	:  Type reviewed data here
+Priority	:  High/Low/Medium
+Pre requisites	:  some requirement for this test
+
+Title		:  Testcase title
+Desciption	:  More details about Testcase
+Executed By	:  Type the name of person who executed this testcase
+Executed Date	:  Type executed data here
+
+
+Example:
+-----------------
 
 TC ID		:  TC_0001
 Created By	:  Touhid
