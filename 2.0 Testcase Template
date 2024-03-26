@@ -1,4 +1,6 @@
 ////////Testcase Template///////////////////////////////////////
+In every testcase writting tools, you will get below options
+
 TC ID		:  Testcase ID Number
 Created By	:  Type the name of person who created this testcase
 Reviewed By	:  Type the name of person who reviewed this testcase (Manager Name/Senior Tester)
