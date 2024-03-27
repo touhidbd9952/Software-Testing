@@ -1,13 +1,15 @@
-1. Create Maven Project
+1. Create Maven Project:
+        File --> New --> project/other --> Maven --> Maven Project
         Archetype/Template : maven-archetype-quickstart
         Group Id/DomainName : com.abc
         Artifact Id/ProjectName : testproject
         
-2. Install dependencies(in pom.xml)
-        1. remove "junit" from dependency
-        2. add "Selenium Java"  //latest most used version
-        3. add "TestNG" //choose a version based on your java version (6.14.3)
-        4. add "webdrivermanager"      //automated driver management and docker builder...
+2. Install dependencies: open pom.xml file
+        1. remove "junit" from dependency if exist
+        2. open browser and type "maven repository" 
+           search and add "Selenium Java"  //latest most used version
+           search and add "TestNG" //choose a version based on your java version (6.14.3)
+           search and add "webdrivermanager"      //automated driver management and docker builder...
         
                 WebDriverManager.chromedriver().setup();
                 WebDriver driver = new ChromeDriver();
