@@ -46,8 +46,22 @@ Step #	| Test Step		     | Test Data		      | Expceted Result		    | Actual Resu
  ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------      
 
 
+What is test case?
+------------------
+A test case is a set of steps that are designed to verify the correctness of 
+a particular functionality of a software application. 
 
+Test cases typically consist of two main components: the “actual result” 
+and the “expected result.”
 
+Actual Result
+-----------------
+This is the output that is obtained when the test case is executed.
+
+Expected Result
+-----------------
+This is the predefined output or behavior that the tester expects 
+to observe when the test case is executed correctly.
 
 
 
