@@ -4,6 +4,9 @@ download below extentions for FireFox/chrome browser and add it
 1. SelectorsHub
 2. ChroPath
 
+<input type="text"         placeholder="Username"   id="inputUsername"   value="">
+<tag   attribute="value"   attribute="value"        attribute="value"    attribute="">
+
 Type of Locator:
 -----------------
 ID             		driver.findElement(By.id("inputUsername")).sendKeys(loginusername);   //id
