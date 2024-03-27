@@ -1,5 +1,5 @@
 Study: "xpath --> https://www.guru99.com/xpath-selenium.html"
-1. Selenium, Webdriver and its functionality, Chrome driver, Gekko driver, edge driver
+1. Selenium, Webdriver, WebdriverManager, RemoteWebdriver, ChromeDevTools and its functionality, Chrome driver, Gekko driver, edge driver
 2. Different Locator(id, name, cssSelector, xpath, LinkText, Partial LinkText, TagName)
 3. implicit wait, explicit wait: webdriverwait, fluentwait
 4. Web Element (input, select, checkbox, radio, table, button, link)
@@ -7,8 +7,9 @@ Study: "xpath --> https://www.guru99.com/xpath-selenium.html"
 6. parent page, child page
 7. core java (variable, array, list, if, for, foreach, while, conversion(one datatype to other datatype, array to list, string to array))
 8. eclips, maven, pom.xml, dependency, debuging, add new library, jdk, celenium for java, testng
-9. testng validation
+9. testng
 10. pom.xml
+11. reports
 
 
 Practice: "https://rahulshettyacademy.com" "search, mouse hover -->https://www.amazon.com/"
