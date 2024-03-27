@@ -1,0 +1,12 @@
+There are some extensions for browser that are help selenium to locate WebElement/WebElements 
+(tag, id, name, className, cssSelector, linkText, PartialLinkText, Xpath).
+
+<input  type="text"         id="inputId"        placeholder="value"  value="">
+<tag    attribute="value"   attribute="value"   attribute="value"    attribute="">
+
+download below extentions for FireFox/chrome browser and add it
+1. SelectorsHub
+2. ChroPath
+
+
+
