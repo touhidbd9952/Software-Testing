@@ -1,21 +1,20 @@
-What is Cucumber: Cucumber is an open-source testing framework that supports Behavior Driven Development, use for 
-                  web applications automation testing.
-                  The tests are first written in a simple scenario form that describes the expected behavior 
-                  of the system from the user's perspective.
+What is Cucumber: Cucumber is an open-source testing framework, use for web applications automation testing.
+
+To work in Cucumber testng, we need to create 3 type of file
+	1. Testcase feature file (--.feature)
+	2. Steps definition java file (--.java)
+	3. Test runner java file (--.java)
 
 Ghockin: It is business readable domain specific language that describle software behaviour
 
 Cucumber Keywords:
-	Scenario:  	   a single testcase
-
-	Feature: 	   What to test
-
-	Feature file:      testcase file (something.feature)
-
+	Feature: 	   testcase title/what to test
+	Scenario:  	   testcase
 	Scenario outline:  Positive/Negative test
 
-	Step Definition:   1. Given ....  When .... And ... And ... Then ....    (Positive Test)
-		           2. Given .... When .... And ... Then ... But ....    (Negative Test)
+	Step Definition:   1. Given ....  When .... And ... And ... Then ....    
+		           2. Given .... When .... And ... Then ... But ....    
+			   3. Given .... When .... Then ....
 
 		        Given First Step
 			When Scond Step
@@ -47,13 +46,91 @@ Cucumber Keywords:
 
 
 ///////How to work in cucumber//////////////////////////////
+
+Example-1
+----------------
+create a package "cucumberJava" in "src/test/java"
+Step-1. create testcase feature file "cucumberJava.feature"
+
+in "cucumberJava"
+----------------
+
+Feature: CucumberJava
+
+Scenario: Login functionality exists
+
+	Given I have open the browser
+	When I open Facebook website
+	Then Login button should exits
+
+Step-2. create testcase steps defination java file "annotation.java" 
+
+in "annotation.java"
+---------------------
+
+package CucumberJava; 
+
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.firefox.FirefoxDriver; 
+
+import cucumber.annotation.en.Given; 
+import cucumber.annotation.en.Then; 
+import cucumber.annotation.en.When; 
+
+public class cucumberJava { 
+   WebDriver driver = null; 
+	
+   @Given("^I have open the browser$") 
+   public void openBrowser() { 
+      driver = new FirefoxDriver(); 
+   } 
+	
+   @When("^I open Facebook website$") 
+   public void goToFacebook() { 
+      driver.navigate().to("https://www.facebook.com/"); 
+   } 
+	
+   @Then("^Login button should exits$") 
+   public void loginButton() { 
+      if(driver.findElement(By.id("u_0_v")).isEnabled()) { 
+         System.out.println("Test 1 Pass"); 
+      } else { 
+         System.out.println("Test 1 Fail"); 
+      } 
+      driver.close(); 
+   } 
+}
+
+Step-3. create testcase runner java file "runTest.java"
+
+ in "runTest.java"
+--------------------
+package cucumberJava;
+ 
+import org.junit.runner.RunWith; 
+import cucumber.junit.Cucumber; 
+
+@RunWith(Cucumber.class) 
+@Cucumber.Options(format = {"pretty", "html:target/cucumber"}) 
+
+public class runTest { }
+
+Step-4: run the testcase
+
+	Right-click --->Run as --->Select "JUnit test"
+
+
+
+Example-2
+----------------
 	src/test/java
 		|---cucumber(package)
 
 
 Step-1
 -------
-create a file "SubmitOrder.feature" and write below way 
+create testcase feature file "cucumber.feature" and write below way 
 -----------------------------
 @tag
 Feature: Purchase the order from Ecommerce Website
