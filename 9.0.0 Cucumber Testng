@@ -50,6 +50,9 @@ Cucumber Keywords:
 Example-1
 ----------------
 create a package "cucumberJava" in "src/test/java"
+
+in package "cucumberJava" do the below task
+
 Step-1. create testcase feature file "cucumberJava.feature"
 
 in "cucumberJava"
