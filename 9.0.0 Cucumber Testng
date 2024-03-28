@@ -9,7 +9,7 @@ Ghockin: It is business readable domain specific language that describle softwar
 
 Cucumber Keywords:
 	Feature: 	   testcase title/what to test
-	Scenario:  	   testcase
+	Scenario:  	   testcase with steps
 	Scenario outline:  Positive/Negative test
 
 	Step Definition:   1. Given ....  When .... And ... And ... Then ....    
