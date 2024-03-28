@@ -2,8 +2,8 @@ What is Cucumber: Cucumber is an open-source testing framework, use for web appl
 
 To work in Cucumber testng, we need to create 3 type of file
 	1. Testcase feature file (--.feature)
-	2. Steps definition java file (--.java)
-	3. Test runner java file (--.java)
+	2. Testcase steps definition java file (--.java)
+	3. Testcase runner java file (--.java)
 
 Ghockin: It is business readable domain specific language that describle software behaviour
 
