@@ -41,7 +41,14 @@ select * where attribute='value'
 //a[following-sibling::span[@id='xyz']]        //following-sibling : after(পরের) brother sister
 //input[preceding-sibling::label[@for='email']]
 
+//div[@class='product']
+//div[@class='product'] //h4
+//div[@class='product'] //h4[@class='product-name']
+//div[@class='product'] //h4[contains(text(),'Brocolli')]
 
+cssSelector
+--------------------
+h4.product-name
 
 select * where attribute='value'(select * where attribute='value')
     ------------------			---------------
