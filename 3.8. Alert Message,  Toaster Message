@@ -1,6 +1,6 @@
 /////Alert message///////////
-driver.switchTo().alert().accept();   //alert message ok = accept()
-driver.switchTo().alert().dismiss();  //alert message cancel = dismiss()
+driver.switchTo().alert().accept();   //to click  "ok" button for close alert message
+driver.switchTo().alert().dismiss();  //to click  "cancel" button = for cancel alert message 
 
 driver.switchTo().alert().getText();  //to get alert message 
 
