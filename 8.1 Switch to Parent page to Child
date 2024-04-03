@@ -1,3 +1,6 @@
+//POP Window and Tab Window
+--------------------------------
+
 ///To go to child page
 		driver.get("your target site url");
 		driver.findElement(By.cssSelector(".blinkingText")).click();    //click on a link to go child page
