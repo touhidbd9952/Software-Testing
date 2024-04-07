@@ -20,8 +20,44 @@ a.moveToElement(driver.findElement(By.cssSelector("a[id='nav-link-accountList']"
     
     
     
-    
-    
+//////Example////////////////////////////////////
+
+package testcases;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class PracticePagePart4MouseHoverTestcase 
+{
+	public static void main(String[] args) 
+	{
+		//Browser invoke
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		//Go to
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		Actions actionsObj = new Actions(driver);
+		actionsObj.moveToElement(driver.findElement(By.id("mousehover"))).build().perform();
+		try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+		actionsObj.moveToElement(driver.findElement(By.xpath("//a[@href='#top']"))).click().build().perform();
+		
+
+	}
+
+}
+
+
+
     
     
     
