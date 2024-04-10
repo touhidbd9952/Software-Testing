@@ -32,6 +32,40 @@ driver.switchTo().defaultContent();
 
 
 
+////////Example/////////////////////////
+
+package testcases;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class PracticePagePart5IframeStandAloneTestcase 
+{
+	public static void main(String[] args) 
+	{
+		//Browser Invoke
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		//Go to
+		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		
+		driver.switchTo().frame(driver.findElement(By.id("courses-iframe")));
+		
+		driver.findElement(By.xpath("//a[contains(text(),'Job Support')]")).click();
+
+	}
+
+}
+
+
 
 
 
