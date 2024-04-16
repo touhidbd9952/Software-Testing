@@ -36,7 +36,7 @@ Selenium automation activity:
 
 1. StandAloneTestcase
 2. PageObjectModel with Testng   
-    Anotation(@)
+    Anotation(@)        //3.9.2 Object Oriented Concept
 3. Global Property Set
 4. Test case run by profile (smoke, regration)
 5. Test case run by Maven Command (mvn)
