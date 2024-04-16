@@ -1,0 +1,52 @@
+https://rahulshettyacademy.com
+https://www.rahulshettyacademy.com/practice-project
+
+Ecommerce practice
+-------------------
+https://rahulshettyacademy.com/seleniumPractise/#/
+
+Flight Booking
+------------------
+https://rahulshettyacademy.com/dropdownsPractise/
+
+Product item search and get price, select delevery date
+------------------
+https://rahulshettyacademy.com/seleniumPractise/#/offers
+
+Practice Page
+-----------------
+https://rahulshettyacademy.com/AutomationPractice/
+
+Registration form
+------------------
+https://rahulshettyacademy.com/angularpractice/
+
+
+/////Working Procedure////////////////////////////////////////////////////
+Selenium automation activity:
+
+    Create Maven Project 
+         or 
+    Convert project to Maven project (pom.xml)
+
+    Convert project to Testng (testng.xml)
+
+    Set dependency from Maven repository in 
+    pom.xml
+
+1. StandAloneTestcase
+2. PageObjectModel with Testng   
+    Anotation(@)
+3. Global Property Set
+4. Test case run by profile (smoke, regration)
+5. Test case run by Maven Command (mvn)
+6. Test case run from Jenkins Server
+7. Chrome Dev Tools 
+        a. Slow network test 
+        b. Offline network test 
+6. Java basic
+7. Load Testing 
+8. Performance monitoring
+
+
+
