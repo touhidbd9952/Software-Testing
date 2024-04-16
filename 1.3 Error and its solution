@@ -1,0 +1,3 @@
+Error message "SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder"
+-----------------------------------------------------------------------------------
+Solution:  in your "pom.xml" file, change testng version and check. may be this version is not compatible with your browser version. so change and try to run the project  
