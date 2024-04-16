@@ -39,7 +39,7 @@ public class AbstractComponent
 	
 	public void waitForElementToAppear(By locatorBy)
 	{
-		wdw = new WebDriverWait(driver, 5);
+		wdw = new WebDriverWait(driver, 5);      //wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wdw.until(ExpectedConditions.visibilityOfElementLocated(locatorBy));
 	}
 }
