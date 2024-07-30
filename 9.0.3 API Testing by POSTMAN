@@ -203,7 +203,7 @@ when  login by username and password, follow below steps
 	Pass  :   Check First Name
 
 
-//////How to Generate Report /////////////////////////
+//////How to Generate Report in console /////////////////////////
 
 1. First install Node.js
 2. Install newman by "cmd"
