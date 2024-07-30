@@ -15,7 +15,7 @@ Alt + UP/Down arrow.  Line move up down
 Ctrl + Alt + down arrow   Copy paste
 
 
-How to add JARs in Eclipse 
+How to add JARs in Eclipse (Manually)
 ---------------------------
 1. Download Jar file that you required
 2. Right click on “your project name”propertiesJava Build Path Libraries Add External JARs
