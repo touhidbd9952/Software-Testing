@@ -70,7 +70,7 @@ PUT Method (Update data)
 2. Select "Add request"
 3. Create Name your request "Update Data"
 4. Set "PUT" as request type
-5. Set "API Url" in Text box (beside "PUT") as "https://abc.com/booking/{{id}}"
+5. Set "API Url" in Text box (beside "PUT") as "https://abc.com/booking/{{CustomerId}}"
 6. Click on "Body" --> "raw" (select) --> JSON (select)
 	in "raw", type below way json data
 
@@ -120,26 +120,27 @@ DELETE Method (Delete data)
 1. Select your "Collection Name" and click on it "Environment"
 2. Chanage the name as "CollectionNameEnvironment"
 3. Create a Variable 
+
 	VARIABLE	|	INITIAL VALUE	|	CURRENT VALUE
         --------------------------------------------------------------------------------------------------------------------
-                   BaseUrl		|	https://abc.com	|	https://abc.com
+        BaseUrl		|	https://abc.com	|	https://abc.com
         --------------------------------------------------------------------------------------------------------------------
-	 CustomerId	|	1		|
+	CustomerId	|	1		|
         --------------------------------------------------------------------------------------------------------------------
-        	 Token		|                	abcd		|
+        Token		|       abcd		|
 
 4. Save
 5. Now you can change "API Url" like as   {{BaseUrl}}/booking                  
 
 
 
-//////How to Set value to "id" Environment Variable/////////////////////////
+//////How to Set value to "CustomerId" Environment Variable/////////////////////////
 
 when insert data, follow below steps
 
 1. click on "Body" --> click on "Tests/Script" and type below code
 
-	var jsonData = pm.response.json()                                            // pm = postman
+	var jsonData = pm.response.json()                               // pm = postman
 	pm.environment.set("CustomerId", jsonData.bookingid)            // "bookingid"
 
 
@@ -163,7 +164,7 @@ when  login by username and password, follow below steps
 
 1. click on "Body" --> click on "Tests/Script" and type below code
 
-	var jsonData = pm.response.json()                                            // pm = postman
+	var jsonData = pm.response.json()                                     // pm = postman
 	pm.environment.set("Token", jsonData.token)                           // get "token"
 
 
@@ -187,7 +188,7 @@ when  login by username and password, follow below steps
 	var jsonData = pm.response.json()                                            // pm = postman
 	pm.environment.set("CustomerId", jsonData.bookingid)
 
-	pm.test("Status code is 200", function(){
+	pm.test("Status code is 200", function(){                                   
 	     pm.response.to.have.status(200);
 	});
 	
@@ -207,15 +208,15 @@ when  login by username and password, follow below steps
 1. First install Node.js
 2. Install newman by "cmd"
 
-	npm install -g newman
+	npm install -g newman              //npm: node package manager
 
 3. run collection of your postman
 
-	newman run SQAStudy.postman_collection.json
+	newman run SQAStudy.postman_collection.json                       //SQAStudy: collection name
 
 4. run collection of your postman with environment variable
 
-	newman run SQAStudy.postman_collection.json -e SQAStudyEnvironment.postman_environment.json
+	newman run SQAStudy.postman_collection.json -e SQAStudyEnvironment.postman_environment.json            //SQAStudyEnvironment: environment name
 	
 
 
@@ -223,7 +224,7 @@ when  login by username and password, follow below steps
 
 1. Export Postman collection file
 ---------------------------------
-Click on the three (...) dot beside the "collection name" ---> click on "Export" and save it in "d:/api-test" folder
+Click on the three (...) dot beside the "your collection name" ---> click on "Export" and save it in "d:/api-test" folder
 
 2. Generate Report
 --------------------------------
