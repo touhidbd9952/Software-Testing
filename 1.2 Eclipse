@@ -1,3 +1,20 @@
+How to Download and Install Eclipse
+---------------------------
+1. Go to  https://www.geeksforgeeks.org/how-to-download-and-install-eclipse-on-windows/
+2. Follow the instruction of "Steps to Download and install Eclipse on Windows"
+
+
+Eclipse Shortcut keys
+---------------------------
+Ctrl + /    for comment/uncomment lines
+Ctrl + Shift + /  for block commenting 
+Ctrl + Shirt + F code formatting 
+Ctrl + F   find/replace
+Ctrl + L  Go to the line
+Alt + UP/Down arrow.  Line move up down 
+Ctrl + Alt + down arrow   Copy paste
+
+
 How to add JARs in Eclipse 
 ---------------------------
 1. Download Jar file that you required
