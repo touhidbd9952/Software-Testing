@@ -1,0 +1,52 @@
+Two type of Rest API
+1. HTTP Request
+2. SOAP/XML-RPC Request
+
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request): HTTP Request
+	|---Listener(View Result): View Results Tree
+
+
+
+HTTP Request
+=========================================
+Name: HTTP Request
+Server Name or IP: api.openweathermap.org
+Protocol[http]:       // if it is "https" then type here 
+Path: /data/2.5/weather
+
+Paramerters
+====================
+Name		Value
+-----------------------------------------------------------------
+q	| 	Dhaka
+-----------------------------------------------------------------
+appid	|	5ad76b332e2fa27ea9859353e5fdd69d
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request): SOAP/XML-RPC Request
+	|---Listener(View Result): View Results Tree
+
+SOAP/XML-RPC Request
+=========================================
+- SOAP/XML-RPC Request setting is more easy than HTTP Request
+- We can set full server url , path and parameter in "Server Name or IP"
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request): SOAP/XML-RPC Request
+	|---Listener(View Result): View Results Tree
+
+
+
+SOAP/XML-RPC Request
+====================
+Name: SOAP/XML-RPC Requestt
+Server Name or IP: api.openweathermap.org/data/2.5/weather?q=Dhaka&appid=5ad76b332e2fa27ea9859353e5fdd69d
+
