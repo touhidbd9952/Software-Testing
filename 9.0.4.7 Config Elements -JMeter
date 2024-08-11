@@ -1,0 +1,43 @@
+Config Elements: use for read data from file and show it in View Report (Listener)
+
+
+How to read data from excel file and show in view reault (listener)?
+===================================================
+Work Structure
+======================
+Test Plan
+ |---Config Element (CSV file text config) : connect csv (excel file)
+ |---Thread Group (Users)
+         	|---Sampler (Request) : add "Java Request"
+	|---Listener (View Report) : add "View Requests Tree"
+
+
+1.
+csv (excel file) with data
+===================
+first_name	| last_name
+------------------------------
+kabir	| hossain
+------------------------------
+monir	| mia
+------------------------------
+
+
+2.
+Sampler (Request): Java Request
+===============================
+Name: Request ${first_name} ${last_name}
+
+
+3.
+Listener (View Report) : View Requests Tree
+
+
+4.
+Run the test and view result
+
+
+
+----------------------------------------------------------------------------
+
+
