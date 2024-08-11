@@ -1,0 +1,67 @@
+Database Assertion is used To check that we are getting correct result from database query or not
+
+
+Step 1:
+
+Test Plan
+ |---Thread Group (Users)
+	|---JDBC Connection Configuration (config)
+	|---Sampler (request): JDBC Request
+	|		|---Assertions: Response Assertion
+	|---Listener: View Results Tree, View Results in Table, Assertion Result
+
+
+
+JDBC Connection Configuration
+---------------------------------
+	Database URL : jdbc:mysql://db4free.net:3306/automationbd
+	JDBC Driver class:  com.mysql.jdbc.Driver
+	Usrname: root
+	Password: ******
+
+JDBC Request
+---------------------------------
+	Name: JDBC Request
+	Variable Name: test
+	Query Type: Select Statement
+	Query: select * from Student
+
+
+Response Assertion	
+---------------------------------
+	Name: Response Assertion
+	Apply to: Main sample only
+	Response Field to Test: Text Response
+	Pattern Matching Rules: Contains
+
+	Patterns to Test: click on "Add" button and type "New Zealand" in Patterns to Test input box
+
+
+Step 2: Run Test and Check the result
+
+
+
+
+------------------------------------------------------------------------------
+How to check data by database column wise?
+
+
+Step 1: open "JDBC Request" and type below way column number (eg. if we have 4 column in student table then )
+	
+	Variable names: Col1,Col2,Col3,Col4
+
+Step 2: open "Response Assertion"
+
+	Apply to : JMeter Variable (select it) and type "Col4_2"       //checking "Column 4 and Row 2 have New Zealand or not"
+	Patterns to Test: New Zealand
+
+Step 3: Run Test and Check the result
+
+
+
+
+
+
+
+
+
