@@ -1,0 +1,37 @@
+Why to execute non-gui mode?
+- gui consumes more resources / memory
+- gui not recommended for heavy load testing
+- command line can be integrated with other systems (Jenkins/CI)
+
+
+Step 1: Create a Test Plan, Add Thread Group (Users), Add Sampler (Request) as "HTTP Request"
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request) : HTTP Request
+
+
+Step 2: go to JMeter ---> bin  and open command prompt (cmd) 
+
+     code syntex:
+	jmeter -n -t [location of your jmeter test script] -l [location of the result file]
+
+		-n : non gui mode
+		-t : location of jmeter script
+		-l : location of result file
+		location of your jmeter test script:  d:/apache-jmeter-3.0/bin/examples/JmeterCommandLineTest.jmx
+		location of the result file: d:/excel1.csv
+
+		for more helpfull command: 
+			jmeter -h     //jmeter command line code syntex
+			jmeter -?    // code meaning
+
+      code example:
+	jmeter -n -t d:/apache-jmeter-3.0/bin/examples/JmeterCommandLineTest.jmx -l d:/excel1.csv
+
+
+Step 3: open excel1.csv file and see result
+
+
+
+
