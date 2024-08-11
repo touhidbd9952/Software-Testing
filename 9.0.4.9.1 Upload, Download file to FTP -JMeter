@@ -1,0 +1,45 @@
+//////////Download file from FTP Server to Local PC//////////
+
+Step 1: Take "Test Plan" ---> Add "Thread Group" ---> Add "Sampler (Request) : FTP Request" ---> Add  "Add Listener (View Report) : View Result Tree, View Result Tree"
+
+Test Plan
+ |---Thread Group (Users)
+ 	|---Sampler (Request) : FTP Request
+	|---Add Listener (View Report) : View Result Tree, View Result Tree
+
+
+FTP Request (configuration)
+--------------------
+Name: FTP Request
+Server Name or IP: ftp.swfwmd.state.fl.us		//FTP Server url/IP
+Remote File: /README.txt                                        	//file that need to download
+Local File: /Users/touhid/Desktop/README.txt	//location, where it will download	
+get(RETR) (select it to download file from  ftp server)		//get data from ftp server
+Username: Anonymous
+Password:*************
+
+Step 2: Run Test and Check File downloaded or not
+
+//////////Upload file from Local PC to FTP Server//////////
+
+Step 1: Take "Test Plan" ---> Add "Thread Group" ---> Add "Sampler (Request) : FTP Request" ---> Add  "Add Listener (View Report) : View Result Tree, View Result Tree"
+
+Test Plan
+ |---Thread Group (Users)
+ 	|---Sampler (Request) : FTP Request
+	|---Add Listener (View Report) : View Result Tree, View Result Tree
+
+
+
+FTP Request (configuration)
+--------------------
+Name: FTP Request
+Server Name or IP: ftp.swfwmd.state.fl.us		 //FTP Server url/IP
+Remote File: /pub/incoming/README.txt                            //file that need to download
+Local File: /Users/touhid/Desktop/README.txt	//location, where it will download	
+put(STOR) (select it to upload file from  ftp server)		//get data from ftp server
+Username: Anonymous
+Password:*************
+
+Step 2: Run Test and check File upload to FTP server or not
+
