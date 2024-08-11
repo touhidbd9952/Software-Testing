@@ -1,0 +1,25 @@
+Jmeter helping site
+--------------------------
+https://automationstepbystep.com/
+https://www.youtube.com/watch?v=M-iAXz8vs48&list=PLhW3qG5bs-L-zox1h3eIL7CZh5zJmci4c&index=1
+
+
+How to install Jmeter
+--------------------------
+Step 1: Check java is installed on your system
+
+	a. open command prompt  "cmd"
+	b. type:  java -version
+
+Step 2: Download Jmeter
+
+	a. open browser and type "download jmeter"
+	b. click on  "Apache JMeter - Download Apache JMeter"
+	c. in "Binaries", click on "apache-jmeter-current-version.zip" to download
+	d. Unzip and keep Jmeter folder at d drive
+	e. Run Jmeter
+		i. go to d drive and click on "jmeter" --> bin --> click on "jmeter.bat"
+
+
+
+  
