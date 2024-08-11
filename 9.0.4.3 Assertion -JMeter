@@ -1,0 +1,137 @@
+Assertion : Check on the Response (e.g. code 200, text message)
+
+Type of Assertion that commonly used,
+1. Response Assertion
+2. Duration Assertion
+3. Size Assertion : Response size   
+4. HTML Assertion: to check header html is valid or not
+5. XML Assertion
+6. XPath Assertion: use for API Testing
+
+
+How to add Assertion (Response Assertion)
+-------------------------
+1. right click on "Users/Thread Group"  --> Add --> Assertions --> Response Assertion
+2. Response Assertion:
+
+	Name: ResponseAssertion
+	Apply to: Main sample only
+	Response Field to Test: Response Code
+	Pattern Matching Rules: Equals
+	Patterns to Test: 200                                          //if response result have stutas code 200, then pass the result
+
+3. Click on  "Add" button
+
+4. To run test:
+
+	right click on "Users/Thread Group" --> Start
+
+5. To see the Assertion result:    click on listener "View Result in Table" and see the "status" column
+
+
+
+How to add Assertion (Duration Assertion)
+-------------------------
+1. right click on "Users/Thread Group"  --> Add --> Assertions --> Duration Assertion
+2. Duration Assertion:
+
+	Name: DurationAssertion
+	Apply to: Main sample only
+	Duration in milliseconss: 1500        //if duration result exceed 1500, then fail the result
+	                                         
+
+3. Click on  "Add" button
+
+4. To run test:
+
+	right click on "Users/Thread Group" --> Start
+
+5. To see the Assertion result:    click on listener "View Result in Table" and see the "status" column
+
+
+
+How to add Assertion (Size Assertion)
+-------------------------
+1. right click on "Users/Thread Group"  --> Add --> Assertions --> Size Assertion
+2. SizeAssertion:
+
+	Name: SizeAssertion
+	Apply to: Main sample only
+	Response Size Field to Test: Full Response
+	Size in bytes: 30235        //if byte result in between 30235, then pass the test result
+	Type of Comparison: =                            
+
+3. Click on  "Add" button
+
+4. To run test:
+
+	right click on "Users/Thread Group" --> Start
+
+5. To see the Assertion result:    click on listener "View Result in Table" and see the "status" column
+
+
+
+How to add Assertion (HTML Assertion)
+-------------------------
+1. right click on "Users/Thread Group"  --> Add --> Assertions --> HTML Assertion
+2. HTMLAssertion:
+
+	Name: HTMLAssertion
+	Format:  HTML
+	Errors only: checked
+	Error threshold: 38
+	Warning threshold: 110    
+	
+	Filename: select a text file, where error will write                     
+
+3. Click on  "Add" button
+
+4. To run test:
+
+	right click on "Users/Thread Group" --> Start
+
+5. To see the Assertion result:    click on listener "View Result in Table" and see the "status" column
+
+6. open the error file and see
+
+
+How to add Assertion (XML Assertion)
+-------------------------
+1. right click on "Users/Thread Group"  --> Add --> Assertions --> XML Assertion
+2. XMLAssertion:
+
+	Name: XMLAssertion
+	    
+	                    
+
+3. Click on  "Add" button
+
+4. To run test:
+
+	right click on "Users/Thread Group" --> Start
+
+5. To see the Assertion result:    click on listener "View Result in Table" and see the "status" column
+
+
+
+How to add Assertion (XPath Assertion)
+-------------------------
+1. right click on "Users/Thread Group"  --> Add --> Assertions --> XPath Assertion
+2. XPath Assertion:
+
+	Name: XPath Assertion
+	Apply to: Main sample only
+	    
+	                    
+
+3. Click on  "Add" button
+
+4. To run test:
+
+	right click on "Users/Thread Group" --> Start
+
+5. To see the Assertion result:    click on listener "View Result in Table" and see the "status" column
+
+
+
+
