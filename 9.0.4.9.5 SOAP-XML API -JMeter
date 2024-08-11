@@ -1,0 +1,28 @@
+- SOAP/XML-RPC Request setting is more easy than HTTP Request
+- Use XML Query 
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request): SOAP/XML-RPC Request
+	|---Listener(View Result): View Results Tree
+
+
+
+SOAP/XML-RPC Request
+====================
+Name: SOAP/XML-RPC Requestt
+URL: http://www.webservicex.net/globalweather.asmx
+Send SOAPAction: http://www.webserviceX.NET/CetCitiesByCountry
+Soap/XML-RPC Data:
+	
+<soap:Enveiope xmins:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmins:soap="http://schemas-xmisoap.org/soap/envelope/">
+ <soap:Body>
+  <GetCitiesByCountry xmins="http://www.webserviceX.NET">
+   <CountryName>Australia</CountryName>
+  </GetCitiesByCountry>
+ </soap:Body>
+</soap:Enveiope>
+
+
+
