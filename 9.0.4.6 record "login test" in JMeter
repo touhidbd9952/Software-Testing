@@ -1,0 +1,19 @@
+How to record "login test" in JMeter
+=========================
+
+Step 1:  add "blazemeter" plugin to chrome browser
+
+Step 2:  open browser and type your "login url" in address bar
+
+Step 3: open "blazemeter" --> set record name as "Login_Test" --> click on record "run" button
+
+Step 4. in login page, type "username" and "password" and click on "login" button
+
+Step 5: in "blazemeter" --> click on record "stop" button and Export  .jmx file
+
+Step 6: open "JMeter" Application and click on "Test Plan" ---> File ---> Open ---> select .jmx file
+
+Step 7: in "JMeter" Application add Listener (e.g. View Result Tree)
+
+Step 8: in "JMeter" Application Run Test and view result
+
