@@ -1,0 +1,52 @@
+What is listener?
+- Listener are elements that gather information about the performance test.
+- Listener used to view results of the test.
+
+Test Plan
+   |---Thread Group (Users)
+              	|---Sampler (Request e.g. HTTP Request)
+	|---Listener (View Result e.g. View Result in Table, View Result Tree)
+
+List of Listener (mostly used *, performance testing \/ ):
+1. Aggregate Graph
+2. Aggregate Roport ( * \/ ) [Average, Throughput]
+3. Assertion Results
+4. Backend Listener
+5. BeanShell Listener
+6. BSF Listener
+7. Comparison Assertion Visualizer
+8. Generate Summary Results
+9. Graph Results (*)   //do not use it for heavy loaded performance testing, because it is so much memory consuming
+10. JSR223 Listener
+11. Mailer Visualizer
+12. Monitor Results
+13. Response Time Graph
+14. Save Responses to a file
+15. Simple Data Writer (* report as tabular form)
+16. Summary Report (*)
+17. View Results in Table    ( * \/ )
+18. View Results Tree  (*)   //do not use it for heavy loaded performance testing, because it is so much memory consuming
+
+
+How to write report in text or excel file (csv) file
+---------------------------------------
+in most listener, you will see "Filename" like below 
+
+Write result to file / Read from file
+                 -------------------------------------------------          ------------------
+Filename   |                                                                         |         |      Browse         |
+                 -------------------------------------------------          ------------------
+
+
+1. select a csv file and run the test
+2. all the execution result will write in csv (excel) file
+3. to change report setting click on "Configure" button and change your setting
+4. run the test and wait for complete
+5. stop test execution by click on "Shutdown" button
+6. see the csv file
+
+
+
+
+
+
