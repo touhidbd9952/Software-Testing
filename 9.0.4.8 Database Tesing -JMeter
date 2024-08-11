@@ -1,0 +1,43 @@
+Here we will learn how to test database. In JMeter, We need to follow below steps
+
+
+
+Step 1 : download "mysql jdbc driver jar" and add in JMeter library
+	a. from "MYSQL :: Download Connector/J ", download zip file
+	b. after download, unzip it  and copy file "mysql-connector-java-5.1.39-bin.jar"
+	c. open "JMeter" folder ---> lib ---> add  "mysql-connector-java-5.1.39-bin.jar"
+
+Step 2 : Add Thread Group (Users) in Test Plan
+
+Step 3 : Add "JDBC Connection Configuration" and Provide details of Dababase (remain other setting as it is)
+	a. 
+
+	Database URL : jdbc:mysql://db4free.net:3306/automationbd
+	JDBC Driver class:  com.mysql.jdbc.Driver
+	Usrname: root
+	Password: ******
+
+	and 
+
+	Variable Name : test
+
+      	b. open "JDBC Request" of Sampler(request file) and set variable name
+
+	Variable Name :  test
+
+	
+
+Step 4 : Add Sampler (Request  "JDBC Request") in JMeter 
+
+	a. Query Type: Select Statement
+	b. Query: select * from Student
+
+Step 5 : Add Listener (view result) : View Results in Table, View Result Tree
+
+Step 6 : Run Test and see result 
+
+
+
+
+
+
