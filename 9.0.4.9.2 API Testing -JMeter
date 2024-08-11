@@ -1,0 +1,108 @@
+REST API Request in JMeter
+1. GET
+2. POST
+3. PUT
+4. DELETE
+
+/////////////GET///////////////////////////////////////////
+
+Step 1: 
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request) : HTTP Request
+	|---Listener (View Result): View Results Tree, View Results in Table
+
+
+HTTP Request (settings)
+----------------
+Name: Get_Request
+Protocol: https
+Server Name/IP: regres.in
+HTTP Request: GET
+Path: /api/users
+Parameters: 
+	a. click on "Add" button
+	b. Name: page       value: 2
+
+
+Step 2: Run Test and View Result
+
+
+
+/////////////POST (insert data)///////////////////////////////////////////
+
+Step 1: 
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request) : HTTP Request
+	|---Listener (View Result): View Results Tree, View Results in Table
+
+
+HTTP Request (settings)
+----------------
+Name: Post_Request
+Protocol: https
+Server Name/IP: regres.in
+HTTP Request: POST
+Path: /api/users
+Body Data: 
+	{
+	   "name": "karim",
+	   "age": 23
+	}
+
+
+Step 2: Run Test and View Result
+
+
+/////////////PUT (update data)///////////////////////////////////////////
+
+Step 1: 
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request) : HTTP Request
+	|---Listener (View Result): View Results Tree, View Results in Table
+
+
+HTTP Request (settings)
+----------------
+Name: Put_Request
+Protocol: https
+Server Name/IP: regres.in
+HTTP Request: PUT
+Path: /api/users/2
+Body Data: 
+	{
+	   "name": "karim",
+	   "age": 23
+	}
+
+
+Step 2: Run Test and View Result
+
+
+/////////////DELETE (delete data)///////////////////////////////////////////
+
+Step 1: 
+
+Test Plan
+ |---Thread Group (Users)
+	|---Sampler (Request) : HTTP Request
+	|---Listener (View Result): View Results Tree, View Results in Table
+
+
+HTTP Request (settings)
+----------------
+Name: Delete_Request
+Protocol: https
+Server Name/IP: regres.in
+HTTP Request: DELETE
+Path: /api/users/2	
+
+
+Step 2: Run Test and View Result
+
+
