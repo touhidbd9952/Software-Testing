@@ -1,0 +1,17 @@
+Some tools can record Test activities ( "Thread Group" and "Request" )
+
+1. Tools available for recording Jmeter UI test are,
+     - "Badboy" software (Windows) : open browser and type "Badboy" --> download and install
+     - "Blazemeter" - Chrome Plugin - (Windows and Mac)
+
+2. Record a Test (Click on record start button --> set particular page url in address bar and click on different page link --> Click on record stop button)
+
+3. Export as Jmeter script file (.jmx) Script 
+
+4. In Jmeter Application -->click on "Test Plan" --> File -->Open  and select the script file (.jmx)
+
+5. Add Listeners (View Result in Table, View Results Tree)
+
+6. Run Test and View Result 
+
+
