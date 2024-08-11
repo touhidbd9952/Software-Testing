@@ -1,0 +1,67 @@
+Work Structure
+----------------------------------
+Test Plan
+  |---Users (Thread Group) in Your Test Plan
+            |--- Request (Sampler) in Users
+            |--- View request result in different format (Listener)	
+
+
+How to create first jmeter Test
+----------------------------------
+Step 1: Run Jmeter
+
+	a. go to d drive and click on "Jmeter" --> bin and double click on "jmeter.bat" 
+
+Step 2: Select "Test Plan" and rename it  as "MyFirstTestPlan" (Test Plan is a collection. In site it we need to create 1. Users, 2. Request, 3. Show Result )
+
+Step 3: Add "Users/Thread Group" (Thread Group is users, used to create and run Test. How many user will do the task? need to set here)
+
+	a. right click on "MyFirstTestPlan" --> Threads (Users) --> Thread Group
+	b. now set the Thread Group properties as below
+
+		Name: Users
+		Action to be taken after a Sampler error: Continue
+		Thread Properties: 
+			Number of Threads (users): 1
+			Ramp-Up-Period (in seconds): 1
+			Loop Count: 1
+
+Step 4: Add "Request"
+	
+	a. right click on "Users" --> Add --> Sampler --> HTTP Request
+	b. now set HTTP Request below way
+
+		Name: MyHomePage
+		Protocol [http]: https
+		Server Name or IP: lifecharger.org
+		path: /
+
+Step 5: Add "View Result/Listener"
+
+	a. right click on "Users" --> Add --> Listener --> View Results in Table (you can add multiple listeners)
+
+Step 6: Run Test
+
+	right click on "Users" --> Start
+                              or
+	click on run button
+
+Step 7: To view result, click on "View Results in Table" 
+
+
+
+////////////////////////////////////////
+Number of Threads (users)         :  10        //10 user
+Ramp-Up-Period (in seconds)    :   20       //20/10 = 2 seconds. Every after 2 seconds add 1 user
+Loop Count    : 1          //1=one time, if 10 then 10 time will execute the test
+Stop button           :   Forcefully stop execution
+Shutdown button   :   use to stop all the execution
+Clean button          :   Clean current selected execution result 
+All Clean button     :   Clean all execution result of this Thread
+
+	
+            
+		
+
+	
+	
