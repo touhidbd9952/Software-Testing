@@ -1,0 +1,47 @@
+How to set "Header" of API
+How to set "Authorisation"
+How to check result by "Assertion"
+
+Test Plan
+ |---Thread Group (Users)
+	|---HTTP Header Manager (config)
+	|---Authentication Manager (config)
+	|---Response Assertion (config)
+	|
+	|---Sampler (request): HTTP Request
+	|---Listener (View Result): View Result Tree, View Result Table
+
+
+/////////Header//////////////////////////////////////////////////////////////////////
+
+Add --> Config Manager --> HTTP Header Manager
+------------------------------------------------------
+HTTP Header Manager
+Name : HTTP Header Manager
+
+Headers Stored in the Header Manager
+Name:		Value:
+-------------------------------------------------------------
+Content-Type	text/xml; charset=ult-8
+SOAPAction	http://tempuri.org/add
+
+
+//////////Authorisation////////////////////////////////////////////////////////////
+
+Add --> Config Manager --> Authentication Manager
+-------------------------------------------------------------
+
+
+//////////Assertion//////////////////////////////////////////////////////////////////
+
+Add --> Config Manager --> Response Assertion
+-------------------------------------------------------------
+Name : Response Assertion
+
+Field Test 
+------------
+(select) Test Response
+
+Patern to Test
+---------------
+<AddResult>5</AddResult> 
