@@ -1,0 +1,81 @@
+/////How to create HTML Report
+
+Step 1:
+
+Test Plan
+ |---Thread Group
+	|---Sampler (request)
+	|	|---HomePage (HTTP Request)
+	|	|---AboutusPage (HTTP Request)
+	|	|---ContactPage (HTTP Request)
+	|	|
+	|---Assertion	
+	|	|---Response Assertion
+	|---Listener
+		|---View Results Tree	
+
+
+
+HomePage (HTTP Request)
+--------------------------------
+Name: HomePage
+Server Name or IP: lifecharger.org/home/
+Protocol (http):
+
+AboutPage (HTTP Request)
+--------------------------------
+Name: AboutPage
+Server Name or IP: lifecharger.org/about/
+Protocol (http):
+
+ContactPage (HTTP Request)
+--------------------------------
+Name: ContactPage
+Server Name or IP: lifecharger.org/contactus/
+Protocol (http):
+
+
+Response Assertion (check "Response Code = 200 or not")
+---------------------
+Name: Response Assertion
+Apply to: Main samply only
+Response Field to Test: Response Code
+Pattern Matching Rules: Equals
+Patterns to Test: 200
+
+
+Step 2: Create Report
+
+	create report at the end of the test
+	-----------------------------------
+	imeter -n -t "location of the jmeter script" -l "location of result file"
+	-e -o "location of the output folder"
+
+	create report from a standalone csv file
+	---------------------------------------
+	jmeter -g "location of csv file" -o "location of output folder"
+
+
+to create HTML report, go to "d:/apache-jmeter-3.0-->bin" and type "cmd" in address bar to open command prompt
+
+	syntex (-n: non GUI mude, -t:Location Test Plan File, -l:Excel file location, -e:DashBoard, -o: Location of Report Folder)
+                  -------
+	jmeter -n -t "location of the jmeter script" -l "location of result file"
+	-e -o "location of the output folder"
+
+	
+	jmeter -n -t /Users/touhid/Desktop/JMeter/HtmlReporting.jmx -l /Users/touhid/Desktop/JMeter/test1.csv 
+	-e -o /Users/touhid/Desktop/JMeter/HTMLReports/       <-----|
+
+
+Step 3: go to "/Users/touhid/Desktop/JMeter/HTMLReports/" and click on "index.html" to see report
+
+
+ 
+
+
+
+	
+
+
+
