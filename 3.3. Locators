@@ -13,7 +13,7 @@ ID             		driver.findElement(By.id("inputUsername")).sendKeys(loginuserna
 name			driver.findElement(By.name("inputPassword")).sendKeys(loginpassword);  //name
 Class Name		driver.findElement(By.className("signInBtn")).click();  //className
 Tag Name		driver.findElement(By.tagName("input"));   //tagName
-Link Text		driver.findElement(By.linkText("Forgot your password?")).click();  //linkText
+Link Text		driver.findElement(By.linkText("Forgot your password?")).click();  //linkText or  anchor text
 Partial Link Text	driver.findElement(By.partialLinkText("here")).click();   //partialLinkText
 cssSelector		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());   //cssSelector
 Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
