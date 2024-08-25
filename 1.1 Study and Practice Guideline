@@ -26,7 +26,7 @@ Practice: "https://rahulshettyacademy.com" "search, mouse hover -->https://www.a
 11. search item from amazon (search box)
 12. mouse hover
 13. alert message and its related function
-14. textng validation check
+14. testng validation check
 15. Wating (implicit, explicit: webdriverwait, fluent wait)
 16. Switch to child page and do task and get back to parent page and do task
 17. Scroll down, Scroll up
