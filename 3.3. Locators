@@ -18,6 +18,8 @@ Partial Link Text	driver.findElement(By.partialLinkText("here")).click();   //pa
 cssSelector		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());   //cssSelector
 Xpath			driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("rahul");  //xpath
 
+Xpath			List<WebElement> inputs = driver.findElements(By.xpath("//input"));  //xpath
+
 
 For more help: https://www.guru99.com/xpath-selenium.html      //xpath
 
