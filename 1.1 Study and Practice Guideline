@@ -4,7 +4,7 @@ Study: "xpath --> https://www.guru99.com/xpath-selenium.html"
 3. implicit wait, explicit wait: webdriverwait, fluentwait
 4. Web Element (input, select, checkbox, radio, table, button, link)
 5. Mouse (Hover function, other function)
-6. parent page, child page
+6. parent page, child page, moving one page to other page
 7. core java (variable, array, list, if, for, foreach, while, conversion(one datatype to other datatype, array to list, string to array))
 8. eclips, maven, pom.xml, dependency, debuging, add new library, jdk, celenium for java, testng
 9. testng
